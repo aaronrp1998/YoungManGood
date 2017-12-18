@@ -16,11 +16,17 @@ Game.Preloader.prototype = {
 
     this.load.setPreloadSprite(this.preloadBar);
 
+    //LOAD ASSETS
+
+    this.load.tilemap('map', 'images/super_mario.json');
+
+    this.load.image('tileset', 'images/super_mario.png');
+
   },
 
   create:function() {
 
     this.state.start('Level1');
-    
+
   }
 }

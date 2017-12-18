@@ -39,6 +39,9 @@ Game.Level1.prototype = {
   update:function() {
 
     this.physics.arcade.collide(player,layer);
+
+    player.body.velocity.x = 0;
+
     if(controls.up.isDown && (player.body.onFloor() || player.body.touching.down) && this.time.now > jumpTimer){
       player.body.velocity.y = -600;
       jumpTimer = this.time.now + 750;
@@ -49,6 +52,6 @@ Game.Level1.prototype = {
     if(controls.left.isDown) {
       player.body.velocity.x -= playerSpeed;
     }
-  },
+  }
 
 }

@@ -21,7 +21,7 @@ Game.Level1.prototype = {
     layer.resizeWorld();
     map.setCollisionBetween(0,39);
 
-    player = this.add.sprite(100, 800, 'player');
+    player = this.add.sprite(100, 1800, 'player');
     player.anchor.setTo(0.5,0.5);
 
     this.physics.arcade.enable(player);

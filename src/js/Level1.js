@@ -53,7 +53,7 @@ Game.Level1.prototype = {
       player.body.velocity.x -= playerSpeed;
     }
 
-    game.debug.bodyInfo(p, 32, 320);
+    this.debug.bodyInfo(p, 32, 320);
 
   }
 

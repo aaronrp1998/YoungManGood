@@ -5,7 +5,7 @@ var layer;
 
 var player;
 var controls = {};
-var playerSpeed = 150;
+var playerSpeed = 250;
 var jumpTimer = 0;
 
 Game.Level1.prototype = {

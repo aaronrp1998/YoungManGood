@@ -22,7 +22,7 @@ Game.Level1.prototype = {
     map.setCollisionBetween(0,10);
     map.setCollisionBetween(13,39);
 
-    player = this.add.sprite(570,8400, 'player');
+    player = this.add.sprite(570,8050, 'player');
     player.anchor.setTo(0.5,0.5);
 
     this.physics.arcade.enable(player);

@@ -19,7 +19,8 @@ Game.Level1.prototype = {
     map.addTilesetImage('tileset');
     layer = map.createLayer(0);
     layer.resizeWorld();
-    map.setCollisionBetween(0,39);
+    map.setCollisionBetween(0,10);
+    map.setCollisionBetween(13,39);
 
     player = this.add.sprite(570,8400, 'player');
     player.anchor.setTo(0.5,0.5);

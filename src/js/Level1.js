@@ -21,7 +21,7 @@ Game.Level1.prototype = {
     layer.resizeWorld();
     map.setCollisionBetween(0,39);
 
-    player = this.add.sprite(400,7800, 'player');
+    player = this.add.sprite(500,8000, 'player');
     player.anchor.setTo(0.5,0.5);
 
     this.physics.arcade.enable(player);
@@ -43,7 +43,7 @@ Game.Level1.prototype = {
     player.body.velocity.x = 0;
 
     if(controls.up.isDown && (player.body.onFloor() || player.body.touching.down) && this.time.now > jumpTimer){
-      player.body.velocity.y = -600;
+      player.body.velocity.y = -700;
       jumpTimer = this.time.now + 750;
     }
     if(controls.right.isDown) {

@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8"/>
+  <title>YoungMan</title>
+
+  <script type="text/javascript" src="js/lib/phaser.min.js"></script>
+  <script type="text/javascript" src="js/Boot.js"></script>
+  <script type="text/javascript" src="js/Preloader.js"></script>
+  <script type="text/javascript" src="js/Level1.js"></script>
+
+</head>
+
+
+<body>
+  <script type="text/javascript">
+    window.onload = function(){
+    var game = new Phaser.Game(1420, 820, Phaser.Auto, '');
+
+    game.state.add('Boot', Game.Boot);
+    game.state.add('Preloader', Game.Preloader);
+    game.state.add('MainMenu', Game.MainMenu);
+    game.state.add('Level1', Game.Level1);
+
+    game.state.start('Boot');
+  };
+
+  </script>
+</body>
+</html>

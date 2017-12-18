@@ -21,6 +21,7 @@ Game.Level1.prototype = {
     layer.resizeWorld();
     map.setCollisionBetween(0,10);
     map.setCollisionBetween(13,39);
+    map.setTileIndexCallback(12,this.SubirEscaleras,this);
 
     player = this.add.sprite(570,8050, 'player');
     player.anchor.setTo(0.5,0.5);
@@ -54,6 +55,10 @@ Game.Level1.prototype = {
       player.body.velocity.x -= playerSpeed;
     }
 
+  },
+
+  SubirEscaleras:function() {
+    player.body.velocity.y = -700;
   }
 
 }

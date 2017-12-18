@@ -15,7 +15,7 @@ Game.Level1.prototype = {
     this.stage.backgroundColor = '#00CC00';
     this.physics.arcade.gravity.y = 1400;
 
-    map = this.add.tilemap('map',16,16);
+    map = this.add.tilemap('map',64,64);
     map.addTilesetImage('tileset');
     layer = map.createLayer(0);
     layer.resizeWorld();

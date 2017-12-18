@@ -9,9 +9,9 @@ Game.Level1.prototype = {
 
     this.stage.backgroundColor = '#00CC00';
 
-    map = this.add.tilemap('map',16,16);
+    map = this.add.tilemap('map');
 
-    map.addTilesetImage('tileset');
+    map.addTilesetImage('mundo1','tileset');
 
     layer = map.createLayer(0);
 

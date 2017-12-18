@@ -57,7 +57,7 @@ Game.Level1.prototype = {
   },
 
   SubirEscaleras:function() {
-    player.body.velocity.y = -700;
+    player.body.velocity.y = -300;
   }
 
 }

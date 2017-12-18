@@ -21,7 +21,7 @@ Game.Level1.prototype = {
     layer.resizeWorld();
     map.setCollisionBetween(0,39);
 
-    player = this.add.sprite(100, 560, 'player');
+    player = this.add.sprite(100, 560, 'megaman');
     player.anchor.setTo(0.5,0.5);
 
     this.physics.arcade.enable(player);

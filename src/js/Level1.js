@@ -55,7 +55,7 @@ Game.Level1.prototype = {
 
   }
 
-  render:dunction() {
+  render:function() {
     this.debug.bodyInfo(p, 32, 320);
   }
 

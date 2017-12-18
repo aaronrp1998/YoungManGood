@@ -52,6 +52,9 @@ Game.Level1.prototype = {
     if(controls.left.isDown) {
       player.body.velocity.x -= playerSpeed;
     }
+
+    game.debug.bodyInfo(p, 32, 320);
+
   }
 
 }

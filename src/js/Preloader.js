@@ -18,9 +18,9 @@ Game.Preloader.prototype = {
 
     //LOAD ASSETS
 
-    this.load.tilemap('mario', 'images/super_mario.json', null, Phaser.Tilemap.TILED_JSON);
+    this.load.tilemap('map', 'images/tilemapBueno.csv');
 
-    this.load.image('tiles', 'images/super_mario.png');
+    this.load.image('tileset', 'images/super_mario.png');
 
   },
 

@@ -9,11 +9,11 @@ Game.Level1.prototype = {
 
     this.stage.backgroundColor = '#00CC00';
 
-    map = this.add.tilemap('mario');
+    map = this.add.tilemap('mario',16,16);
 
-    map.addTilesetImage('SuperMarioBros-World1-1', 'tiles');
+    map.addTilesetImage('tileset');
 
-    layer = map.createLayer('World1');
+    layer = map.createLayer(0);
 
     layer.resizeWorld();
 

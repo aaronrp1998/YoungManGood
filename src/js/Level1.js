@@ -19,7 +19,6 @@ Game.Level1.prototype = {
     map.addTilesetImage('tileset');
     layer = map.createLayer(0);
     layer.resizeWorld();
-    map.setCollisionBetween(0,10);
     map.setCollisionBetween(13,39);
     map.setTileIndexCallback(12,this.SubirEscaleras,this);
 

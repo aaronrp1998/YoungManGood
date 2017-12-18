@@ -12,7 +12,7 @@ Game.Level1.prototype = {
 
   create:function() {
 
-    this.stage.backgroundColor = '#000012';
+    this.stage.backgroundColor = '#2ECCFA';
     this.physics.arcade.gravity.y = 1400;
 
     map = this.add.tilemap('map',64,64);

@@ -22,6 +22,8 @@ Game.Preloader.prototype = {
 
     this.load.image('tileset', 'images/super_mario.png');
 
+    this.load.image('megaman', 'images/Megaman.png')
+
   },
 
   create:function() {

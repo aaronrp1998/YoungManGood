@@ -53,8 +53,10 @@ Game.Level1.prototype = {
       player.body.velocity.x -= playerSpeed;
     }
 
-    this.debug.bodyInfo(p, 32, 320);
+  }
 
+  render:dunction() {
+    this.debug.bodyInfo(p, 32, 320);
   }
 
 }

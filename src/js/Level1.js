@@ -11,7 +11,7 @@ Game.Level1.prototype = {
 
     map = this.add.tilemap('mario');
 
-    map.addTilesetImage('SuperMarioBros-World-1-1', tiles);
+    map.addTilesetImage('SuperMarioBros-World-1-1', 'tiles');
 
     layer = map.createLayer('World1');
 

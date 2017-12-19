@@ -32,6 +32,9 @@ Game.Level1.prototype = {
     this.camera.follow(player);
     player.body.collisionWorldBounds = true;
 
+    musica = this.add.audio('musica');
+    musica.play();
+
     controls = {
       right: this.input.keyboard.addKey(Phaser.Keyboard.D),
       left: this.input.keyboard.addKey(Phaser.Keyboard.A),

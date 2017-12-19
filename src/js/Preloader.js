@@ -24,6 +24,8 @@ Game.Preloader.prototype = {
 
     this.load.image('player', 'images/Megaman.png');
 
+    this.load.audio('musica', 'audio/musica.mp3');
+
   },
 
   create:function() {

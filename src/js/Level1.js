@@ -132,8 +132,7 @@ Game.Level1.prototype = {
   },
 
   Generarenemigo:function() {
-      new Enemy(0,game,player.x+400,player.y+200);
-    }
+    new Enemy(0,game,player.x+400,player.y+200);
   },
 
   ResetPosition:function() {

@@ -1,27 +1,18 @@
 <!doctype html>
 <html>
+<head>
   <meta charset="utf-8"/>
   <title>YoungMan1</title>
-
-  <script src="js/lib/phaser.min.js"></script>
-  <script src="js/Boot.js"></script>
-  <script src="js/Preloader.js"></script>
-  <script src="js/Level1.js"></script>
-
+  <link rel="stylesheet" href="css/index.css"
+</head>
 <body>
-    <p><a href="homepage.html">Home</a></p>
-    <script type="text/javascript">
-    window.onload = function(){
-    var game = new Phaser.Game(1420, 820, Phaser.Auto, '');
+    <header>
+      <p class="topbar"><a href="index.html">Inicio</a> <a href="historypage.html">Conócenos</a> <a href="gamepage.html">Juega</a></p1>
+    </header>
 
-    game.state.add('Boot', Game.Boot);
-    game.state.add('Preloader', Game.Preloader);
-    game.state.add('MainMenu', Game.MainMenu);
-    game.state.add('Level1', Game.Level1);
-
-    game.state.start('Boot');
-    };
-
-    </script>
+    <nav>
+      <h2>YoungMan</h2>
+      <p class="description">YoungMan es un juego de plataformas al más puro estilo retro. Basado en el Megaman de la NES, hemos desarrollado un juego que te hará revivir tu infancia, al mismo tiempo que te permitirá disfrutar de los últimos graficos en ordenador. Si lo que desseas es jugar no es esperes más y dale al botón JUGAR.</p>
+    </nav>
 </body>
 </html>

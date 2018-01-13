@@ -67,6 +67,7 @@ var map;
 var layer;
 
 var player;
+var contadorEnemy = 0;
 var controls = {};
 var playerSpeed = 250;
 var jumpTimer = 0;
@@ -113,6 +114,8 @@ Game.Level1.prototype = {
 
     player.body.velocity.x = 0;
 
+    this.Generarenemigo
+
     if(controls.up.isDown && (player.body.onFloor() || player.body.touching.down) && this.time.now > jumpTimer){
       player.body.velocity.y = -800;
       jumpTimer = this.time.now + 750;
@@ -124,9 +127,14 @@ Game.Level1.prototype = {
       player.body.velocity.x -= playerSpeed;
     }
 
-
-
   },
+
+  Generarenemigo:function() {
+    if((player.x > 3000) && (contadorEnemy < 3)){
+      new Enemy(0,game,player.x+400,player.y+200);
+      contadorEnemy++;
+    }
+  }
 
   ResetPosition:function() {
     player.reset(570,8050);

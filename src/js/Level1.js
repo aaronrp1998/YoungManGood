@@ -153,7 +153,7 @@ Game.Level1.prototype = {
 
   render:function() {
     // weapon.debug();
-   game.debug.text("Posicion jugador:"+player.x+player.y);
+   this.debug.text("Posicion jugador:"+player.x+player.y);
    //game.debug.text("Vida enemigo fuerte:"+vidaenemigo,1,100);
    // game.debug.text(invulnerable,1,200);
    //  game.debug.text(tiempoinv,1,250);

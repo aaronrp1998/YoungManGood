@@ -1,4 +1,4 @@
-Enemy = function(index,game,x,y){
+/*Enemy = function(index,game,x,y){
 
     this.enemy = game.add.sprite(x,y,'enemy');
     this.enemy.anchor.setTo(0.5,0.5);
@@ -60,7 +60,7 @@ Enemy = function(index,game,x,y){
         reset=true;
     }
 }
-
+*/
 Game.Level1 = function(game) {};
 
 var map;

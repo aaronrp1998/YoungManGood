@@ -61,6 +61,8 @@ Enemy = function(index,game,x,y){
     }
 };
 
+
+
 Game.Level1 = function(game) {};
 
 var map;
@@ -147,6 +149,19 @@ Game.Level1.prototype = {
     if(controls.down.isDown){
       player.body.velocity.y = 300;
     }
-  }
+  },
+
+  function render ()
+{
+    // weapon.debug();
+   game.debug.text("Posicion jugador:"+player.x+player.y);
+   //game.debug.text("Vida enemigo fuerte:"+vidaenemigo,1,100);
+   // game.debug.text(invulnerable,1,200);
+   //  game.debug.text(tiempoinv,1,250);
+   // game.debug.text(game.time.now,1,300);
+   // game.debug.text(vidaenemigo,1,350);
+   /* game.debug.text(detectionpointX,100,350);
+   game.debug.text(posicion,100,400);*/
+}
 
 }

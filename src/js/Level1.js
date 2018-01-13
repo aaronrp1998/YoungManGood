@@ -93,6 +93,10 @@ Game.Level1.prototype = {
 
     player = this.add.sprite(570,8050, 'player');
     player.anchor.setTo(0.5,0.5);
+    player.animation.add('start',[25,26,27,28],7,true);
+    player.animation.add('iddle',[0],1,true);
+    player.animation.add('jump',[4],1,true);
+    player.animation.add('run',[1,2,3,2],7,true);
 
     this.physics.arcade.enable(player);
     this.camera.follow(player);
@@ -100,6 +104,8 @@ Game.Level1.prototype = {
 
     musica = this.add.audio('musica');
     musica.play();
+
+    player.animation.play('start');
 
     controls = {
       right: this.input.keyboard.addKey(Phaser.Keyboard.D),
@@ -119,13 +125,18 @@ Game.Level1.prototype = {
     this.Generarenemigo
 
     if(controls.up.isDown && (player.body.onFloor() || player.body.touching.down) && this.time.now > jumpTimer){
+      player.animation.play('jump')
       player.body.velocity.y = -800;
       jumpTimer = this.time.now + 750;
     }
     if(controls.right.isDown) {
+      player.animatio.play('run');
+      player.scale.setTo(1,1);
       player.body.velocity.x += playerSpeed;
     }
     if(controls.left.isDown) {
+      player.animation.play('run');
+      player.scale.setTo(-1,1);
       player.body.velocity.x -= playerSpeed;
     }
 

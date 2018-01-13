@@ -134,7 +134,7 @@ Game.Level1.prototype = {
       new Enemy(0,game,player.x+400,player.y+200);
       contadorEnemy++;
     }
-  }
+  },
 
   ResetPosition:function() {
     player.reset(570,8050);

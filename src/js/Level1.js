@@ -151,8 +151,7 @@ Game.Level1.prototype = {
     }
   },
 
-  function render ()
-{
+  render:function() {
     // weapon.debug();
    game.debug.text("Posicion jugador:"+player.x+player.y);
    //game.debug.text("Vida enemigo fuerte:"+vidaenemigo,1,100);

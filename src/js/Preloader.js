@@ -22,7 +22,7 @@ Game.Preloader.prototype = {
 
     this.load.image('tileset', 'images/super_mario.png');
 
-    this.load.spritesheet('player', 'images/mega_man_sheet.png', 32, 32);
+    this.load.spritesheet('player', 'images/mega_man_sheet.png', 32, 64);
 
     this.load.audio('musica', 'audio/musica.mp3');
 

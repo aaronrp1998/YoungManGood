@@ -106,6 +106,7 @@ Game.Level1.prototype = {
     musica.play();
 
     player.animations.play('start');
+    player.scale.setTo(2,2);
 
     controls = {
       right: this.input.keyboard.addKey(Phaser.Keyboard.D),
@@ -131,12 +132,12 @@ Game.Level1.prototype = {
     }
     if(controls.right.isDown) {
       player.animations.play('run');
-      player.scale.setTo(1,1);
+      player.scale.setTo(2,2);
       player.body.velocity.x += playerSpeed;
     }
     if(controls.left.isDown) {
       player.animations.play('run');
-      player.scale.setTo(-1,1);
+      player.scale.setTo(-2,2);
       player.body.velocity.x -= playerSpeed;
     }
 

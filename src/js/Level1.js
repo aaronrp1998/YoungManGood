@@ -132,9 +132,7 @@ Game.Level1.prototype = {
   },
 
   Generarenemigo:function() {
-    if((player.x > 3000) && (contadorEnemy < 3)){
       new Enemy(0,game,player.x+400,player.y+200);
-      contadorEnemy++;
     }
   },
 
@@ -149,18 +147,6 @@ Game.Level1.prototype = {
     if(controls.down.isDown){
       player.body.velocity.y = 300;
     }
-  },
-
-  render:function() {
-    // weapon.debug();
-   this.debug.text("Posicion jugador:"+player.x+player.y);
-   //game.debug.text("Vida enemigo fuerte:"+vidaenemigo,1,100);
-   // game.debug.text(invulnerable,1,200);
-   //  game.debug.text(tiempoinv,1,250);
-   // game.debug.text(game.time.now,1,300);
-   // game.debug.text(vidaenemigo,1,350);
-   /* game.debug.text(detectionpointX,100,350);
-   game.debug.text(posicion,100,400);*/
-}
+  }
 
 }

@@ -93,10 +93,10 @@ Game.Level1.prototype = {
 
     player = this.add.sprite(570,8050, 'player');
     player.anchor.setTo(0.5,0.5);
-    player.animation.add('start',[25,26,27,28],7,true);
-    player.animation.add('iddle',[0],1,true);
-    player.animation.add('jump',[4],1,true);
-    player.animation.add('run',[1,2,3,2],7,true);
+    player.animations.add('start',[25,26,27,28],7,true);
+    player.animations.add('iddle',[0],1,true);
+    player.animations.add('jump',[4],1,true);
+    player.animations.add('run',[1,2,3,2],7,true);
 
     this.physics.arcade.enable(player);
     this.camera.follow(player);

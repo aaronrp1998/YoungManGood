@@ -105,7 +105,7 @@ Game.Level1.prototype = {
     musica = this.add.audio('musica');
     musica.play();
 
-    player.animation.play('start');
+    player.animations.play('start');
 
     controls = {
       right: this.input.keyboard.addKey(Phaser.Keyboard.D),
@@ -125,17 +125,17 @@ Game.Level1.prototype = {
     this.Generarenemigo
 
     if(controls.up.isDown && (player.body.onFloor() || player.body.touching.down) && this.time.now > jumpTimer){
-      player.animation.play('jump')
+      player.animations.play('jump')
       player.body.velocity.y = -800;
       jumpTimer = this.time.now + 750;
     }
     if(controls.right.isDown) {
-      player.animatio.play('run');
+      player.animations.play('run');
       player.scale.setTo(1,1);
       player.body.velocity.x += playerSpeed;
     }
     if(controls.left.isDown) {
-      player.animation.play('run');
+      player.animations.play('run');
       player.scale.setTo(-1,1);
       player.body.velocity.x -= playerSpeed;
     }

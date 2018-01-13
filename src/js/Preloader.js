@@ -26,6 +26,8 @@ Game.Preloader.prototype = {
 
     this.load.audio('musica', 'audio/musica.mp3');
 
+     this.load.image('enemy1','images/enemy.png');
+
   },
 
   create:function() {

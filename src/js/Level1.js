@@ -1,6 +1,6 @@
 Enemy = function(index,game,x,y){
 
-    this.enemy = game.add.sprite(x,y,'enemy');
+    this.enemy = game.add.sprite(x,y,'enemy1');
     this.enemy.anchor.setTo(0.5,0.5);
     this.enemy.name = index.toString();
     game.physics.enable(thid.enemy,Phaser.Physics.ARCADE);

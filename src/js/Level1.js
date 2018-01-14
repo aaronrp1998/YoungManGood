@@ -121,8 +121,6 @@ Game.Level1.prototype = {
 
     player.body.velocity.x = 0;
 
-    new Enemy(0,game,player.x+400,player.y-200);
-
     if(controls.up.isDown){
       player.animations.play('jump')
     }

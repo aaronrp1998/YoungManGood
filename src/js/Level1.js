@@ -139,7 +139,7 @@ Game.Level1.prototype = {
       player.animations.play('jump');
     }
 
-    if(player.velocity.x == 0 && player.velocity.y == 0){
+    if(player.body.velocity.x == 0 && player.body.velocity.y == 0){
       player.animation.play('idle');
     }
 

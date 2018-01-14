@@ -6,59 +6,7 @@ Enemy = function(index,game,x,y){
     game.physics.enable(thid.enemy,Phaser.Physics.ARCADE);
     this.enemy.body.inmovable = true;
     this.bird.body.collisionWorldBounds = true;
-
-    if((enemy.body.x-player.body.x <= 75 && enemy.body.x-player.body.x >= -75 ) && (player.body.y-enemy.body.y <= 100 && player.body.y-enemy.body.y >=0) && !detectado)
-    {
-        detectionpointX = player.body.x;
-        detectionpointY = player.body.y;
-        if(enemy.body.x-player.body.x <= 75 && enemy.body.x-player.body.x >0 ){
-            pointenemynewX = enemy.body.x - 200;
-        }
-        else
-        {
-            pointenemynewX = enemy.body.x + 200;
-            derchen=true;
-        }
-        pointenemynewY = enemy.body.y;
-        detectado=true;
-        ve=true;
-        para=false;
-    }
-    if(ve)
-    {
-        game.physics.arcade.moveToXY(enemy,detectionpointX,detectionpointY,200);
-    }
-    if((enemy.body.x <= detectionpointX + 2 && enemy.body.x >= detectionpointX - 2) && (enemy.body.y >= detectionpointY-2 &&  enemy.body.y <= detectionpointY+2) && !para)
-    {
-        enemy.body.velocity.x=0;
-        enemy.body.velocity.y=0;
-        ve=false;
-        reset=false;
-        nuevapos=true;
-        para=true;
-    }
-    if(nuevapos)
-    {
-        game.physics.arcade.moveToXY(enemy,pointenemynewX,pointenemynewY,200);
-    }
-    if((enemy.body.x <= pointenemynewX + 2 && enemy.body.x >= pointenemynewX - 2) && (enemy.body.y <= pointenemynewY+1 && enemy.body.y >= pointenemynewY-1)&& !reset)
-    {
-        enemy.body.velocity.x=0;
-        enemy.body.velocity.y=0;
-        nuevapos=false;
-        if (derchen)
-        {
-            enemy.body.velocity.x=100;
-            derchen=false;
-        }
-        else
-        {
-            enemy.body.velocity.x=-100;
-        }
-        enemy.body.velocity.y=0;
-        detectado=false;
-        reset=true;
-    }
+    
 };
 
 

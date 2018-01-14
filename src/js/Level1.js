@@ -150,7 +150,6 @@ Game.Level1.prototype = {
   },
 
   SubirEscaleras:function() {
-    this.physics.arcade.gravity.y = 0;
     if (controls.up.isDown){
       player.body.velocity.y = -300;
       player.animations.play('stairs');
@@ -158,6 +157,9 @@ Game.Level1.prototype = {
     if(controls.down.isDown){
       player.body.velocity.y = 300;
       player.animations.play('stairs');
+    }
+    if(player.body.velocity.y == 0){
+      player.body.velocity.y = 0;
     }
   }
 

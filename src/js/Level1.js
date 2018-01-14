@@ -97,6 +97,7 @@ Game.Level1.prototype = {
     player.animations.add('jump',[4],1,true);
     player.animations.add('run',[1,2,3],7,true);
     player.animations.add('stairs',[5,6,7],7,true);
+    player.animations.add('stairsiddle'[6],1,true);
 
     this.physics.arcade.enable(player);
     this.camera.follow(player);
@@ -160,6 +161,7 @@ Game.Level1.prototype = {
     }
     if(player.body.velocity.y == 0){
       player.body.velocity.y = 0;
+      player.animations.play('stairsiddle');
     }
   }
 

@@ -140,7 +140,7 @@ Game.Level1.prototype = {
     }
 
     if(player.body.velocity.x == 0 && player.body.velocity.y == 0){
-      player.animation.play('idle');
+      player.animations.play('idle');
     }
 
   },
@@ -153,11 +153,11 @@ Game.Level1.prototype = {
     this.physics.arcade.gravity.y = 0;
     if (controls.up.isDown){
       player.body.velocity.y = -300;
-      player.animation.play('stairs');
+      player.animations.play('stairs');
     }
     if(controls.down.isDown){
       player.body.velocity.y = 300;
-      player.animation.play('stairs');
+      player.animations.play('stairs');
     }
   }
 

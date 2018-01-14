@@ -20,7 +20,7 @@ Game.Preloader.prototype = {
 
     this.load.tilemap('map', 'images/tilemapBueno.csv');
 
-    this.load.image('tileset', 'images/super_mario.png');
+    this.load.image('tileset', 'images/Image2.png');
 
     this.load.spritesheet('player', 'images/Image.png', 32, 40);
 

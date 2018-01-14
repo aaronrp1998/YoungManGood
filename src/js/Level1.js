@@ -96,6 +96,7 @@ Game.Level1.prototype = {
     player.animations.add('iddle',[0],1,true);
     player.animations.add('jump',[4],1,true);
     player.animations.add('run',[1,2,3],7,true);
+    player.animations.add('stairs',[5,6,7],7,true);
 
     this.physics.arcade.enable(player);
     this.camera.follow(player);
@@ -149,11 +150,14 @@ Game.Level1.prototype = {
   },
 
   SubirEscaleras:function() {
+    this.physics.arcade.gravity.y = 0;
     if (controls.up.isDown){
       player.body.velocity.y = -300;
+      player.animation.play('stairs');
     }
     if(controls.down.isDown){
       player.body.velocity.y = 300;
+      player.animation.play('stairs');
     }
   }
 

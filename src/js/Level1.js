@@ -80,7 +80,6 @@ Game.Level1.prototype = {
 
     this.stage.backgroundColor = '#2ECCFA';
     //2ECCFA
-    this.physics.arcade.gravity.y = 1400;
 
     map = this.add.tilemap('map',64,64);
     map.addTilesetImage('tileset');
@@ -120,6 +119,7 @@ Game.Level1.prototype = {
   update:function() {
 
     this.physics.arcade.collide(player,layer);
+    this.physics.arcade.gravity.y = 1400;
 
     player.body.velocity.x = 0;
 
@@ -160,7 +160,7 @@ Game.Level1.prototype = {
       player.animations.play('stairs');
     }
     if(player.body.velocity.y == 0){
-      player.body.velocity.y = 0;
+      this.physics.arcade.gravity.y = 0;
       player.animations.play('stairsiddle');
     }
   }

@@ -30,15 +30,15 @@ Game.Preloader.prototype = {
 
     this.load.image('enemy1','images/enemy.png');
 
-    this.load.image('bullet', 'assets/bullet.png');
+    this.load.image('bullet', 'images/bullet.png');
 
-    this.load.image('torreta','assets/torreta.png');
+    this.load.image('torreta','images/torreta.png');
 
-    this.load.image('boss','assets/Boss.png');
+    this.load.image('boss','images/Boss.png');
 
-    this.load.image('bossbullet','assets/comecocos.png');
+    this.load.image('bossbullet','images/comecocos.png');
 
-    this.load.spritesheet('dude', 'assets/dude.png', 32, 48);
+    this.load.spritesheet('dude', 'images/dude.png', 32, 48);
 
   },
 

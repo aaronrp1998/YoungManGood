@@ -42,7 +42,7 @@ Game.Preloader.prototype = {
 
   create:function() {
 
-    this.state.start('Level1Boss');
+    this.state.start('Level1');
 
   }
 }

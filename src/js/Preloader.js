@@ -20,19 +20,31 @@ Game.Preloader.prototype = {
 
     this.load.tilemap('map', 'images/tilemapBueno.csv');
 
+    this.load.tilemap('map', 'images/BossTiled.csv');
+
     this.load.image('tileset', 'images/Image3.png');
 
     this.load.spritesheet('player', 'images/Image.png', 32, 40);
 
     this.load.audio('musica', 'audio/musica.mp3');
 
-     this.load.image('enemy1','images/enemy.png');
+    this.load.image('enemy1','images/enemy.png');
+
+    this.load.image('bullet', 'assets/bullet.png');
+
+    this.load.image('torreta','assets/torreta.png');
+
+    this.load.image('boss','assets/Boss.png');
+
+    this.load.image('bossbullet','assets/comecocos.png');
+
+    this.load.spritesheet('dude', 'assets/dude.png', 32, 48);
 
   },
 
   create:function() {
 
-    this.state.start('Level1');
+    this.state.start('Level1Boss');
 
   }
 }

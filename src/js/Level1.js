@@ -71,15 +71,19 @@ Game.Level1.prototype = {
 
     player.body.velocity.x = 0;
 
-    if(controls.right.isDown && player.body.onFloor()) {
-      player.animations.play('run');
+    if(controls.right.isDown) {
       player.scale.setTo(2,2);
       player.body.velocity.x += playerSpeed;
     }
-    if(controls.left.isDown && player.body.onFloor()) {
+    if(controls.right.isDown && player.body.onFloor()) {
       player.animations.play('run');
+    }
+    if(controls.left.isDown) {
       player.scale.setTo(-2,2);
       player.body.velocity.x -= playerSpeed;
+    }
+    if(controls.left.isDown && player.body.onFloor()) {
+      player.animations.play('run');
     }
 
     if(controls.up.isDown && (player.body.onFloor() || player.body.touching.down) && this.time.now > jumpTimer){

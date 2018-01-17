@@ -71,12 +71,12 @@ Game.Level1.prototype = {
 
     player.body.velocity.x = 0;
 
-    if(controls.right.isDown) {
+    if(controls.right.isDown && player.body.onFloor()) {
       player.animations.play('run');
       player.scale.setTo(2,2);
       player.body.velocity.x += playerSpeed;
     }
-    if(controls.left.isDown) {
+    if(controls.left.isDown && player.body.onFloor()) {
       player.animations.play('run');
       player.scale.setTo(-2,2);
       player.body.velocity.x -= playerSpeed;
@@ -88,7 +88,7 @@ Game.Level1.prototype = {
       player.animations.play('jump');
     }
 
-    if(player.body.velocity.x == 0 && player.body.velocity.y == 0){
+    if(player.body.velocity.x == 0){
       player.animations.play('iddle');
     }
 

@@ -6,7 +6,7 @@ Enemy = function(index,game,x,y){
     game.physics.enable(thid.enemy,Phaser.Physics.ARCADE);
     this.enemy.body.inmovable = true;
     this.bird.body.collisionWorldBounds = true;
-    
+
 };
 
 
@@ -89,7 +89,7 @@ Game.Level1.prototype = {
     }
 
     if(player.body.velocity.x == 0 && player.body.velocity.y == 0){
-      player.animations.play('idle');
+      player.animations.play('iddle');
     }
 
   },

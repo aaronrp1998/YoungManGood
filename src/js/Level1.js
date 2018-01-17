@@ -50,7 +50,7 @@ Game.Level1.prototype = {
     this.camera.follow(player);
     player.body.collisionWorldBounds = true;
 
-    enemy3 = this.add.sprite(896,8256,'enemy3');
+    enemy3 = this.add.sprite(896,8234,'enemy3');
     enemy3.enablebody = true;
     this.physics.arcade.enable(enemy3);
     enemy3.body.gravity = 900;

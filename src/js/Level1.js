@@ -56,7 +56,7 @@ Game.Level1.prototype = {
     enemy3.body.gravity = 900;
     enemy3.anchor.setTo(0.5,0.5);
 
-    this.time.events.loop(Phaser.Timer.SECOND*2, logicaenemigosaltofuerte, this);
+    //this.time.events.loop(Phaser.Timer.SECOND*2, logicaenemigosaltofuerte, this);
 
     musica = this.add.audio('musica');
     musica.play();
@@ -141,8 +141,8 @@ Game.Level1.prototype = {
        enemy3.body.velocity.x=-100;
    }
    else if (enemy3.body.x-player.body.x < 0 && enemy43body.x-player.body.x >= -175 ) {
-    enemy3.scale.x=1;
-    enemy3.body.velocity.x=100;
+      enemy3.scale.x=1;
+      enemy3.body.velocity.x=100;
    }
    else{
        enemy3.body.velocity.x=0;

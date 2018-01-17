@@ -50,6 +50,14 @@ Game.Level1.prototype = {
     this.camera.follow(player);
     player.body.collisionWorldBounds = true;
 
+    enemy3 = this.add.sprite(896,8256,'enemy3');
+    enemy3.enablebody = true;
+    this.physics.arcade.enable(enemy3);
+    enemy3.body.gravity = 900;
+    enemy3.anchor.setTo(0.5,0.5);
+
+    this.time.events.loop(Phaser.Timer.SECOND*2, logicaenemigosaltofuerte, this);
+
     musica = this.add.audio('musica');
     musica.play();
 
@@ -70,6 +78,10 @@ Game.Level1.prototype = {
     this.physics.arcade.gravity.y = 1400;
 
     player.body.velocity.x = 0;
+
+    if(enemy3.body.onFloor() && enemy3.body.touching.down){
+      enemy3.body.velocity.x=0;
+    }
 
     if(controls.right.isDown) {
       player.scale.setTo(2,2);
@@ -110,13 +122,33 @@ Game.Level1.prototype = {
       player.body.velocity.y = -300;
       player.animations.play('stairs');
     }
+
     if(controls.down.isDown){
       player.body.velocity.y = 300;
       player.animations.play('stairs');
     }
+
     if(player.body.velocity.y == 0){
       player.animations.play('stairsiddle');
     }
-  }
+
+  },
+
+  logicaenemigosaltofuerte:function(){
+    enemy3.body.velocity.y=-200;
+   if((enemy3.body.x-player.body.x <= 175 && enemy3.body.x-player.body.x >= 0 ))
+   {
+       enemy3.scale.x=-1;
+       enemy3.body.velocity.x=-100;
+   }
+   else if (enemy3.body.x-player.body.x < 0 && enemy43body.x-player.body.x >= -175 )
+   {
+    enemy3.scale.x=1;
+    enemy3.body.velocity.x=100;
+   }
+   else{
+       enemy3.body.velocity.x=0;
+   }
+}
 
 }

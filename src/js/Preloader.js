@@ -20,7 +20,7 @@ Game.Preloader.prototype = {
 
     this.load.tilemap('map', 'images/tilemapBueno.csv');
 
-    this.load.tilemap('map', 'images/BossTiled.csv');
+    this.load.tilemap('mapBoss', 'images/BossTiled.csv');
 
     this.load.image('tileset', 'images/Image3.png');
 

@@ -1,6 +1,6 @@
 Game.Level1Boss = function(game) {};
 
-var mapBossBoss;
+var mapBoss;
 var layerBoss;
 
 var player;
@@ -16,7 +16,7 @@ var dispderch=true;
 var tiempodis=0;
 var tiempo=0;
 var bullets;
-var firebutton;
+/*
 var movjefe=1.65;
 var furioso=false;
 var descanso=4.15;
@@ -43,7 +43,7 @@ var tiempodescanso;
 var mueveboss=false;
 var saltalado=300;
 var knockback=false;
-
+*/
 Game.Level1Boss.prototype = {
 
   create:function() {
@@ -52,7 +52,7 @@ Game.Level1Boss.prototype = {
     //2ECCFA
 
     mapBoss = this.add.tilemap('mapBoss',64,64);
-    map.addTilesetImage('tileset');
+    mapBoss.addTilesetImage('tileset');
     layerBoss = mapBoss.createLayer(0);
     layerBoss.resizeWorld();
     mapBoss.setCollisionBetween(13,39);
@@ -67,23 +67,22 @@ Game.Level1Boss.prototype = {
     player.animations.add('run',[1,2,3],7,true);
     player.animations.add('stairs',[5,6,7],7,true);
     player.animations.add('stairsiddle'[6],1,true);
-
+/*
     finalboss= game.add.sprite(3904, 321, 'boss');
     finalboss.anchor.setTo(0.5,0.1);
     game.physics.arcade.enable(finalboss);
     finalboss.body.gravity.y = 900;
     finalboss.body.collideWorldBounds = true;
-
+*/
 
 
     this.physics.arcade.enable(player);
     this.camera.follow(player);
+    player.scale.setTo(2,2);
     player.body.collisionWorldBounds = true;
 
     musica = this.add.audio('musica');
     musica.play();
-
-    player.scale.setTo(2,2);
 
     bullets = game.add.group();
     bullets.enableBody = true;
@@ -93,7 +92,7 @@ Game.Level1Boss.prototype = {
     bullets.setAll('anchor.y', 0.5);
     bullets.setAll('outOfBoundsKill', true);
     bullets.setAll('checkWorldBounds', true);
-
+/*
     bossbullets=game.add.group();
     bossbullets.enableBody = true;
     bossbullets.physicsBodyType = Phaser.Physics.ARCADE;
@@ -105,7 +104,7 @@ Game.Level1Boss.prototype = {
 
     this.time.events.loop(Phaser.Timer.SECOND*2.5, bossfireing, this);
     this.time.events.loop(Phaser.Timer.SECOND*2, numerosaltos, this);
-
+*/
     controls = {
       right: this.input.keyboard.addKey(Phaser.Keyboard.D),
       left: this.input.keyboard.addKey(Phaser.Keyboard.A),
@@ -170,7 +169,7 @@ Game.Level1Boss.prototype = {
     }
 
     if(hitPlatformboss){
-      if(logicaboss()==0 && undesc)
+      if(logicaboss()==0 && undexsc)
       {
         tiempodescanso = game.time.now + Phaser.Timer.SECOND*descanso;
         undesc=false;

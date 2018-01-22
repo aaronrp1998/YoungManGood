@@ -9,19 +9,6 @@ var weapon;
 var bullets;
 var firebutton;
 
-var enemybullets;
-var enemy;
-//var enemy2;
-var enemy3;
-//var enemy4;
-//var enemy5;
-var torreta;
-var vidaenemigo=5;
-var dispaenem=0;
-var undisparo=true;
-var torretaalive=true;
-var contadorEnemy = 0;
-
 var controls = {};
 var playerSpeed = 250;
 var jumpTimer = 0;
@@ -40,7 +27,6 @@ Game.Level1.prototype = {
     map.setCollisionBetween(13,39);
     map.setTileIndexCallback(12,this.SubirEscaleras,this);
     map.setTileIndexCallback(19,this.ResetPosition,this);
-    map.setTileIndexCallback(13,this.cambioNivel,this);
 
 
     player = this.add.sprite(570,8050, 'player');
@@ -71,20 +57,6 @@ Game.Level1.prototype = {
     weapon.trackSprite(player,15,30, true);
     firebutton= this.input.keyboard.addKey(Phaser.Keyboard.K);
 
-    enemy = this.add.sprite(7808,1280,'enemy1');
-    enemy.scale.setTo(2,2);
-
-    enemy3 = this.add.sprite(1408,7808,'enemy3');
-    this.physics.arcade.enable(enemy3);
-    enemy3.anchor.setTo(0.5,0.5);
-    enemy3.body.collisionWorldBounds = true;
-
-    torreta = this.add.sprite(3296,8064,'torreta');
-    torreta.scale.setTo(2,2);
-
-    this.time.events.loop(Phaser.Timer.SECOND*2, this.logicaenemigosaltofuerte, this);
-    this.time.events.loop(Phaser.Timer.SECOND*3.5, this.logicatorretas, this);
-
     musica = this.add.audio('musica');
     musica.play();
 
@@ -102,26 +74,19 @@ Game.Level1.prototype = {
   update:function() {
 
     this.physics.arcade.collide(player,layer);
-    this.physics.arcade.collide(enemy3,layer);
     this.physics.arcade.gravity.y = 1400;
 
     player.body.velocity.x = 0;
 
-
-
-    if(enemy3.body.onFloor() && enemy3.body.touching.down){
-      enemy3.body.velocity.x=0;
-    }
-
     if(controls.right.isDown) {
-      player.scale.setTo(2,2);
+      player.scale.setTo(1.8,2);
       player.body.velocity.x += playerSpeed;
     }
     if(controls.right.isDown && player.body.onFloor()) {
       player.animations.play('run');
     }
     if(controls.left.isDown) {
-      player.scale.setTo(-2,2);
+      player.scale.setTo(-1.8,2);
       player.body.velocity.x -= playerSpeed;
     }
     if(controls.left.isDown && player.body.onFloor()) {
@@ -141,6 +106,10 @@ Game.Level1.prototype = {
 
     if((player.body.velocity.x == 0) && player.body.onFloor()){
       player.animations.play('iddle');
+    }
+
+    if(player.x > 8896){
+      this.state.start('PreloaderBoss');
     }
 
   },
@@ -169,10 +138,6 @@ Game.Level1.prototype = {
 
   },
 
-  cambioNivel:function() {
-    this.state.start('Level1Boss');
-  },
-
   fire:function() {
       if (this.time.now > tiempodis)
       {
@@ -197,38 +162,5 @@ Game.Level1.prototype = {
           bullet.kill();
   },
 
-  logicaenemigosaltofuerte:function(){
-    enemy3.body.velocity.y=-600;
-   if(enemy3.body.x-player.body.x < 0) {
-       enemy3.scale.x=1;
-       enemy3.body.velocity.x=20;
-   }
-   else if (enemy3.body.x-player.body.x > 0) {
-      enemy3.scale.x=-1;
-      enemy3.body.velocity.x=-20;
-   }
-   else{
-       enemy3.body.velocity.x=0;
-   }
- },
-
- enemyfire:function(velx,vely,enemigo3)
- {
-     var enemybullet = enemybullets.getFirstExists(false);
-         enemybullet.reset(enemigo3.body.x-2, enemigo3.body.y+5);
-         enemybullet.body.velocity.x=velx;
-         enemybullet.body.velocity.y=vely;
-         dispaenem=this.time.now+200;
- },
-
- logicatorretas:function()
- {
-     if(torretaalive){
-     enemyfire(-200,-200,torretas);
-     enemyfire(-200,-100,torretas);
-     enemyfire(-200,0,torretas);
-     enemyfire(-200,200,torretas);
-     }
- }
 
 }

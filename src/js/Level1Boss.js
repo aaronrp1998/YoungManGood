@@ -16,7 +16,7 @@ var dispderch=true;
 var tiempodis=0;
 var tiempo=0;
 var bullets;
-/*
+
 var movjefe=1.65;
 var furioso=false;
 var descanso=4.15;
@@ -43,7 +43,7 @@ var tiempodescanso;
 var mueveboss=false;
 var saltalado=300;
 var knockback=false;
-*/
+
 Game.Level1Boss.prototype = {
 
   create:function() {

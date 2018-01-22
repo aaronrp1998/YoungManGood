@@ -26,7 +26,21 @@ Game.Preloader.prototype = {
 
     this.load.spritesheet('player', 'images/Image.png', 32, 40);
 
-    this.load.image('enemy3', 'images/enemy3.png');
+    this.load.image('bullet', 'images/bullet.png');
+
+    this.load.image('enemy1','images/enemy.png');
+
+    this.load.image('enemy2','images/enemy1.png');
+
+    this.load.image('enemy3','images/enemy2.png');
+
+    this.load.image('enemy4','images/enemy3.png');
+
+    this.load.image('enemy5','images/enemy4.png');
+
+    this.load.image('torreta','images/torreta.png');
+
+    this.load.image('enemybullet','images/enemybullet.png');
 
     this.load.audio('musica', 'audio/musica.mp3');
 

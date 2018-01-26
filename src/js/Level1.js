@@ -41,7 +41,7 @@ Game.Level1.prototype = {
 
     this.physics.arcade.enable(player);
     this.camera.follow(player);
-    player.body.gravity.y = 900;
+    player.body.gravity.y = 1400;
     player.body.collisionWorldBounds = true;
 
     bullets = this.add.group();
@@ -78,6 +78,7 @@ Game.Level1.prototype = {
 
     this.physics.arcade.collide(player,layer);
   //  this.physics.arcade.gravity.y = 1400;
+   player.body.gravity.y = 1400;
 
     player.body.velocity.x = 0;
 
@@ -130,11 +131,14 @@ Game.Level1.prototype = {
       player.animations.play('stairs');
     }
 
-    if(controls.down.isDown){
+    else if(controls.down.isDown){
       player.body.velocity.y = 300;
       player.animations.play('stairs');
     }
-
+    else
+    {
+      player.body.velocity.y = 300;
+    }
     if(player.body.velocity.y == 0){
       player.animations.play('stairsiddle');
     }
@@ -147,7 +151,7 @@ Game.Level1.prototype = {
       var bullet = bullets.getFirstExists(false);
         if (bullet)
            {
-               bullet.reset(player.body.x+10, player.body.y+30);
+               bullet.reset(player.body.x+50, player.body.y+30);
                if(dispderch){
                bullet.body.velocity.x=200;
                }

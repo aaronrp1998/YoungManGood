@@ -87,6 +87,7 @@ Game.Level1.prototype = {
       player.body.velocity.x += playerSpeed;
     }
     if(controls.right.isDown && player.body.onFloor()) {
+      dispderch=true;
       player.animations.play('run');
     }
     if(controls.left.isDown) {
@@ -94,6 +95,7 @@ Game.Level1.prototype = {
       player.body.velocity.x -= playerSpeed;
     }
     if(controls.left.isDown && player.body.onFloor()) {
+      dispderch=false;
       player.animations.play('run');
     }
 

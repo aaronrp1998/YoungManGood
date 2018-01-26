@@ -9,6 +9,7 @@ var weapon;
 var bullets;
 var firebutton;
 var tiempodis=0;
+var dispderch=true;
 
 var controls = {};
 var playerSpeed = 250;

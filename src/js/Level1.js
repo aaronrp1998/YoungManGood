@@ -158,12 +158,12 @@ Game.Level1.prototype = {
            {
               
                if(dispderch){
-               bullet.reset(player.body.x+50, player.body.y+30,'bullet');
+               bullet.create(player.body.x+50, player.body.y+30,0,'bullet',true);
                bullet.body.velocity.x=300;
                }
                else
                {
-                  bullet.reset(player.body.x-10, player.body.y+30,'bullet');
+                  bullet.create(player.body.x+50, player.body.y+30,0,'bullet',true);
                   bullet.body.velocity.x=-300;
                }
                tiempodis = this.time.now + 200;

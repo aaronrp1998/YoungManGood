@@ -101,7 +101,7 @@ Game.Level1.prototype = {
 
     if(firebutton.isDown)
     {
-      this.fire;
+      this.fire();
     }
 
     if((player.body.velocity.x == 0) && player.body.onFloor()){

@@ -51,7 +51,7 @@ Game.Level1.prototype = {
     bullets = this.add.group();
     bullets.enableBody = true;
     bullets.physicsBodyType = Phaser.Physics.ARCADE;
-    bullets.createMultiple(30, 'bullet', 0, false);
+    //bullets.createMultiple(30, 'bullet', 0, false);
     bullets.setAll('anchor.x', 0.5);
     bullets.setAll('anchor.y', 0.5);
     bullets.setAll('outOfBoundsKill', true);
@@ -162,12 +162,12 @@ Game.Level1.prototype = {
            {
               
                if(dispderch){
-               bullet.reset(player.body.x+50, player.body.y+30);
+               bullet.create(player.body.x+50, player.body.y+30,'bullet');
                bullet.body.velocity.x=300;
                }
                else
                {
-                  bullet.reset(player.body.x-10, player.body.y+30);
+                  bullet.create(player.body.x-10, player.body.y+30,'bullet');
                   bullet.body.velocity.x=-300;
                }
                tiempodis = this.time.now + 200;

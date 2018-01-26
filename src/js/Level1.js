@@ -44,9 +44,9 @@ Game.Level1.prototype = {
     player.body.gravity.y = 1400;
     player.body.collisionWorldBounds = true;
 
-    flyingenemy=game.add.group();
+    /*flyingenemy=game.add.group();
     flyingenemy.enableBody=true;
-    flyingenemy.physicsBodyType = Phaser.Physics.ARCADE;
+    flyingenemy.physicsBodyType = Phaser.Physics.ARCADE;*/
 
     bullets = this.add.group();
     bullets.enableBody = true;

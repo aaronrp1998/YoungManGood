@@ -144,7 +144,10 @@ Game.Level1.prototype = {
     if(player.body.velocity.y == 0){
       player.animations.play('stairsiddle');
     }
-
+    if(bullets.inCamera()===false)
+    {
+      resetBullet(bullets);
+    }
   },
 
   fire:function() {
@@ -153,12 +156,14 @@ Game.Level1.prototype = {
       var bullet = bullets.getFirstExists(false);
         if (bullet)
            {
-               bullet.reset(player.body.x+50, player.body.y+30);
+              
                if(dispderch){
+               bullet.reset(player.body.x+50, player.body.y+30);
                bullet.body.velocity.x=300;
                }
                else
                {
+                  bullet.reset(player.body.x-10, player.body.y+30);
                   bullet.body.velocity.x=-300;
                }
                tiempodis = this.time.now + 200;

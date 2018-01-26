@@ -44,6 +44,9 @@ Game.Level1.prototype = {
     player.body.gravity.y = 1400;
     player.body.collisionWorldBounds = true;
 
+
+
+
     bullets = this.add.group();
     bullets.enableBody = true;
     bullets.physicsBodyType = Phaser.Physics.ARCADE;
@@ -144,7 +147,7 @@ Game.Level1.prototype = {
     if(player.body.velocity.y == 0){
       player.animations.play('stairsiddle');
     }
-    if(bullets.inCamera===false)
+    if(bullets.body.x > game.camera.x)
     {
       resetBullet(bullets);
     }

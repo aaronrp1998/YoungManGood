@@ -155,11 +155,11 @@ Game.Level1.prototype = {
            {
                bullet.reset(player.body.x+50, player.body.y+30);
                if(dispderch){
-               bullet.body.velocity.x=200;
+               bullet.body.velocity.x=300;
                }
                else
                {
-                  bullet.body.velocity.x=-200;
+                  bullet.body.velocity.x=-300;
                }
                tiempodis = this.time.now + 200;
                bullet.rotation=player.rotation;

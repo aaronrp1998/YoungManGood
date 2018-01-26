@@ -41,6 +41,7 @@ Game.Level1.prototype = {
 
     this.physics.arcade.enable(player);
     this.camera.follow(player);
+    player.body.gravity.y = 900;
     player.body.collisionWorldBounds = true;
 
     bullets = this.add.group();
@@ -76,7 +77,7 @@ Game.Level1.prototype = {
   update:function() {
 
     this.physics.arcade.collide(player,layer);
-    this.physics.arcade.gravity.y = 1400;
+  //  this.physics.arcade.gravity.y = 1400;
 
     player.body.velocity.x = 0;
 

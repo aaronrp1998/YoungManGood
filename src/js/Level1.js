@@ -147,7 +147,7 @@ Game.Level1.prototype = {
     if(player.body.velocity.y == 0){
       player.animations.play('stairsiddle');
     }
-    if(bullets.body.x > game.camera.x)
+    if(bullets.body.x < game.camera.x)
     {
       resetBullet(bullets);
     }

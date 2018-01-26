@@ -8,6 +8,7 @@ var vidaJugador = 100;
 var weapon;
 var bullets;
 var firebutton;
+var tiempodis=0;
 
 var controls = {};
 var playerSpeed = 250;

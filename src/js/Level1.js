@@ -65,7 +65,7 @@ Game.Level1.prototype = {
     firebutton= this.input.keyboard.addKey(Phaser.Keyboard.K);
 
     musica = this.add.audio('musica');
-    musica.play();
+   // musica.play();
 
     player.scale.setTo(2,2);
 

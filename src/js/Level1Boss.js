@@ -67,6 +67,7 @@ Game.Level1Boss.prototype = {
     player.animations.add('run',[1,2,3],7,true);
     player.animations.add('stairs',[5,6,7],7,true);
     player.animations.add('stairsiddle'[6],1,true);
+    player.animations.add('rundis',[9,10,11],7,true);
 /*
     finalboss= game.add.sprite(3904, 321, 'boss');
     finalboss.anchor.setTo(0.5,0.1);

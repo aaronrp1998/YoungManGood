@@ -39,6 +39,7 @@ Game.Level1.prototype = {
     player.animations.add('stairs',[5,6,7],7,true);
     player.animations.add('stairsiddle'[6],1,true);
     player.animations.add('disiddle',[8],1,true);
+    player.animations.add('rundis',[9,10,11],7,true);
    // player.body.gravity.y = 1400;
 
     this.physics.arcade.enable(player);
@@ -92,11 +93,21 @@ Game.Level1.prototype = {
       player.animations.play('disiddle');
       this.fire();
     }
+    if(firebutton.isDown  && player.body.onFloor() && controls.right.isDown)
+    {
+      player.animations.play('rundis');
+      this.fire();
+    }
+    if(firebutton.isDown  && player.body.onFloor() && controls.left.isDown)
+    {
+      player.animations.play('rundis');
+      this.fire();
+    }
     if(controls.right.isDown) {
       player.scale.setTo(1.8,2);
       player.body.velocity.x += playerSpeed;
     }
-    if(controls.right.isDown && player.body.onFloor()) {
+    else if(controls.right.isDown && player.body.onFloor()) {
       dispderch=true;
       player.animations.play('run');
     }
@@ -104,7 +115,7 @@ Game.Level1.prototype = {
       player.scale.setTo(-1.8,2);
       player.body.velocity.x -= playerSpeed;
     }
-    if(controls.left.isDown && player.body.onFloor()) {
+    else if(controls.left.isDown && player.body.onFloor()) {
       dispderch=false;
       player.animations.play('run');
     }
@@ -120,7 +131,7 @@ Game.Level1.prototype = {
       player.body.velocity.y=450;
     }
 
-    if((player.body.velocity.x == 0) && player.body.onFloor()){
+    else if((player.body.velocity.x == 0) && player.body.onFloor()){
       player.animations.play('iddle');
     }
 

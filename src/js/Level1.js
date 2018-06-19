@@ -142,10 +142,10 @@ Game.Level1.prototype = {
       player.body.velocity.y = 300;
       player.animations.play('stairs');
     }
-   /* else
+    else
     {
-      player.body.velocity.y = 300;
-    }*/
+      player.body.velocity.y = 0;
+    }
     if(player.body.velocity.y == 0){
       player.animations.play('stairsiddle');
     }
@@ -171,7 +171,7 @@ Game.Level1.prototype = {
                bullet.rotation=player.rotation;
            }
       }
-      player.animations.play('disiddle');
+      player.animations.play('disiddle'); 
   },
 
   resetBullet:function(bullet) {

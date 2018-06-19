@@ -110,8 +110,9 @@ Game.Level1.prototype = {
       player.animations.play('jump');
     }
 
-    if(firebutton.isDown)
+    if(firebutton.isDown  && player.body.onFloor())
     {
+      player.animations.play('disiddle');
       this.fire();
     }
 
@@ -176,7 +177,7 @@ Game.Level1.prototype = {
                bullet.rotation=player.rotation;
            }
       }
-      player.animations.play('disiddle'); 
+       
   },
 
   resetBullet:function(bullet) {

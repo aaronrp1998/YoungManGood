@@ -93,7 +93,13 @@ Game.Level1.prototype = {
       player.scale.setTo(1.8,2);
       player.body.velocity.x += playerSpeed;
     }
-    if(controls.right.isDown && player.body.onFloor() && !firebutton.isDown ) {
+    if(firebutton.isDown  && player.body.onFloor() && controls.right.isDown)
+    {
+      dispderch=true;
+      player.animations.play('rundis');
+      this.fire();
+    }
+    else if(controls.right.isDown && player.body.onFloor() && !firebutton.isDown ) {
       dispderch=true;
       player.animations.play('run');
     }
@@ -101,7 +107,13 @@ Game.Level1.prototype = {
       player.scale.setTo(-1.8,2);
       player.body.velocity.x -= playerSpeed;
     }
-    if(controls.left.isDown && player.body.onFloor() && !firebutton.isDown) {
+    if(firebutton.isDown  && player.body.onFloor() && controls.left.isDown)
+    {
+      dispderch=false;
+      player.animations.play('rundis');
+      this.fire();
+    }
+  else if(controls.left.isDown && player.body.onFloor() && !firebutton.isDown) {
       dispderch=false;
       player.animations.play('run');
     }
@@ -109,18 +121,6 @@ Game.Level1.prototype = {
     if(firebutton.isDown  && player.body.onFloor() && (player.body.velocity.x == 0))
     {
       player.animations.play('disiddle');
-      this.fire();
-    }
-    if(firebutton.isDown  && player.body.onFloor() && controls.right.isDown)
-    {
-      dispderch=true;
-      player.animations.play('rundis');
-      this.fire();
-    }
-    if(firebutton.isDown  && player.body.onFloor() && controls.left.isDown)
-    {
-      dispderch=false;
-      player.animations.play('rundis');
       this.fire();
     }
 

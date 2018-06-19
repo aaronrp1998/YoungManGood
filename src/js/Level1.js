@@ -29,7 +29,7 @@ Game.Level1.prototype = {
     map.setCollisionBetween(13,39);
     map.setTileIndexCallback(12,this.SubirEscaleras,this);
     map.setTileIndexCallback(19,this.ResetPosition,this);
-
+    map.setTileIndexCallback(-1,this.Libre,this);
 
     player = this.add.sprite(570,8050, 'player');
     player.anchor.setTo(0.5,0.5);
@@ -39,6 +39,7 @@ Game.Level1.prototype = {
     player.animations.add('stairs',[5,6,7],7,true);
     player.animations.add('stairsiddle'[6],1,true);
     player.animations.add('disiddle',[8],8,true);
+    player.body.gravity.y = 1400;
 
     this.physics.arcade.enable(player);
     this.camera.follow(player);
@@ -81,9 +82,8 @@ Game.Level1.prototype = {
 
   update:function() {
 
-    this.physics.arcade.collide(player,layer);
+   this.physics.arcade.collide(player,layer);
   //  this.physics.arcade.gravity.y = 1400;
-   player.body.gravity.y = 1400;
 
     player.body.velocity.x = 0;
 
@@ -132,6 +132,7 @@ Game.Level1.prototype = {
   SubirEscaleras:function() {
 
     player.body.gravity.y = 0;
+    
 
     if (controls.up.isDown){
       player.body.velocity.y = -300;
@@ -176,6 +177,9 @@ Game.Level1.prototype = {
 
   resetBullet:function(bullet) {
           bullet.kill();
+  },
+  Libre:function() {
+  player.body.gravity.y = 1400;
   },
 
 

@@ -87,6 +87,11 @@ Game.Level1.prototype = {
 
     player.body.velocity.x = 0;
 
+    if(firebutton.isDown  && player.body.onFloor() && (player.body.velocity.x == 0))
+    {
+      player.animations.play('disiddle');
+      this.fire();
+    }
     if(controls.right.isDown) {
       player.scale.setTo(1.8,2);
       player.body.velocity.x += playerSpeed;
@@ -108,12 +113,6 @@ Game.Level1.prototype = {
       player.body.velocity.y = -800;
       jumpTimer = this.time.now + 750;
       player.animations.play('jump');
-    }
-
-    if(firebutton.isDown  && player.body.onFloor())
-    {
-      player.animations.play('disiddle');
-      this.fire();
     }
 
     if( player.body.velocity.y >=470)

@@ -38,6 +38,7 @@ Game.Level1.prototype = {
     player.animations.add('run',[1,2,3],7,true);
     player.animations.add('stairs',[5,6,7],7,true);
     player.animations.add('stairsiddle'[6],1,true);
+    player.animations.add('disiddle',[8],1,true);
 
     this.physics.arcade.enable(player);
     this.camera.follow(player);
@@ -111,6 +112,7 @@ Game.Level1.prototype = {
 
     if(firebutton.isDown)
     {
+      player.animations.play('disiddle');
       this.fire();
     }
 

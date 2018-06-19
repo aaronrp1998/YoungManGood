@@ -115,9 +115,9 @@ Game.Level1.prototype = {
       this.fire();
     }
 
-    if( player.body.velocity.y >=370)
+    if( player.body.velocity.y >=470)
     {
-      player.body.velocity.y=290;
+      player.body.velocity.y=390;
     }
 
     if((player.body.velocity.x == 0) && player.body.onFloor()){

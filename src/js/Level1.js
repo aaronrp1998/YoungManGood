@@ -129,8 +129,16 @@ Game.Level1.prototype = {
       player.animations.play('iddle');
     }
 
-    if(firebutton.isDown  && !player.body.onFloor() )
+    if(firebutton.isDown  && !player.body.onFloor() && controls.right.isDown)
     {
+      dispderch=true;
+      player.animations.play('jumpdis');
+      this.fire();
+    }
+
+    if(firebutton.isDown  && !player.body.onFloor() && controls.left.isDown)
+    {
+      dispderch=false;
       player.animations.play('jumpdis');
       this.fire();
     }

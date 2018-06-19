@@ -109,7 +109,7 @@ Game.Level1.prototype = {
       player.scale.setTo(1.8,2);
       player.body.velocity.x += playerSpeed;
     }
-    else if(controls.right.isDown && player.body.onFloor() && !firebutton.isDown ) {
+    if(controls.right.isDown && player.body.onFloor() && !firebutton.isDown ) {
       dispderch=true;
       player.animations.play('run');
     }

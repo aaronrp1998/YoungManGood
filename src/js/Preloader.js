@@ -22,7 +22,7 @@ Game.Preloader.prototype = {
 
     this.load.image('tileset', 'images/Image3.png');
 
-    this.load.spritesheet('player', 'images/Image.png', 32, 40);
+    this.load.spritesheet('player', 'images/Imagee.png', 32, 40);
 
     this.load.image('bullet', 'images/bullet.png');
 

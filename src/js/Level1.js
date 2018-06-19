@@ -88,6 +88,24 @@ Game.Level1.prototype = {
 
     player.body.velocity.x = 0;
 
+    
+    if(controls.right.isDown) {
+      player.scale.setTo(1.8,2);
+      player.body.velocity.x += playerSpeed;
+    }
+    if(controls.right.isDown && player.body.onFloor() && !firebutton.isDown ) {
+      dispderch=true;
+      player.animations.play('run');
+    }
+    if(controls.left.isDown) {
+      player.scale.setTo(-1.8,2);
+      player.body.velocity.x -= playerSpeed;
+    }
+    if(controls.left.isDown && player.body.onFloor() && !firebutton.isDown) {
+      dispderch=false;
+      player.animations.play('run');
+    }
+
     if(firebutton.isDown  && player.body.onFloor() && (player.body.velocity.x == 0))
     {
       player.animations.play('disiddle');
@@ -104,22 +122,6 @@ Game.Level1.prototype = {
       dispderch=false;
       player.animations.play('rundis');
       this.fire();
-    }
-    if(controls.right.isDown) {
-      player.scale.setTo(1.8,2);
-      player.body.velocity.x += playerSpeed;
-    }
-    if(controls.right.isDown && player.body.onFloor() && !firebutton.isDown ) {
-      dispderch=true;
-      player.animations.play('run');
-    }
-    if(controls.left.isDown) {
-      player.scale.setTo(-1.8,2);
-      player.body.velocity.x -= playerSpeed;
-    }
-    if(controls.left.isDown && player.body.onFloor() && !firebutton.isDown) {
-      dispderch=false;
-      player.animations.play('run');
     }
 
     if(controls.up.isDown && (player.body.onFloor() || player.body.touching.down) && this.time.now > jumpTimer){

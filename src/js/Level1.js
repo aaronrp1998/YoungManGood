@@ -123,6 +123,10 @@ Game.Level1.prototype = {
       player.animations.play('disiddle');
       this.fire();
     }
+    
+    else if((player.body.velocity.x == 0) && player.body.onFloor()){
+      player.animations.play('iddle');
+    }
 
     if(controls.up.isDown && (player.body.onFloor() || player.body.touching.down) && this.time.now > jumpTimer){
       player.body.velocity.y = -800;
@@ -133,10 +137,6 @@ Game.Level1.prototype = {
     if( player.body.velocity.y >=470)
     {
       player.body.velocity.y=450;
-    }
-
-    else if((player.body.velocity.x == 0) && player.body.onFloor()){
-      player.animations.play('iddle');
     }
 
     if(player.x > 8896){

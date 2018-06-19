@@ -149,9 +149,9 @@ Game.Level1.prototype = {
       player.animations.play('jump');
     }
 
-    if( player.body.velocity.y >=470)
+    if( player.body.velocity.y >=570)
     {
-      player.body.velocity.y=450;
+      player.body.velocity.y=520;
     }
 
     if(player.x > 8896){

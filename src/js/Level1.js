@@ -118,7 +118,7 @@ Game.Level1.prototype = {
 
     if( player.body.velocity.y >=470)
     {
-      player.body.velocity.y=390;
+      player.body.velocity.y=450;
     }
 
     if((player.body.velocity.x == 0) && player.body.onFloor()){

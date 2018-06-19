@@ -38,7 +38,7 @@ Game.Level1.prototype = {
     player.animations.add('run',[1,2,3],7,true);
     player.animations.add('stairs',[5,6,7],7,true);
     player.animations.add('stairsiddle'[6],1,true);
-    player.animations.add('disiddle',[8],1,true);
+    player.animations.add('disiddle',[8],8,true);
 
     this.physics.arcade.enable(player);
     this.camera.follow(player);
@@ -112,7 +112,6 @@ Game.Level1.prototype = {
 
     if(firebutton.isDown)
     {
-      player.animations.play('disiddle');
       this.fire();
     }
 
@@ -143,10 +142,10 @@ Game.Level1.prototype = {
       player.body.velocity.y = 300;
       player.animations.play('stairs');
     }
-    else
+   /* else
     {
       player.body.velocity.y = 300;
-    }
+    }*/
     if(player.body.velocity.y == 0){
       player.animations.play('stairsiddle');
     }
@@ -172,6 +171,7 @@ Game.Level1.prototype = {
                bullet.rotation=player.rotation;
            }
       }
+      player.animations.play('disiddle');
   },
 
   resetBullet:function(bullet) {

@@ -39,7 +39,7 @@ Game.Level1.prototype = {
     player.animations.add('stairs',[5,6,7],7,true);
     player.animations.add('stairsiddle'[6],1,true);
     player.animations.add('disiddle',[8],8,true);
-    player.body.gravity.y = 1400;
+   // player.body.gravity.y = 1400;
 
     this.physics.arcade.enable(player);
     this.camera.follow(player);

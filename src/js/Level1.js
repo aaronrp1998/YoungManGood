@@ -168,6 +168,10 @@ Game.Level1.prototype = {
 
     player.body.gravity.y = 0;
     
+    if( player.body.velocity.y == 0)
+    {
+      player.animations.play('stairsiddle');
+    }
 
     if (controls.up.isDown){
       player.body.velocity.y = -300;
@@ -181,7 +185,6 @@ Game.Level1.prototype = {
     else
     {
       player.body.velocity.y = 0;
-      player.animations.play('stairsiddle');
     }
     
   },

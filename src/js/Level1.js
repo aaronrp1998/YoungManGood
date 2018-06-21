@@ -51,7 +51,7 @@ Game.Level1.prototype = {
     player.body.collisionWorldBounds = true;
 
     enemy=this.add.sprite(560,8050,'enemy4');
-    enemy.anchor(1.5,1.5);
+    enemy.anchor.setTo(1.5,1.5);
 
     flyingenemy=this.add.group();
     flyingenemy.enableBody=true;

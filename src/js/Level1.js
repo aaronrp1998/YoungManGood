@@ -47,15 +47,11 @@ Game.Level1.prototype = {
 
     this.physics.arcade.enable(player);
     this.camera.follow(player);
-    //player.body.gravity.y = 1400;
+    player.body.gravity.y = 1400;
     player.body.collisionWorldBounds = true;
 
     enemy=this.add.sprite(860,8050,'enemy4');
     enemy.scale.setTo(1.7,1.7);
-    this.physics.arcade.enable(enemy);
-    enemy.body.gravity.y = 1400;
-    enemy.body.collisionWorldBounds = true;
-
 
     flyingenemy=this.add.group();
     flyingenemy.enableBody=true;
@@ -96,6 +92,7 @@ Game.Level1.prototype = {
    this.physics.arcade.collide(player,layer);
    this.physics.arcade.collide(enemy,layer);
   //  this.physics.arcade.gravity.y = 1400;
+   //enemy.body.gravity.y = 1400;
 
     player.body.velocity.x = 0;
 

@@ -15,6 +15,8 @@ var controls = {};
 var playerSpeed = 250;
 var jumpTimer = 0;
 
+var enemy;
+
 Game.Level1.prototype = {
 
   create:function() {
@@ -47,6 +49,8 @@ Game.Level1.prototype = {
     this.camera.follow(player);
     player.body.gravity.y = 1400;
     player.body.collisionWorldBounds = true;
+
+    enemy=this.add.sprite(560,8050,'enemy4');
 
     flyingenemy=this.add.group();
     flyingenemy.enableBody=true;

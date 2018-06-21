@@ -50,8 +50,8 @@ Game.Level1.prototype = {
     player.body.gravity.y = 1400;
     player.body.collisionWorldBounds = true;
 
-    enemy=this.add.sprite(560,8050,'enemy4');
-    enemy.scale.setTo(1.5,1.5);
+    enemy=this.add.sprite(860,8050,'enemy4');
+    enemy.scale.setTo(1.7,1.7);
 
     flyingenemy=this.add.group();
     flyingenemy.enableBody=true;

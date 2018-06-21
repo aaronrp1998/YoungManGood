@@ -53,7 +53,7 @@ Game.Level1.prototype = {
     enemy=this.add.sprite(860,8050,'enemy4');
     enemy.scale.setTo(1.7,1.7);
     this.physics.arcade.enable(enemy);
-    enemy.body.gravity.y = 1400;
+   // enemy.body.gravity.y = 1400;
     enemy.body.collisionWorldBounds = true;
 
 

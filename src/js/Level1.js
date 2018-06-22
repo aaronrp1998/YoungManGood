@@ -36,6 +36,7 @@ Game.Level1.prototype = {
     enemy=this.add.sprite(860,8050,'enemy4');
     enemy.scale.setTo(1.7,1.7);
     this.physics.arcade.enable(enemy);
+    enemy.body.gravity.y=1400;
 
     player = this.add.sprite(570,8050, 'player');
     player.anchor.setTo(0.5,0.5);
@@ -234,12 +235,12 @@ Game.Level1.prototype = {
       enemy.body.velocity.y=-200;
      if((enemy.body.x-player.body.x <= 375 && enemy.body.x-player.body.x >= 0 ))
      {
-         enemy.scale.x=-1;
+         enemy.scale.x=-1.7;
          enemy.body.velocity.x=-100;
      }
      else if (enemy.body.x-player.body.x < 0 && enemy.body.x-player.body.x >= -375 )
      {
-      enemy.scale.x=1;
+      enemy.scale.x=1.7;
       enemy.body.velocity.x=100;
      }
      else{

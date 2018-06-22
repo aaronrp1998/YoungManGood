@@ -170,6 +170,11 @@ Game.Level1.prototype = {
     }
 
   },
+  render:function()
+  {
+    this.game.debug.text(player.body.x);
+    this.game.debug.text(player.body.y);
+  },
 
   ResetPosition:function() {
     player.reset(570,8050);

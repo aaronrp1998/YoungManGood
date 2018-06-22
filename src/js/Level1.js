@@ -33,6 +33,10 @@ Game.Level1.prototype = {
     map.setTileIndexCallback(19,this.ResetPosition,this);
     map.setTileIndexCallback(-1,this.Libre,this);
 
+    enemy=this.add.sprite(860,8050,'enemy4');
+    enemy.scale.setTo(1.7,1.7);
+    this.physics.arcade.enable(enemy);
+
     player = this.add.sprite(570,8050, 'player');
     player.anchor.setTo(0.5,0.5);
     player.animations.add('iddle',[0],1,true);
@@ -49,10 +53,6 @@ Game.Level1.prototype = {
     this.camera.follow(player);
     player.body.gravity.y = 1400;
     player.body.collisionWorldBounds = true;
-
-    enemy=this.add.sprite(860,8050,'enemy4');
-    enemy.scale.setTo(1.7,1.7);
-    //this.physics.arcade.enable(enemy);
 
     flyingenemy=this.add.group();
     flyingenemy.enableBody=true;
@@ -78,6 +78,8 @@ Game.Level1.prototype = {
    // musica.play();
 
     player.scale.setTo(2,2);
+
+    game.time.events.loop(Phaser.Timer.SECOND*2, logicaenemigosaltofuerte, this);
 
     controls = {
       right: this.input.keyboard.addKey(Phaser.Keyboard.D),
@@ -225,6 +227,24 @@ Game.Level1.prototype = {
   },
   Libre:function() {
   player.body.gravity.y = 1400;
+  },
+  
+  logicaenemigosaltofuerte:function()
+  {
+      enemy.body.velocity.y=-200;
+     if((enemy.body.x-player.body.x <= 375 && enemy.body.x-player.body.x >= 0 ))
+     {
+         enemy.scale.x=-1;
+         enemy.body.velocity.x=-100;
+     }
+     else if (enemy.body.x-player.body.x < 0 && enemy.body.x-player.body.x >= -375 )
+     {
+      enemy.scale.x=1;
+      enemy.body.velocity.x=100;
+     }
+     else{
+         enemy.body.velocity.x=0;
+     }
   },
 
 

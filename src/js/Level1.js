@@ -235,12 +235,12 @@ Game.Level1.prototype = {
       enemy.body.velocity.y=-500;
      if((enemy.body.x-player.body.x <= 375 && enemy.body.x-player.body.x >= 0 ))
      {
-         enemy.scale.x=-1.7;
+         enemy.scale.setTo(-1.7,1.7);
          enemy.body.velocity.x=-100;
      }
      else if (enemy.body.x-player.body.x < 0 && enemy.body.x-player.body.x >= -375 )
      {
-      enemy.scale.x=1.7;
+      enemy.scale.setTo(1.7,1.7);
       enemy.body.velocity.x=100;
      }
      else{

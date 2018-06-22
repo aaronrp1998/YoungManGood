@@ -79,7 +79,7 @@ Game.Level1.prototype = {
 
     player.scale.setTo(2,2);
 
-   this.game.time.events.loop(Phaser.Timer.SECOND*2, logicaenemigosaltofuerte(), this);
+   this.game.time.events.loop(Phaser.Timer.SECOND*2,this.logicaenemigosaltofuerte , this);
 
     controls = {
       right: this.input.keyboard.addKey(Phaser.Keyboard.D),

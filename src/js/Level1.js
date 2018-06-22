@@ -172,8 +172,8 @@ Game.Level1.prototype = {
   },
   render:function()
   {
-    this.game.debug.text(player.body.x);
-    this.game.debug.text(player.body.y);
+    this.game.debug.text("PosX"+player.body.x,1,100);
+    this.game.debug.text("PosY"+player.body.y,1,200);
   },
 
   ResetPosition:function() {

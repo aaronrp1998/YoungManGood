@@ -232,7 +232,7 @@ Game.Level1.prototype = {
   
   logicaenemigosaltofuerte:function()
   {
-      enemy.body.velocity.y=-200;
+      enemy.body.velocity.y=-500;
      if((enemy.body.x-player.body.x <= 375 && enemy.body.x-player.body.x >= 0 ))
      {
          enemy.scale.x=-1.7;

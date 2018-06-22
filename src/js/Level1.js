@@ -80,7 +80,7 @@ Game.Level1.prototype = {
 
     player.scale.setTo(2,2);
 
-   this.game.time.events.loop(Phaser.Timer.SECOND*2,this.logicaenemigosaltofuerte , this);
+   this.game.time.events.loop(Phaser.Timer.SECOND*1.5,this.logicaenemigosaltofuerte , this);
 
     controls = {
       right: this.input.keyboard.addKey(Phaser.Keyboard.D),
@@ -236,12 +236,12 @@ Game.Level1.prototype = {
      if((enemy.body.x-player.body.x <= 375 && enemy.body.x-player.body.x >= 0 ))
      {
          enemy.scale.setTo(-1.7,1.7);
-         enemy.body.velocity.x=-100;
+         enemy.body.velocity.x=-90;
      }
      else if (enemy.body.x-player.body.x < 0 && enemy.body.x-player.body.x >= -375 )
      {
       enemy.scale.setTo(1.7,1.7);
-      enemy.body.velocity.x=100;
+      enemy.body.velocity.x=90;
      }
      else{
          enemy.body.velocity.x=0;

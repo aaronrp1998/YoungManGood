@@ -10,7 +10,6 @@ var bullets;
 var firebutton;
 var tiempodis=0;
 var dispderch=true;
-var vidajugador=100;
 var tiempoinv;
 var invulnerable=false;
 
@@ -275,7 +274,7 @@ Game.Level1.prototype = {
   enemyhitplayer:function()
   {
     if(!invulnerable){
-    vidajugador=vidajugador-5;
+    vidaJugador=vidaJugador-5;
     tiempoinv = this.game.time.now + Phaser.Timer.SECOND*4;
     player.alpha=0.5;
     invulnerable=true;

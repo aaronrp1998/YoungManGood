@@ -103,7 +103,8 @@ Game.Level1.prototype = {
 
     player.body.velocity.x = 0;
 
-    
+    if(vidaJugador>0)
+    {
     if(controls.right.isDown) {
       player.scale.setTo(1.8,2);
       player.body.velocity.x += playerSpeed;
@@ -156,7 +157,7 @@ Game.Level1.prototype = {
       player.animations.play('jumpdis');
       this.fire();
     }
-
+  }
     if(controls.up.isDown && (player.body.onFloor() || player.body.touching.down) && this.time.now > jumpTimer){
       player.body.velocity.y = -800;
       jumpTimer = this.time.now + 750;

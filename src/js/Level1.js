@@ -261,7 +261,7 @@ Game.Level1.prototype = {
     enemysaltlife=enemysaltlife-1;
     if(enemysaltlife == 0)
     {
-        enemigoe.kill();
+        enemigo.kill();
         enemysaltlife=5;
     }
   },

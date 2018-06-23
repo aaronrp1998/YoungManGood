@@ -175,7 +175,7 @@ Game.Level1.prototype = {
     this.intocable();
 
     this.game.physics.arcade.overlap(bullets, enemy, this.mataenemigogrande, null, this);
-    this.game.physics.arcade.overlap(enemy4, player, this.enemyhitplayer, null, this);
+    this.game.physics.arcade.overlap(enemy, player, this.enemyhitplayer, null, this);
 
   },
   render:function()

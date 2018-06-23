@@ -279,7 +279,7 @@ Game.Level1.prototype = {
     player.alpha=0.5;
     invulnerable=true;
     }
-    if(vidajugador <= 0)
+    if(vidaJugador <= 0)
     {
         player.kill();
         playeralive=false;

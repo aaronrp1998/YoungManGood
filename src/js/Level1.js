@@ -16,6 +16,7 @@ var playerSpeed = 250;
 var jumpTimer = 0;
 
 var enemy;
+var enemysaltlife=5;
 
 Game.Level1.prototype = {
 
@@ -169,6 +170,8 @@ Game.Level1.prototype = {
       this.state.start('PreloaderBoss');
     }
 
+    this.game.physics.arcade.overlap(bullets, enemy, this.mataenemigogrande, null, this);
+
   },
   render:function()
   {
@@ -251,6 +254,16 @@ Game.Level1.prototype = {
      else{
          enemy.body.velocity.x=0;
      }
+  },
+  mataenemigogrande:function(enemigo,bullet)
+  {
+    bullet.kill();
+    enemysaltlife=enemysaltlife-1;
+    if(enemysaltlife == 0)
+    {
+        enemigoe.kill();
+        enemysaltlife=5;
+    }
   },
 
 

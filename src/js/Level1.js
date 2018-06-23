@@ -10,6 +10,9 @@ var bullets;
 var firebutton;
 var tiempodis=0;
 var dispderch=true;
+var vidajugador=100;
+var tiempoinv;
+var invulnerable=false;
 
 var controls = {};
 var playerSpeed = 250;
@@ -169,14 +172,17 @@ Game.Level1.prototype = {
     if(player.x > 8896){
       this.state.start('PreloaderBoss');
     }
+    this.intocable();
 
     this.game.physics.arcade.overlap(bullets, enemy, this.mataenemigogrande, null, this);
+    this.game.physics.arcade.overlap(enemy4, player, this.enemyhitplayer, null, this);
 
   },
   render:function()
   {
     this.game.debug.text("PosX"+player.body.x,1,100);
     this.game.debug.text("PosY"+player.body.y,1,200);
+    this.game.debug.text("Vida"+vidaJugador,1,250);
   },
 
   ResetPosition:function() {
@@ -266,5 +272,27 @@ Game.Level1.prototype = {
     }
   },
 
+  enemyhitplayer:function()
+  {
+    if(!invulnerable){
+    vidajugador=vidajugador-5;
+    tiempoinv = this.game.time.now + Phaser.Timer.SECOND*4;
+    player.alpha=0.5;
+    invulnerable=true;
+    }
+    if(vidajugador <= 0)
+    {
+        player.kill();
+        playeralive=false;
+    }
+  },
+  intocable:function()
+  {
+    if(this.game.time.now >= tiempoinv)
+    {
+        player.alpha=1;
+        invulnerable=false;
+    }
+  },
 
 }

@@ -42,7 +42,7 @@ Game.Level1.prototype = {
     this.physics.arcade.enable(enemystrg);
     enemystrg.body.gravity.y=1400;
 
-    enemyjump=this.add.sprite(870,8050,'enemy2');
+    enemyjump=this.add.sprite(870,8050,'enemy3');
     enemyjump.scale.setTo(2,2);
     this.physics.arcade.enable(enemyjump);
 

@@ -17,8 +17,9 @@ var controls = {};
 var playerSpeed = 250;
 var jumpTimer = 0;
 
-var enemy;
+var enemystrg;
 var enemysaltlife=5;
+var enemyjump;
 
 Game.Level1.prototype = {
 
@@ -36,10 +37,14 @@ Game.Level1.prototype = {
     map.setTileIndexCallback(19,this.ResetPosition,this);
     map.setTileIndexCallback(-1,this.Libre,this);
 
-    enemy=this.add.sprite(7981,3184,'enemy4');
-    enemy.scale.setTo(1.7,1.7);
-    this.physics.arcade.enable(enemy);
-    enemy.body.gravity.y=1400;
+    enemystrg=this.add.sprite(7981,3184,'enemy4');
+    enemystrg.scale.setTo(1.7,1.7);
+    this.physics.arcade.enable(enemystrg);
+    enemystrg.body.gravity.y=1400;
+
+    enemyjump=this.add.sprite(870,8050);
+    enemyjump.scale.setTo(2,2);
+    this.physics.arcade.enable(enemyjump);
 
     player = this.add.sprite(570,8050, 'player');
     player.anchor.setTo(0.5,0.5);
@@ -174,8 +179,8 @@ Game.Level1.prototype = {
     }
     this.intocable();
 
-    this.game.physics.arcade.overlap(bullets, enemy, this.mataenemigogrande, null, this);
-    this.game.physics.arcade.overlap(enemy, player, this.enemyhitplayer, null, this);
+    this.game.physics.arcade.overlap(bullets, enemystrg, this.mataenemigogrande, null, this);
+    this.game.physics.arcade.overlap(enemystrg, player, this.enemyhitplayer, null, this);
 
   },
   render:function()
@@ -246,19 +251,19 @@ Game.Level1.prototype = {
   
   logicaenemigosaltofuerte:function()
   {
-      enemy.body.velocity.y=-600;
-     if((enemy.body.x-player.body.x <= 375 && enemy.body.x-player.body.x >= 0 ))
+      enemystrg.body.velocity.y=-600;
+     if((enemystrg.body.x-player.body.x <= 375 && enemystrg.body.x-player.body.x >= 0 ))
      {
-         enemy.scale.setTo(-1.7,1.7);
-         enemy.body.velocity.x=-90;
+         enemystrg.scale.setTo(-1.7,1.7);
+         enemystrg.body.velocity.x=-90;
      }
-     else if (enemy.body.x-player.body.x < 0 && enemy.body.x-player.body.x >= -375 )
+     else if (enemystrg.body.x-player.body.x < 0 && enemystrg.body.x-player.body.x >= -375 )
      {
-      enemy.scale.setTo(1.7,1.7);
-      enemy.body.velocity.x=90;
+      enemystrg.scale.setTo(1.7,1.7);
+      enemystrg.body.velocity.x=90;
      }
      else{
-         enemy.body.velocity.x=0;
+         enemystrg.body.velocity.x=0;
      }
   },
   mataenemigogrande:function(enemigo,bullet)

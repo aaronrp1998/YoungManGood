@@ -4,6 +4,7 @@ var map;
 var layer;
 var shots;
 var jumps;
+var enemyd;
 
 var player;
 var vidaJugador = 100;
@@ -52,6 +53,7 @@ Game.Level1.prototype = {
     //2ECCFA
     shots = this.add.audio('shots');
     jumps = this.add.audio('jumps');
+    enemyd = this.add.audio('enemyd');
 
     map = this.add.tilemap('map',64,64);
     map.addTilesetImage('tileset');
@@ -248,8 +250,10 @@ Game.Level1.prototype = {
     this.game.physics.arcade.overlap(bullets, enemystrg, this.mataenemigogrande, null, this);
     this.game.physics.arcade.overlap(enemystrg, player, this.enemyhitplayer, null, this);
     this.game.physics.arcade.overlap(bullets, enemyjump , this.mataenemigo, null, this);
+    this.game.physics.arcade.overlap(bullets, enemy , this.mataenemigo, null, this);
     this.game.physics.arcade.overlap(enemyjump, player, this.enemyhitplayer, null, this);
     this.game.physics.arcade.overlap(enemyocto, player, this.enemyhitplayer, null, this);
+    this.game.physics.arcade.overlap(enemy, player, this.enemyhitplayer, null, this);
 
   },
   render:function()
@@ -392,6 +396,7 @@ Game.Level1.prototype = {
   {
     bullet.kill();
     enemigo.kill();
+    enemyd.play();
   },
   intocable:function()
   {

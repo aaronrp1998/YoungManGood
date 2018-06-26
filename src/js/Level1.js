@@ -19,7 +19,14 @@ var jumpTimer = 0;
 
 var enemystrg;
 var enemysaltlife=5;
+
 var enemyjump;
+
+var enemyocto;
+var octox;
+var octoy;
+var movotcx=300;
+var movocty=0;
 
 Game.Level1.prototype = {
 
@@ -47,6 +54,10 @@ Game.Level1.prototype = {
     this.physics.arcade.enable(enemyjump);
     enemyjump.body.gravity.y=900;
 
+    enemyocto=this.add.sprite(870,3184,'enemy2');
+    enemyocto.scale.setTo(2,2);
+    this.physics.arcade.enable(enemyocto);
+
     player = this.add.sprite(570,8050, 'player');
     player.anchor.setTo(0.5,0.5);
     player.animations.add('iddle',[0],1,true);
@@ -63,6 +74,7 @@ Game.Level1.prototype = {
     this.camera.follow(player);
     player.body.gravity.y = 1400;
     player.body.collisionWorldBounds = true;
+    player.body.collideWorldBounds = true;
 
     flyingenemy=this.add.group();
     flyingenemy.enableBody=true;
@@ -91,6 +103,7 @@ Game.Level1.prototype = {
 
    this.game.time.events.loop(Phaser.Timer.SECOND*1.5,this.logicaenemigosaltofuerte , this);
    this.game.time.events.loop(Phaser.Timer.SECOND*1.5, this.logicaenemigosalto, this);
+   this.game.time.events.loop(Phaser.Timer.SECOND*3, this.logicaocto, this);
 
     controls = {
       right: this.input.keyboard.addKey(Phaser.Keyboard.D),
@@ -180,6 +193,16 @@ Game.Level1.prototype = {
     if(player.x > 8896){
       this.state.start('PreloaderBoss');
     }
+
+    if(enemyocto.body.y >= octoy-2 && enemyocto.body.x<= octoy+2 )
+    {
+        enemyocto.body.velocity.y=0;
+    }
+    if(enemyocto.body.x >= octox-2 && enemyocto.body.x<= octox+2 )
+    {
+        enemyocto.body.velocity.x=0;
+    }
+
     this.intocable();
 
     this.game.physics.arcade.overlap(bullets, enemystrg, this.mataenemigogrande, null, this);
@@ -269,6 +292,14 @@ Game.Level1.prototype = {
      else{
          enemystrg.body.velocity.x=0;
      }
+  },
+  logicaocto:function()
+  {
+    octox=enemyocto.body.x + movotcx;
+    octoy=enemyocto.body.y + movocty;
+    this.game.physics.arcade.moveToXY(enemyocto,octox,octoy,175);
+    movocty=-movocty;
+    movotcx=-movotcx;
   },
   logicaenemigosalto:function()
   {

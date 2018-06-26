@@ -57,9 +57,9 @@ Game.Level1.prototype = {
     map.setTileIndexCallback(19,this.ResetPosition,this);
     map.setTileIndexCallback(-1,this.Libre,this);
 
-  /*  enemy= game.add.sprite(500,125,'enemy1');
+    enemy= game.add.sprite(1400,7800,'enemy1');
     enemy.enableBody=true;
-    this.game.physics.arcade.enable(enemy);*/
+    this.game.physics.arcade.enable(enemy);
 
     enemystrg=this.add.sprite(7981,3184,'enemy4');
     enemystrg.scale.setTo(1.7,1.7);
@@ -220,6 +220,23 @@ Game.Level1.prototype = {
         enemyocto.body.velocity.x=0;
     }
 
+    if(enemy.inCamera)
+    {
+      if(derchen)
+      {
+        enemy.body.velocity.x=100;
+      }
+      else
+      {
+        enemy.body.velocity.x=-100;
+      }
+      
+    }
+    else
+    {
+      enemy.body.velocity.x=0;
+    }
+
     this.intocable();
 
     this.game.physics.arcade.overlap(bullets, enemystrg, this.mataenemigogrande, null, this);
@@ -234,7 +251,7 @@ Game.Level1.prototype = {
     this.game.debug.text("PosX"+player.body.x,1,100);
     this.game.debug.text("PosY"+player.body.y,1,200);
     this.game.debug.text("Vida"+vidaJugador,1,250);
-    this.game.debug.text("VAR"+enemyjump.inCamera,1,300)
+    this.game.debug.text("VAR "+enemy.inCamera,1,300)
   },
 
   ResetPosition:function() {

@@ -57,7 +57,7 @@ Game.Level1.prototype = {
     map.setTileIndexCallback(19,this.ResetPosition,this);
     map.setTileIndexCallback(-1,this.Libre,this);
 
-    enemy= game.add.sprite(1400,7800,'enemy1');
+    enemy= this.add.sprite(1400,7800,'enemy1');
     enemy.enableBody=true;
     this.game.physics.arcade.enable(enemy);
 

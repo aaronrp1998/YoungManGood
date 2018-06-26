@@ -31,6 +31,7 @@ var nuevapos=false;
 var derchen=false;
 var reset=false;
 var para=false;
+var velocidad=-100;
 
 var enemystrg;
 var enemysaltlife=5;
@@ -234,15 +235,7 @@ Game.Level1.prototype = {
 
     if(enemy.inCamera)
     {
-      if(derchen)
-      {
-        enemy.body.velocity.x=100;
-      }
-      else
-      {
-        enemy.body.velocity.x=-100;
-      }
-      
+        enemy.body.velocity.x=velocidad;
     }
     else
     {
@@ -262,12 +255,13 @@ Game.Level1.prototype = {
   render:function()
   {
     this.game.debug.text("PosX"+enemy.body.x,1,100);
-    this.game.debug.text("PosY"+enemy.body.y,1,200);
+    this.game.debug.text("PosY"+enemy.body.y,1,150);
     this.game.debug.text(" "+derchen,1,200);
    // this.game.debug.text("Vida"+vidaJugador,1,250);
     //this.game.debug.text("VAR "+enemy.inCamera,1,300);
     this.game.debug.text("detx "+detectionpointX,1,250);
-    this.game.debug.text("dety "+detectionpointY,1,300)
+    this.game.debug.text("dety "+detectionpointY,1,300);
+
   },
 
   ResetPosition:function() {
@@ -450,12 +444,14 @@ Game.Level1.prototype = {
         nuevapos=false;
         if (derchen)
         {
-            enemy.body.velocity.x=100;
+            velocidad =100;
+            enemy.body.velocity.x=velocidad;
             derchen=false;
         }
         else
         {
-            enemy.body.velocity.x=-100;
+            velocidad=-100;
+            enemy.body.velocity.x=velocidad;
         }
         enemy.body.velocity.y=0;
         detectado=false;

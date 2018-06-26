@@ -42,6 +42,10 @@ Game.Preloader.prototype = {
 
     this.load.audio('musica', 'audio/musica.mp3');
 
+    this.load.audio('jumps', 'audio/jump.mp3');
+
+    this.load.audio('shots', 'audio/shot.mp3');
+
   },
 
   create:function() {

@@ -2,6 +2,8 @@ Game.Level1 = function(game) {};
 
 var map;
 var layer;
+var shots;
+var jumps;
 
 var player;
 var vidaJugador = 100;
@@ -47,6 +49,8 @@ Game.Level1.prototype = {
 
     this.stage.backgroundColor = '#2ECCFA';
     //2ECCFA
+    shots = this.add.audio('shots');
+    jumps = this.add.audio('jumps');
 
     map = this.add.tilemap('map',64,64);
     map.addTilesetImage('tileset');
@@ -154,6 +158,7 @@ Game.Level1.prototype = {
       dispderch=true;
       player.animations.play('rundis');
       this.fire();
+      shots.play();
     }
     else if(controls.right.isDown && player.body.onFloor() && !firebutton.isDown ) {
       dispderch=true;
@@ -168,6 +173,7 @@ Game.Level1.prototype = {
       dispderch=false;
       player.animations.play('rundis');
       this.fire();
+      shots.play();
     }
   else if(controls.left.isDown && player.body.onFloor() && !firebutton.isDown) {
       dispderch=false;
@@ -178,6 +184,7 @@ Game.Level1.prototype = {
     {
       player.animations.play('disiddle');
       this.fire();
+      shots.play();
     }
 
     else if((player.body.velocity.x == 0) && player.body.onFloor()){
@@ -189,6 +196,7 @@ Game.Level1.prototype = {
       dispderch=true;
       player.animations.play('jumpdis');
       this.fire();
+      shots.play();
     }
 
     if(firebutton.isDown  && !player.body.onFloor() && controls.left.isDown)
@@ -196,12 +204,14 @@ Game.Level1.prototype = {
       dispderch=false;
       player.animations.play('jumpdis');
       this.fire();
+      shots.play();
     }
   }
     if(controls.up.isDown && (player.body.onFloor() || player.body.touching.down) && this.time.now > jumpTimer){
       player.body.velocity.y = -800;
       jumpTimer = this.time.now + 750;
       player.animations.play('jump');
+      jumps.play();
     }
 
     if( player.body.velocity.y >=570)

@@ -184,6 +184,7 @@ Game.Level1.prototype = {
 
     this.game.physics.arcade.overlap(bullets, enemystrg, this.mataenemigogrande, null, this);
     this.game.physics.arcade.overlap(enemystrg, player, this.enemyhitplayer, null, this);
+    this.game.physics.arcade.overlap(bullets, enemyjump , this.mataenemigo, null, this);
 
   },
   render:function()
@@ -308,6 +309,11 @@ Game.Level1.prototype = {
         player.kill();
         playeralive=false;
     }
+  },
+  mataenemigo:function(bullet,enemigo)
+  {
+    bullet.kill();
+    enemigo.kill();
   },
   intocable:function()
   {

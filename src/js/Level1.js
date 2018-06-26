@@ -429,7 +429,7 @@ Game.Level1.prototype = {
     {
         this.game.physics.arcade.moveToXY(enemy,detectionpointX,detectionpointY,200);
     }
-    if((enemy.body.x <= detectionpointX + 20 && enemy.body.x >= detectionpointX - 20 ) && (enemy.body.y >= detectionpointY-20 &&  enemy.body.y <= detectionpointY+20) && !para)
+    if((enemy.body.x <= detectionpointX + 25 && enemy.body.x >= detectionpointX - 25 ) && (enemy.body.y >= detectionpointY-25 &&  enemy.body.y <= detectionpointY+25) && !para)
     {
         enemy.body.velocity.x=0;
         enemy.body.velocity.y=0;
@@ -442,7 +442,7 @@ Game.Level1.prototype = {
     {
         this.game.physics.arcade.moveToXY(enemy,pointenemynewX,pointenemynewY,200);
     }
-    if((enemy.body.x <= pointenemynewX + 20 && enemy.body.x >= pointenemynewX - 20) && (enemy.body.y <= pointenemynewY+20 && enemy.body.y >= pointenemynewY-20)&& !reset)
+    if((enemy.body.x <= pointenemynewX + 25 && enemy.body.x >= pointenemynewX - 25) && (enemy.body.y <= pointenemynewY+25 && enemy.body.y >= pointenemynewY-25)&& !reset)
     {
         enemy.body.velocity.x=0;
         enemy.body.velocity.y=0;

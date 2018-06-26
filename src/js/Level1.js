@@ -208,6 +208,8 @@ Game.Level1.prototype = {
     this.game.physics.arcade.overlap(bullets, enemystrg, this.mataenemigogrande, null, this);
     this.game.physics.arcade.overlap(enemystrg, player, this.enemyhitplayer, null, this);
     this.game.physics.arcade.overlap(bullets, enemyjump , this.mataenemigo, null, this);
+    this.game.physics.arcade.overlap(enemyjump, player, this.enemyhitplayer, null, this);
+    this.game.physics.arcade.overlap(enemyocto, player, this.enemyhitplayer, null, this);
 
   },
   render:function()

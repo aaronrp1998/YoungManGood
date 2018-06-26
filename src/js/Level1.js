@@ -59,6 +59,7 @@ Game.Level1.prototype = {
 
     enemy= this.add.sprite(1400,7800,'enemy1');
     enemy.scale.setTo(2,2);
+    enemy.anchor.setTo(0.5,0.5);
     enemy.enableBody=true;
     this.game.physics.arcade.enable(enemy);
 
@@ -395,7 +396,7 @@ Game.Level1.prototype = {
   },
   logicaenemigovolador:function()
   {
-    if((enemy.body.x-player.body.x <= 75 && enemy.body.x-player.body.x >= -75 ) && (player.body.y-enemy.body.y <= 100 && player.body.y-enemy.body.y >=0) && !detectado)
+    if((enemy.body.x-player.body.x <= 175 && enemy.body.x-player.body.x >= -175 ) && (player.body.y-enemy.body.y <= 200 && player.body.y-enemy.body.y >=0) && !detectado)
     {
         detectionpointX = player.body.x;
         detectionpointY = player.body.y;
@@ -414,7 +415,7 @@ Game.Level1.prototype = {
     }
     if(ve)
     {
-        game.physics.arcade.moveToXY(enemy,detectionpointX,detectionpointY,200);
+        this.game.physics.arcade.moveToXY(enemy,detectionpointX,detectionpointY,200);
     }
     if((enemy.body.x <= detectionpointX + 2 && enemy.body.x >= detectionpointX - 2 ) && (enemy.body.y >= detectionpointY-2 &&  enemy.body.y <= detectionpointY+2) && !para)
     {
@@ -427,7 +428,7 @@ Game.Level1.prototype = {
     }
     if(nuevapos)
     {
-        game.physics.arcade.moveToXY(enemy,pointenemynewX,pointenemynewY,200);
+        this.game.physics.arcade.moveToXY(enemy,pointenemynewX,pointenemynewY,200);
     }
     if((enemy.body.x <= pointenemynewX + 2 && enemy.body.x >= pointenemynewX - 2) && (enemy.body.y <= pointenemynewY+1 && enemy.body.y >= pointenemynewY-1)&& !reset)
     {

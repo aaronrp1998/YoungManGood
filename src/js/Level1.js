@@ -430,7 +430,7 @@ Game.Level1.prototype = {
     {
         this.game.physics.arcade.moveToXY(enemy,pointenemynewX,pointenemynewY,200);
     }
-    if((enemy.body.x <= pointenemynewX + 2 && enemy.body.x >= pointenemynewX - 2) && (enemy.body.y <= pointenemynewY+1 && enemy.body.y >= pointenemynewY-1)&& !reset)
+    if((enemy.body.x <= pointenemynewX + 10 && enemy.body.x >= pointenemynewX - 10) && (enemy.body.y <= pointenemynewY+10 && enemy.body.y >= pointenemynewY-10)&& !reset)
     {
         enemy.body.velocity.x=0;
         enemy.body.velocity.y=0;

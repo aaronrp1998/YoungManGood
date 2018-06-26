@@ -45,6 +45,7 @@ Game.Level1.prototype = {
     enemyjump=this.add.sprite(870,8050,'enemy3');
     enemyjump.scale.setTo(2,2);
     this.physics.arcade.enable(enemyjump);
+    enemyjump.body.gravity.y=900;
 
     player = this.add.sprite(570,8050, 'player');
     player.anchor.setTo(0.5,0.5);
@@ -89,6 +90,7 @@ Game.Level1.prototype = {
     player.scale.setTo(2,2);
 
    this.game.time.events.loop(Phaser.Timer.SECOND*1.5,this.logicaenemigosaltofuerte , this);
+   this.game.time.events.loop(Phaser.Timer.SECOND*1.5, this.logicaenemigosalto, this);
 
     controls = {
       right: this.input.keyboard.addKey(Phaser.Keyboard.D),
@@ -265,6 +267,21 @@ Game.Level1.prototype = {
      else{
          enemystrg.body.velocity.x=0;
      }
+  },
+  logicaenemigosalto:function()
+  {
+    enemyjump.body.velocity.y=-350;
+   if((enemyjump.body.x-player.body.x <= 175 && enemyjump.body.x-player.body.x >= 0 ))
+   {
+       enemyjump.body.velocity.x=-100;
+   }
+   else if (enemyjump.body.x-player.body.x < 0 && enemyjump.body.x-player.body.x >= -175 )
+   {
+    enemyjump.body.velocity.x=100;
+   }
+   else{
+       enemyjump.body.velocity.x=0;
+   }
   },
   mataenemigogrande:function(enemigo,bullet)
   {

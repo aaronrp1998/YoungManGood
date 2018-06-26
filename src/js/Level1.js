@@ -234,7 +234,7 @@ Game.Level1.prototype = {
     this.game.debug.text("PosX"+player.body.x,1,100);
     this.game.debug.text("PosY"+player.body.y,1,200);
     this.game.debug.text("Vida"+vidaJugador,1,250);
-    this.game.debug.text("VAR"+enemyjump.inCamera)
+    this.game.debug.text("VAR"+enemyjump.inCamera,1,300)
   },
 
   ResetPosition:function() {

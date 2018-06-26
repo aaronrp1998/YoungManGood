@@ -17,6 +17,19 @@ var controls = {};
 var playerSpeed = 250;
 var jumpTimer = 0;
 
+var enemy;
+var pointenemynewX;
+var pointenemynewY;
+var detectionpointX;
+var detectionpointY;
+var detectado=false;
+var vuelveenemy = false;
+var ve=false;
+var nuevapos=false;
+var derchen=false;
+var reset=false;
+var para=false;
+
 var enemystrg;
 var enemysaltlife=5;
 
@@ -43,6 +56,10 @@ Game.Level1.prototype = {
     map.setTileIndexCallback(12,this.SubirEscaleras,this);
     map.setTileIndexCallback(19,this.ResetPosition,this);
     map.setTileIndexCallback(-1,this.Libre,this);
+
+  /*  enemy= game.add.sprite(500,125,'enemy1');
+    enemy.enableBody=true;
+    this.game.physics.arcade.enable(enemy);*/
 
     enemystrg=this.add.sprite(7981,3184,'enemy4');
     enemystrg.scale.setTo(1.7,1.7);
@@ -356,5 +373,61 @@ Game.Level1.prototype = {
         invulnerable=false;
     }
   },
+  logicaenemigovolador:function()
+  {
+    if((enemy.body.x-player.body.x <= 75 && enemy.body.x-player.body.x >= -75 ) && (player.body.y-enemy.body.y <= 100 && player.body.y-enemy.body.y >=0) && !detectado)
+    {
+        detectionpointX = player.body.x;
+        detectionpointY = player.body.y;
+        if(enemy.body.x-player.body.x <= 75 && enemy.body.x-player.body.x >0 ){
+            pointenemynewX = enemy.body.x - 200;
+        }
+        else
+        {
+            pointenemynewX = enemy.body.x + 200;
+            derchen=true;
+        }
+        pointenemynewY = enemy.body.y;
+        detectado=true;
+        ve=true;
+        para=false;
+    }
+    if(ve)
+    {
+        game.physics.arcade.moveToXY(enemy,detectionpointX,detectionpointY,200);
+    }
+    if((enemy.body.x <= detectionpointX + 2 && enemy.body.x >= detectionpointX - 2 ) && (enemy.body.y >= detectionpointY-2 &&  enemy.body.y <= detectionpointY+2) && !para)
+    {
+        enemy.body.velocity.x=0;
+        enemy.body.velocity.y=0;
+        ve=false;
+        reset=false;
+        nuevapos=true;
+        para=true;
+    }
+    if(nuevapos)
+    {
+        game.physics.arcade.moveToXY(enemy,pointenemynewX,pointenemynewY,200);
+    }
+    if((enemy.body.x <= pointenemynewX + 2 && enemy.body.x >= pointenemynewX - 2) && (enemy.body.y <= pointenemynewY+1 && enemy.body.y >= pointenemynewY-1)&& !reset)
+    {
+        enemy.body.velocity.x=0;
+        enemy.body.velocity.y=0;
+        nuevapos=false;
+        if (derchen)
+        {
+            enemy.body.velocity.x=100;
+            derchen=false;
+        }
+        else
+        {
+            enemy.body.velocity.x=-100;
+        }
+        enemy.body.velocity.y=0;
+        detectado=false;
+        reset=true;
+    }
+  },
+
 
 }

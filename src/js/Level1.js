@@ -272,11 +272,11 @@ Game.Level1.prototype = {
   logicaenemigosalto:function()
   {
     enemyjump.body.velocity.y=-350;
-   if((enemyjump.body.x-player.body.x <= 175 && enemyjump.body.x-player.body.x >= 0 ))
+   if((enemyjump.body.x-player.body.x <= 275 && enemyjump.body.x-player.body.x >= 0 ))
    {
        enemyjump.body.velocity.x=-100;
    }
-   else if (enemyjump.body.x-player.body.x < 0 && enemyjump.body.x-player.body.x >= -175 )
+   else if (enemyjump.body.x-player.body.x < 0 && enemyjump.body.x-player.body.x >= -275 )
    {
     enemyjump.body.velocity.x=100;
    }

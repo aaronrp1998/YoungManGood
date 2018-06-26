@@ -58,6 +58,7 @@ Game.Level1.prototype = {
     map.setTileIndexCallback(-1,this.Libre,this);
 
     enemy= this.add.sprite(1400,7800,'enemy1');
+    enemy.scale.setTo(2,2);
     enemy.enableBody=true;
     this.game.physics.arcade.enable(enemy);
 
@@ -237,6 +238,7 @@ Game.Level1.prototype = {
       enemy.body.velocity.x=0;
     }
 
+    this.logicaenemigovolador();
     this.intocable();
 
     this.game.physics.arcade.overlap(bullets, enemystrg, this.mataenemigogrande, null, this);

@@ -400,7 +400,7 @@ Game.Level1.prototype = {
     {
         detectionpointX = player.body.x;
         detectionpointY = player.body.y;
-        if(enemy.body.x-player.body.x <= 75 && enemy.body.x-player.body.x >0 ){
+        if(enemy.body.x-player.body.x <= 175 && enemy.body.x-player.body.x >0 ){
             pointenemynewX = enemy.body.x - 200;
         }
         else

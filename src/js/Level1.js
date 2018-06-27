@@ -416,7 +416,7 @@ Game.Level1.prototype = {
     vidaocto = vidaocto-1;
     if(vidaocto<=0)
     {
-      enemigo.kil();
+      enemigo.kill();
       enemyd.play();
       vidaocto=3;
     }

@@ -268,10 +268,10 @@ Game.Level1.prototype = {
     {
       enemy.body.velocity.x=0;
     }
-    if(enemy5.body.x>=posicion-25 && enemy5.body.x<=posicion+25 )
+    if(enemyconch.body.x>=posicion-25 && enemyconch.body.x<=posicion+25 )
     {
-        enemy5.body.velocity.x=0;
-        game.physics.arcade.overlap(bullets, enemy5, mataenemigo, null, this);
+        enemyconch.body.velocity.x=0;
+        game.physics.arcade.overlap(bullets, enemyconch, mataenemigo, null, this);
         if(undisparo)
         {
         disparocirculo();

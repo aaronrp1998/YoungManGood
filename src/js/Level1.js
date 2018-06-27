@@ -455,9 +455,9 @@ Game.Level1.prototype = {
   },
   enemigoconcha:function() 
   {
-     posicion=enemy5.body.x-150;
-     posicionY=enemy5.body.y;
-     this.physics.arcade.moveToXY(enemy5,posicion,posicionY,100);
+     posicion=enemyconch.body.x-150;
+     posicionY=enemyconch.body.y;
+     this.physics.arcade.moveToXY(enemyconch,posicion,posicionY,100);
      undisparo=true;
 
   },

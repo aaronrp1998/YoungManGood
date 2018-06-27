@@ -44,6 +44,7 @@ var octox;
 var octoy;
 var movotcx=300;
 var movocty=0;
+var vidaocto=3;
 
 Game.Level1.prototype = {
 
@@ -54,6 +55,7 @@ Game.Level1.prototype = {
     shots = this.add.audio('shots');
     jumps = this.add.audio('jumps');
     enemyd = this.add.audio('enemyd');
+    shots.volume-=0.2;
 
     map = this.add.tilemap('map',64,64);
     map.addTilesetImage('tileset');
@@ -254,6 +256,7 @@ Game.Level1.prototype = {
     this.game.physics.arcade.overlap(enemyjump, player, this.enemyhitplayer, null, this);
     this.game.physics.arcade.overlap(enemyocto, player, this.enemyhitplayer, null, this);
     this.game.physics.arcade.overlap(enemy, player, this.enemyhitplayer, null, this);
+    this.game.physics.arcade.overlap(bullets, enemyocto, this.mataenemigoocto, null, this);
 
   },
   render:function()
@@ -374,6 +377,7 @@ Game.Level1.prototype = {
     if(enemysaltlife == 0)
     {
         enemigo.kill();
+        enemyd.play();
         enemysaltlife=5;
     }
   },
@@ -404,6 +408,17 @@ Game.Level1.prototype = {
     {
         player.alpha=1;
         invulnerable=false;
+    }
+  },
+  mataenemigoocto:function(enemigo,bullet)
+  {
+    bullet.kill();
+    vidaocto = vidaocto-1;
+    if(vidaocto<=0)
+    {
+      enemigo.kil();
+      enemyd.play();
+      vidaocto=3;
     }
   },
   logicaenemigovolador:function()

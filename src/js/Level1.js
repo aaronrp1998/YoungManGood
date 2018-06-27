@@ -130,7 +130,7 @@ Game.Level1.prototype = {
     bullets.setAll('outOfBoundsKill', true);
     bullets.setAll('checkWorldBounds', true);
 
-    enemybullets=game.add.group();
+    enemybullets=this.add.group();
     enemybullets.enableBody = true;
     enemybullets.physicsBodyType = Phaser.Physics.ARCADE;
     enemybullets.createMultiple(30, 'enemybullet');

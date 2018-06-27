@@ -20,6 +20,8 @@ var controls = {};
 var playerSpeed = 250;
 var jumpTimer = 0;
 
+var enemybullets;
+
 var enemy;
 var pointenemynewX;
 var pointenemynewY;
@@ -38,6 +40,13 @@ var enemystrg;
 var enemysaltlife=5;
 
 var enemyjump;
+
+var torreta;
+
+var enemyconch;
+var posicion;
+var posicionY;
+var undisparo=true;
 
 var enemyocto;
 var octox;
@@ -86,6 +95,10 @@ Game.Level1.prototype = {
     enemyocto.scale.setTo(2,2);
     this.physics.arcade.enable(enemyocto);
 
+    enemyconch=this.add.sprite(1400,7800,'enemy5');
+    enemyconch.scale.setTo(2,2);
+    this.physics.arcade.enable(enemyconch);
+
     player = this.add.sprite(570,8050, 'player');
     player.anchor.setTo(0.5,0.5);
     player.animations.add('iddle',[0],1,true);
@@ -117,6 +130,15 @@ Game.Level1.prototype = {
     bullets.setAll('outOfBoundsKill', true);
     bullets.setAll('checkWorldBounds', true);
 
+    enemybullets=game.add.group();
+    enemybullets.enableBody = true;
+    enemybullets.physicsBodyType = Phaser.Physics.ARCADE;
+    enemybullets.createMultiple(30, 'enemybullet');
+    enemybullets.setAll('anchor.x', 0.5);
+    enemybullets.setAll('anchor.y', 1);
+    enemybullets.setAll('outOfBoundsKill', true);
+    enemybullets.setAll('checkWorldBounds', true);
+
     weapon = this.add.weapon(10,'bullet');
     weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
     // weapon.bulletAngleOffset = 90;
@@ -129,6 +151,7 @@ Game.Level1.prototype = {
 
     player.scale.setTo(2,2);
 
+   this.time.events.loop(Phaser.Timer.SECOND*2.5, this.enemigoconcha, this);
    this.game.time.events.loop(Phaser.Timer.SECOND*1.5,this.logicaenemigosaltofuerte , this);
    this.game.time.events.loop(Phaser.Timer.SECOND*1.5, this.logicaenemigosalto, this);
    this.game.time.events.loop(Phaser.Timer.SECOND*3, this.logicaocto, this);
@@ -245,6 +268,16 @@ Game.Level1.prototype = {
     {
       enemy.body.velocity.x=0;
     }
+    if(enemy5.body.x>=posicion-25 && enemy5.body.x<=posicion+25 )
+    {
+        enemy5.body.velocity.x=0;
+        game.physics.arcade.overlap(bullets, enemy5, mataenemigo, null, this);
+        if(undisparo)
+        {
+        disparocirculo();
+        undisparo=false;
+        }
+    }
 
     this.logicaenemigovolador();
     this.intocable();
@@ -261,10 +294,9 @@ Game.Level1.prototype = {
   },
   render:function()
   {
-    this.game.debug.text("PosX"+enemy.body.x,1,100);
-    this.game.debug.text("PosY"+enemy.body.y,1,150);
-    this.game.debug.text(" "+derchen,1,200);
-   // this.game.debug.text("Vida"+vidaJugador,1,250);
+    this.game.debug.text("PosX "+player.body.x,1,100);
+    this.game.debug.text("PosY "+player.body.y,1,150);
+    this.game.debug.text("Vida"+vidaJugador,1,250);
     //this.game.debug.text("VAR "+enemy.inCamera,1,300);
     this.game.debug.text("detx "+detectionpointX,1,250);
     this.game.debug.text("dety "+detectionpointY,1,300);
@@ -421,6 +453,15 @@ Game.Level1.prototype = {
       vidaocto=3;
     }
   },
+  enemigoconcha:function() 
+  {
+     posicion=enemy5.body.x-150;
+     posicionY=enemy5.body.y;
+     this.physics.arcade.moveToXY(enemy5,posicion,posicionY,100);
+     undisparo=true;
+
+  },
+
   logicaenemigovolador:function()
   {
     if((enemy.body.x-player.body.x <= 175 && enemy.body.x-player.body.x >= -175 ) && (player.body.y-enemy.body.y <= 200 && player.body.y-enemy.body.y >=0) && !detectado)
@@ -478,6 +519,27 @@ Game.Level1.prototype = {
         reset=true;
     }
   },
-
+  enemyfire:function(velx,vely,enemigo3)
+  {
+      var enemybullet = enemybullets.getFirstExists(false);
+     // if (enemybullet && game.time.now>dispaenem )
+     // {
+          enemybullet.reset(enemigo3.body.x-2, enemigo3.body.y+5);
+          enemybullet.body.velocity.x=velx;
+          enemybullet.body.velocity.y=vely;
+          dispaenem=game.time.now+200;
+     // }
+  },
+  disparocirculo:function()
+  {
+    enemyfire(-200,-200,enemyconch);
+    enemyfire(200,0,enemyconch);
+    enemyfire(-200,0,enemyconch);
+    enemyfire(-200,200,enemyconch);
+    enemyfire(0,200,enemyconch);
+    enemyfire(0,-200,enemyconch);
+    enemyfire(200,200,enemyconch);
+    enemyfire(200,-200,enemyconch);
+  },
 
 }

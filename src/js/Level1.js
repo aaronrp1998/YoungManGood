@@ -293,6 +293,7 @@ Game.Level1.prototype = {
     this.game.physics.arcade.overlap(enemyocto, player, this.enemyhitplayer, null, this);
     this.game.physics.arcade.overlap(enemy, player, this.enemyhitplayer, null, this);
     this.game.physics.arcade.overlap(bullets, enemyocto, this.mataenemigoocto, null, this);
+    this.physics.arcade.overlap(enemybullets, player, this.bullethitplayer, null, this);
 
   },
   render:function()
@@ -421,7 +422,7 @@ Game.Level1.prototype = {
   {
     if(!invulnerable){
     vidaJugador=vidaJugador-5;
-    tiempoinv = this.game.time.now + Phaser.Timer.SECOND*4;
+    tiempoinv = this.game.time.now + Phaser.Timer.SECOND*2;
     player.alpha=0.5;
     invulnerable=true;
     }
@@ -543,6 +544,21 @@ Game.Level1.prototype = {
     this.enemyfire(0,-200,enemyconch);
     this.enemyfire(200,200,enemyconch);
     this.enemyfire(200,-200,enemyconch);
+  },
+  bullethitplayer:function(player,enemybullet)
+  {
+    if(!invulnerable){
+    enemybullet.kill();
+    vidaJugador=vidaJugador-10;
+    tiempoinv = this.time.now + Phaser.Timer.SECOND*2;
+    player.alpha=0.5;
+    invulnerable=true;
+    }
+    if(vidaJugador <= 0)
+    {
+        player.kill();
+        playeralive=false;
+    }
   },
 
 }

@@ -274,7 +274,7 @@ Game.Level1.prototype = {
         this.physics.arcade.overlap(bullets, enemyconch, this.mataenemigo, null, this);
         if(undisparo)
         {
-        disparocirculo();
+        this.disparocirculo();
         undisparo=false;
         }
     }

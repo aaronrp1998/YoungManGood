@@ -98,7 +98,7 @@ Game.Level1.prototype = {
 
     enemyconch=this.add.sprite(1400,7800,'enemy5');
     enemyconch.scale.setTo(2,2);
-    enemyconch.anchor.setTo(0.5,0.5);
+    enemyconch.anchor.setTo(1,1);
     this.physics.arcade.enable(enemyconch);
 
     player = this.add.sprite(570,8050, 'player');

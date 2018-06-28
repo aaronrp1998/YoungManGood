@@ -54,6 +54,7 @@ var octoy;
 var movotcx=300;
 var movocty=0;
 var vidaocto=3;
+var dispaenem;
 
 Game.Level1.prototype = {
 

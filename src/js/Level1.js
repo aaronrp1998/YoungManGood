@@ -532,14 +532,14 @@ Game.Level1.prototype = {
   },
   disparocirculo:function()
   {
-    enemyfire(-200,-200,enemyconch);
-    enemyfire(200,0,enemyconch);
-    enemyfire(-200,0,enemyconch);
-    enemyfire(-200,200,enemyconch);
-    enemyfire(0,200,enemyconch);
-    enemyfire(0,-200,enemyconch);
-    enemyfire(200,200,enemyconch);
-    enemyfire(200,-200,enemyconch);
+    this.enemyfire(-200,-200,enemyconch);
+    this.enemyfire(200,0,enemyconch);
+    this.enemyfire(-200,0,enemyconch);
+    this.enemyfire(-200,200,enemyconch);
+    this.enemyfire(0,200,enemyconch);
+    this.enemyfire(0,-200,enemyconch);
+    this.enemyfire(200,200,enemyconch);
+    this.enemyfire(200,-200,enemyconch);
   },
 
 }

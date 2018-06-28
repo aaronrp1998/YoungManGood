@@ -98,7 +98,7 @@ Game.Level1.prototype = {
 
     enemyconch=this.add.sprite(1400,7800,'enemy5');
     enemyconch.scale.setTo(2,2);
-    enemyconch.anchor.setTo(1,1);
+    //enemyconch.anchor.setTo(1,1);
     this.physics.arcade.enable(enemyconch);
 
     player = this.add.sprite(570,8050, 'player');
@@ -135,7 +135,7 @@ Game.Level1.prototype = {
     enemybullets=this.add.group();
     enemybullets.enableBody = true;
     enemybullets.physicsBodyType = Phaser.Physics.ARCADE;
-    enemybullets.createMultiple(30, 'enemybullet');
+    enemybullets.createMultiple(300, 'enemybullet');
     enemybullets.setAll('anchor.x', 0.5);
     enemybullets.setAll('anchor.y', 1);
    // enemybullets.setAll('scale',2,2);

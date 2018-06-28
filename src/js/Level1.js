@@ -527,7 +527,7 @@ Game.Level1.prototype = {
       var enemybullet = enemybullets.getFirstExists(false);
      // if (enemybullet && game.time.now>dispaenem )
      // {
-          enemybullet.reset(enemyconch.body.x-20, enemyconch.body.y+30);
+          enemybullet.reset(enemyconch.body.x+20, enemyconch.body.y+30);
           enemybullet.body.velocity.x=velx;
           enemybullet.body.velocity.y=vely;
           dispaenem=this.time.now+200;

@@ -98,6 +98,7 @@ Game.Level1.prototype = {
 
     enemyconch=this.add.sprite(1400,7800,'enemy5');
     enemyconch.scale.setTo(2,2);
+    enemyconch.anchor.setTo(0.5,0.5);
     this.physics.arcade.enable(enemyconch);
 
     player = this.add.sprite(570,8050, 'player');
@@ -137,6 +138,7 @@ Game.Level1.prototype = {
     enemybullets.createMultiple(30, 'enemybullet');
     enemybullets.setAll('anchor.x', 0.5);
     enemybullets.setAll('anchor.y', 1);
+    enemybullets.setAll('scale',2,2);
     enemybullets.setAll('outOfBoundsKill', true);
     enemybullets.setAll('checkWorldBounds', true);
 

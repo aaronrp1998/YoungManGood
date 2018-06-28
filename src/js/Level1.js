@@ -138,7 +138,7 @@ Game.Level1.prototype = {
     enemybullets.createMultiple(30, 'enemybullet');
     enemybullets.setAll('anchor.x', 0.5);
     enemybullets.setAll('anchor.y', 1);
-    enemybullets.setAll('scale',2,2);
+   // enemybullets.setAll('scale',2,2);
     enemybullets.setAll('outOfBoundsKill', true);
     enemybullets.setAll('checkWorldBounds', true);
 

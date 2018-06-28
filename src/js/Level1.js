@@ -527,7 +527,7 @@ Game.Level1.prototype = {
           enemybullet.reset(enemigo3.body.x-2, enemigo3.body.y+5);
           enemybullet.body.velocity.x=velx;
           enemybullet.body.velocity.y=vely;
-          dispaenem=game.time.now+200;
+          dispaenem=this.time.now+200;
      // }
   },
   disparocirculo:function()

@@ -41,7 +41,8 @@ var enemysaltlife=5;
 
 var enemyjump;
 
-var torreta;
+var torretas;
+var torretaalive=true;
 
 var enemyconch;
 var posicion;
@@ -101,6 +102,10 @@ Game.Level1.prototype = {
     //enemyconch.anchor.setTo(1,1);
     this.physics.arcade.enable(enemyconch);
 
+    torretas=this.add.sprite(870,7900,'torreta');
+    torretas.enableBody=true;
+    this.physics.arcade.enable(torretas);
+
     player = this.add.sprite(570,8050, 'player');
     player.anchor.setTo(0.5,0.5);
     player.animations.add('iddle',[0],1,true);
@@ -158,6 +163,7 @@ Game.Level1.prototype = {
    this.game.time.events.loop(Phaser.Timer.SECOND*1.5,this.logicaenemigosaltofuerte , this);
    this.game.time.events.loop(Phaser.Timer.SECOND*1.5, this.logicaenemigosalto, this);
    this.game.time.events.loop(Phaser.Timer.SECOND*3, this.logicaocto, this);
+   this.time.events.loop(Phaser.Timer.SECOND*3.5, this.logicatorretas, this);
 
     controls = {
       right: this.input.keyboard.addKey(Phaser.Keyboard.D),
@@ -285,6 +291,7 @@ Game.Level1.prototype = {
     this.logicaenemigovolador();
     this.intocable();
 
+    this.physics.arcade.overlap(bullets, torretas, this.matatorreta, null, this);
     this.game.physics.arcade.overlap(bullets, enemystrg, this.mataenemigogrande, null, this);
     this.game.physics.arcade.overlap(enemystrg, player, this.enemyhitplayer, null, this);
     this.game.physics.arcade.overlap(bullets, enemyjump , this.mataenemigo, null, this);
@@ -559,6 +566,21 @@ Game.Level1.prototype = {
         player.kill();
         playeralive=false;
     }
+  },
+  logicatorretas:function()
+  {
+    if(torretaalive){
+    enemyfire(-200,-200,torretas);
+    enemyfire(-200,-100,torretas);
+    enemyfire(-200,0,torretas);
+    enemyfire(-200,200,torretas);
+    }
+  },
+  matatorreta:function(bullet,enemigo)
+  {
+    bullet.kill();
+    enemigo.kill();
+    torretaalive=false;
   },
 
 }

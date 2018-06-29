@@ -583,6 +583,7 @@ Game.Level1.prototype = {
   },
   matatorreta:function(bullet,enemigo)
   {
+    enemyd.play();
     bullet.kill();
     enemigo.kill();
     torretaalive=false;

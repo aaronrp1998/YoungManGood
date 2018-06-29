@@ -5,6 +5,7 @@ var layer;
 var shots;
 var jumps;
 var enemyd;
+var enemysh;
 
 var player;
 var vidaJugador = 100;
@@ -66,6 +67,7 @@ Game.Level1.prototype = {
     shots = this.add.audio('shots');
     jumps = this.add.audio('jumps');
     enemyd = this.add.audio('enemyd');
+    enemysh=this.add.audio('enemysh');
     shots.volume-=0.2;
 
     map = this.add.tilemap('map',64,64);
@@ -544,6 +546,7 @@ Game.Level1.prototype = {
   },
   disparocirculo:function()
   {
+    enemysh.play();
     this.enemyfire(-200,-200,enemyconch);
     this.enemyfire(200,0,enemyconch);
     this.enemyfire(-200,0,enemyconch);
@@ -571,6 +574,7 @@ Game.Level1.prototype = {
   logicatorretas:function()
   {
     if(torretaalive){
+    enemysh.play();
     this.enemyfire(-200,-200,torretas);
     this.enemyfire(-200,-100,torretas);
     this.enemyfire(-200,0,torretas);

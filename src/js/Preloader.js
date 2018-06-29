@@ -48,6 +48,7 @@ Game.Preloader.prototype = {
 
     this.load.audio('enemyd', 'audio/enemykill.mp3');
 
+    this.load.audio('enemysh', 'audio/enemyshot.mp3');
   },
 
   create:function() {

@@ -531,12 +531,12 @@ Game.Level1.prototype = {
         reset=true;
     }
   },
-  enemyfire:function(velx,vely,enemigo3)
+  enemyfire:function(velx,vely,enemigo)
   {
       var enemybullet = enemybullets.getFirstExists(false);
      // if (enemybullet && game.time.now>dispaenem )
      // {
-          enemybullet.reset(enemyconch.body.x+20, enemyconch.body.y+30);
+          enemybullet.reset(enemigo.body.x+20, enemigo.body.y+30);
           enemybullet.body.velocity.x=velx;
           enemybullet.body.velocity.y=vely;
           dispaenem=this.time.now+200;

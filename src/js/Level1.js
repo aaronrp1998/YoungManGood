@@ -49,6 +49,7 @@ var enemyconch;
 var posicion;
 var posicionY;
 var undisparo=true;
+var conch=true;
 
 var enemyocto;
 var octox;
@@ -546,6 +547,7 @@ Game.Level1.prototype = {
   },
   disparocirculo:function()
   {
+    if(conch){
     enemysh.play();
     this.enemyfire(-200,-200,enemyconch);
     this.enemyfire(200,0,enemyconch);
@@ -555,6 +557,7 @@ Game.Level1.prototype = {
     this.enemyfire(0,-200,enemyconch);
     this.enemyfire(200,200,enemyconch);
     this.enemyfire(200,-200,enemyconch);
+    }
   },
   bullethitplayer:function(player,enemybullet)
   {
@@ -587,6 +590,13 @@ Game.Level1.prototype = {
     bullet.kill();
     enemigo.kill();
     torretaalive=false;
+  },
+  mataconch:function(bullet,enemigo)
+  {
+    enemyd.play();
+    bullet.kill();
+    enemigo.kill();
+    conch=false;
   },
 
 }

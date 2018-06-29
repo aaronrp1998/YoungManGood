@@ -102,7 +102,8 @@ Game.Level1.prototype = {
     //enemyconch.anchor.setTo(1,1);
     this.physics.arcade.enable(enemyconch);
 
-    torretas=this.add.sprite(870,7900,'torreta');
+    torretas=this.add.sprite(890,7900,'torreta');
+    torretas.scale.setTo(2,2);
     torretas.enableBody=true;
     this.physics.arcade.enable(torretas);
 
@@ -570,10 +571,10 @@ Game.Level1.prototype = {
   logicatorretas:function()
   {
     if(torretaalive){
-    enemyfire(-200,-200,torretas);
-    enemyfire(-200,-100,torretas);
-    enemyfire(-200,0,torretas);
-    enemyfire(-200,200,torretas);
+    this.enemyfire(-200,-200,torretas);
+    this.enemyfire(-200,-100,torretas);
+    this.enemyfire(-200,0,torretas);
+    this.enemyfire(-200,200,torretas);
     }
   },
   matatorreta:function(bullet,enemigo)

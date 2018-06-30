@@ -40,7 +40,7 @@ var velocidad=-100;
 var enemystrg;
 var enemysaltlife=5;
 
-var enemyjump;
+var enemyjumps;
 
 var torretas;
 var torretaalive=true;
@@ -91,10 +91,15 @@ Game.Level1.prototype = {
     this.physics.arcade.enable(enemystrg);
     enemystrg.body.gravity.y=1400;
 
-    enemyjump=this.add.sprite(870,8050,'enemy3');
+   /* enemyjump=this.add.sprite(870,8050,'enemy3');
     enemyjump.scale.setTo(2,2);
     this.physics.arcade.enable(enemyjump);
-    enemyjump.body.gravity.y=900;
+    enemyjump.body.gravity.y=900;*/
+    enemyjumps=this.add.group();
+    enemyjumps.enableBody=true;
+    enemyjumps.physicsBodyType=Phaser.Physics.ARCADE;
+
+    this.creaenemyjumps();
 
     enemyocto=this.add.sprite(870,8050,'enemy2');
     enemyocto.scale.setTo(2,2);
@@ -298,7 +303,7 @@ Game.Level1.prototype = {
     this.physics.arcade.overlap(bullets, torretas, this.matatorreta, null, this);
     this.game.physics.arcade.overlap(bullets, enemystrg, this.mataenemigogrande, null, this);
     this.game.physics.arcade.overlap(enemystrg, player, this.enemyhitplayer, null, this);
-    this.game.physics.arcade.overlap(bullets, enemyjump , this.mataenemigo, null, this);
+    this.game.physics.arcade.overlap(bullets, enemyjumps , this.mataenemigo, null, this);
     this.game.physics.arcade.overlap(bullets, enemy , this.mataenemigo, null, this);
     this.game.physics.arcade.overlap(enemyjump, player, this.enemyhitplayer, null, this);
     this.game.physics.arcade.overlap(enemyocto, player, this.enemyhitplayer, null, this);
@@ -597,6 +602,14 @@ Game.Level1.prototype = {
     bullet.kill();
     enemigo.kill();
     conch=false;
+  },
+  creaenemyjumps:function()
+  {
+    for(var i=0;i<2;i++){
+    var enemyjump=enemyjumps.create(870+i*30,8050,'enemy3');
+    enemyjump.scale.setTo(2,2);
+    enemyjump.body.gravity.y=900;
+    }
   },
 
 }

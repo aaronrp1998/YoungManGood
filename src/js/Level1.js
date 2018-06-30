@@ -325,7 +325,7 @@ Game.Level1.prototype = {
   creaenemyjumps:function()
   {
     for(var i=0;i<2;i++){
-    var enemyjump=enemyjumps.create(870+i*30,8050,'enemy3');
+    var enemyjump=enemyjumps.create(870+i*400,8050,'enemy3');
     enemyjump.scale.setTo(2,2);
     enemyjump.body.gravity.y=900;
     }

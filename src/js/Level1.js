@@ -41,6 +41,7 @@ var enemystrg;
 var enemysaltlife=5;
 
 var enemyjumps;
+var livingenemyjumps=[];
 
 var torretas;
 var torretaalive=true;
@@ -165,7 +166,6 @@ Game.Level1.prototype = {
 
     musica = this.add.audio('musica');
    // musica.play();
-
     player.scale.setTo(2,2);
 
    this.time.events.loop(Phaser.Timer.SECOND*2.5, this.enemigoconcha, this);
@@ -322,6 +322,14 @@ Game.Level1.prototype = {
     this.game.debug.text("dety "+detectionpointY,1,300);
 
   },
+  creaenemyjumps:function()
+  {
+    for(var i=0;i<2;i++){
+    var enemyjump=enemyjumps.create(870+i*30,8050,'enemy3');
+    enemyjump.scale.setTo(2,2);
+    enemyjump.body.gravity.y=900;
+    }
+  },
 
   ResetPosition:function() {
     player.reset(570,8050);
@@ -409,18 +417,25 @@ Game.Level1.prototype = {
   },
   logicaenemigosalto:function()
   {
-    enemyjump.body.velocity.y=-350;
-   if((enemyjump.body.x-player.body.x <= 275 && enemyjump.body.x-player.body.x >= 0 ))
+    livingenemyjumps.length=0;
+
+    enemyjumps.forEachAlive(function(enemyjump){livingenemyjumps.push(enemyjump)});
+
+    for(var i=0;i<livingenemyjumps.length;i++){
+      var enemyjumpo=livingenemyjumps[i];
+    enemyjumpo.body.velocity.y=-350;
+   if((enemyjumpo.body.x-player.body.x <= 275 && enemyjumpo.body.x-player.body.x >= 0 ))
    {
-       enemyjump.body.velocity.x=-100;
+       enemyjumpo.body.velocity.x=-100;
    }
-   else if (enemyjump.body.x-player.body.x < 0 && enemyjump.body.x-player.body.x >= -275 )
+   else if (enemyjumpo.body.x-player.body.x < 0 && enemyjumpo.body.x-player.body.x >= -275 )
    {
-    enemyjump.body.velocity.x=100;
+    enemyjumpo.body.velocity.x=100;
    }
    else{
-       enemyjump.body.velocity.x=0;
-   }
+       enemyjumpo.body.velocity.x=0;
+      }
+    }
   },
   mataenemigogrande:function(enemigo,bullet)
   {
@@ -602,14 +617,6 @@ Game.Level1.prototype = {
     bullet.kill();
     enemigo.kill();
     conch=false;
-  },
-  creaenemyjumps:function()
-  {
-    for(var i=0;i<2;i++){
-    var enemyjump=enemyjumps.create(870+i*30,8050,'enemy3');
-    enemyjump.scale.setTo(2,2);
-    enemyjump.body.gravity.y=900;
-    }
   },
 
 }

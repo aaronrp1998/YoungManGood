@@ -541,6 +541,14 @@ Game.Level1.prototype = {
     {
     var enemyv=livingenemy[i];
 
+    if(enemyv.inCamera)
+    {
+        enemyv.body.velocity.x=velocidad;
+    }
+    else
+    {
+      enemyv.body.velocity.x=0;
+    }
     if((enemyv.body.x-player.body.x <= 175 && enemyv.body.x-player.body.x >= -175 ) && (player.body.y-enemyv.body.y <= 200 && player.body.y-enemyv.body.y >=0) && !detectado)
     {
         detectionpointX = player.body.x;
@@ -595,14 +603,7 @@ Game.Level1.prototype = {
         detectado=false;
         reset=true;
     }
-    /*if(enemyv.inCamera)
-    {
-        enemyv.body.velocity.x=velocidad;
-    }
-    else
-    {
-      enemyv.body.velocity.x=0;
-    }*/
+   
   }
   },
   enemyfire:function(velx,vely,enemigo)

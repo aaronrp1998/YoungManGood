@@ -342,25 +342,25 @@ Game.Level1.prototype = {
         var enemy=enemyflys.create(1400,7800,'enemy1');
         enemy.scale.setTo(2,2);
         enemy.anchor.setTo(0.5,0.5);
-        enemy.body.velocity.x=velocidad;
+      //  enemy.body.velocity.x=velocidad;
       }
       if(i===1)
       { var enemy=enemyflys.create(1600,7600,'enemy1');
       enemy.scale.setTo(2,2);
       enemy.anchor.setTo(0.5,0.5);
-      enemy.body.velocity.x=velocidad;
+     // enemy.body.velocity.x=velocidad;
       }
       if(i===2)
       { var enemy=enemyflys.create(2000,7600,'enemy1');
       enemy.scale.setTo(2,2);
       enemy.anchor.setTo(0.5,0.5);
-      enemy.body.velocity.x=velocidad;
+     // enemy.body.velocity.x=velocidad;
       }
       if(i===3)
       { var enemy=enemyflys.create(8000,50,'enemy1');
       enemy.scale.setTo(2,2);
       enemy.anchor.setTo(0.5,0.5);
-      enemy.body.velocity.x=velocidad;
+      //enemy.body.velocity.x=velocidad;
       }
     }
   },
@@ -535,7 +535,7 @@ Game.Level1.prototype = {
   {
     livingenemy.length=0;
 
-    enemyflys.forEachAlive(function(enemy){livingenemyjumps.push(enemy)});
+    enemyflys.forEachAlive(function(enemy){livingenemy.push(enemy)});
 
     for(var i=0;i<livingenemy.length;i++)
     {

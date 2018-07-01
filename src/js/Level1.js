@@ -591,14 +591,14 @@ Game.Level1.prototype = {
         detectado=false;
         reset=true;
     }
-    if(enemyv.inCamera)
+    /*if(enemyv.inCamera)
     {
         enemyv.body.velocity.x=velocidad;
     }
     else
     {
       enemyv.body.velocity.x=0;
-    }
+    }*/
   }
   },
   enemyfire:function(velx,vely,enemigo)

@@ -343,17 +343,17 @@ Game.Level1.prototype = {
         enemy.scale.setTo(2,2);
         enemy.anchor.setTo(0.5,0.5);
       }
-      else if(i===1)
-      { var enemy=enemyflys.create(1600,7500,'enemy1');
+      if(i===1)
+      { var enemy=enemyflys.create(1600,7600,'enemy1');
       enemy.scale.setTo(2,2);
       enemy.anchor.setTo(0.5,0.5);
       }
-      else if(i===2)
-      { var enemy=enemyflys.create(2000,7500,'enemy1');
+      if(i===2)
+      { var enemy=enemyflys.create(2000,7600,'enemy1');
       enemy.scale.setTo(2,2);
       enemy.anchor.setTo(0.5,0.5);
       }
-      else if(i===3)
+      if(i===3)
       { var enemy=enemyflys.create(8000,50,'enemy1');
       enemy.scale.setTo(2,2);
       enemy.anchor.setTo(0.5,0.5);
@@ -535,33 +535,33 @@ Game.Level1.prototype = {
 
     for(var i=0;i<livingenemy.length;i++)
     {
-      var enemy=livingenemy[i];
+      var enemyv=livingenemy[i];
 
-    if((enemy.body.x-player.body.x <= 175 && enemy.body.x-player.body.x >= -175 ) && (player.body.y-enemy.body.y <= 200 && player.body.y-enemy.body.y >=0) && !detectado)
+    if((enemyv.body.x-player.body.x <= 175 && enemyv.body.x-player.body.x >= -175 ) && (player.body.y-enemyv.body.y <= 200 && player.body.y-enemyv.body.y >=0) && !detectado)
     {
         detectionpointX = player.body.x;
         detectionpointY = player.body.y;
-        if(enemy.body.x-player.body.x <= 175 && enemy.body.x-player.body.x >0 ){
-            pointenemynewX = enemy.body.x - 200;
+        if(enemyv.body.x-player.body.x <= 175 && enemyv.body.x-player.body.x >0 ){
+            pointenemynewX = enemyv.body.x - 200;
         }
         else
         {
-            pointenemynewX = enemy.body.x + 200;
+            pointenemynewX = enemyv.body.x + 200;
             derchen=true;
         }
-        pointenemynewY = enemy.body.y;
+        pointenemynewY = enemyv.body.y;
         detectado=true;
         ve=true;
         para=false;
     }
     if(ve)
     {
-        this.game.physics.arcade.moveToXY(enemy,detectionpointX,detectionpointY,200);
+        this.game.physics.arcade.moveToXY(enemyv,detectionpointX,detectionpointY,200);
     }
-    if((enemy.body.x <= detectionpointX + 25 && enemy.body.x >= detectionpointX - 25 ) && (enemy.body.y >= detectionpointY-25 &&  enemy.body.y <= detectionpointY+25) && !para)
+    if((enemyv.body.x <= detectionpointX + 25 && enemyv.body.x >= detectionpointX - 25 ) && (enemyv.body.y >= detectionpointY-25 &&  enemyv.body.y <= detectionpointY+25) && !para)
     {
-        enemy.body.velocity.x=0;
-        enemy.body.velocity.y=0;
+        enemyv.body.velocity.x=0;
+        enemyv.body.velocity.y=0;
         ve=false;
         reset=false;
         nuevapos=true;
@@ -569,35 +569,35 @@ Game.Level1.prototype = {
     }
     if(nuevapos)
     {
-        this.game.physics.arcade.moveToXY(enemy,pointenemynewX,pointenemynewY,200);
+        this.game.physics.arcade.moveToXY(enemyv,pointenemynewX,pointenemynewY,200);
     }
-    if((enemy.body.x <= pointenemynewX + 25 && enemy.body.x >= pointenemynewX - 25) && (enemy.body.y <= pointenemynewY+25 && enemy.body.y >= pointenemynewY-25)&& !reset)
+    if((enemyv.body.x <= pointenemynewX + 25 && enemyv.body.x >= pointenemynewX - 25) && (enemyv.body.y <= pointenemynewY+25 && enemyv.body.y >= pointenemynewY-25)&& !reset)
     {
-        enemy.body.velocity.x=0;
-        enemy.body.velocity.y=0;
+        enemyv.body.velocity.x=0;
+        enemyv.body.velocity.y=0;
         nuevapos=false;
         if (derchen)
         {
             velocidad =100;
-            enemy.body.velocity.x=velocidad;
+            enemyv.body.velocity.x=velocidad;
             derchen=false;
         }
         else
         {
             velocidad=-100;
-            enemy.body.velocity.x=velocidad;
+            enemyv.body.velocity.x=velocidad;
         }
-        enemy.body.velocity.y=0;
+        enemyv.body.velocity.y=0;
         detectado=false;
         reset=true;
     }
-    if(enemy.inCamera)
+    if(enemyv.inCamera)
     {
-        enemy.body.velocity.x=velocidad;
+        enemyv.body.velocity.x=velocidad;
     }
     else
     {
-      enemy.body.velocity.x=0;
+      enemyv.body.velocity.x=0;
     }
   }
   },

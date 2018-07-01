@@ -94,6 +94,8 @@ Game.Level1.prototype = {
     enemyflys.enableBody=true;
     enemyflys.physicsBodyType=Phaser.Physics.ARCADE;
 
+    this.creaenemyfly();
+
    /* enemyjump=this.add.sprite(870,8050,'enemy3');
     enemyjump.scale.setTo(2,2);
     this.physics.arcade.enable(enemyjump);
@@ -531,7 +533,7 @@ Game.Level1.prototype = {
     for(var i=0;i<livingenemy.length;i++)
     {
       var enemy=livingenemy[i];
-      
+
     if((enemy.body.x-player.body.x <= 175 && enemy.body.x-player.body.x >= -175 ) && (player.body.y-enemy.body.y <= 200 && player.body.y-enemy.body.y >=0) && !detectado)
     {
         detectionpointX = player.body.x;

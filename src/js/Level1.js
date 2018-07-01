@@ -535,7 +535,7 @@ Game.Level1.prototype = {
 
     for(var i=0;i<livingenemy.length;i++)
     {
-      var enemyv=livingenemy[i];
+    var enemyv=livingenemy[i];
 
     if((enemyv.body.x-player.body.x <= 175 && enemyv.body.x-player.body.x >= -175 ) && (player.body.y-enemyv.body.y <= 200 && player.body.y-enemyv.body.y >=0) && !detectado)
     {

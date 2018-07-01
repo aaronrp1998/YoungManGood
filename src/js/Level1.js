@@ -90,7 +90,7 @@ Game.Level1.prototype = {
     enemy.enableBody=true;
     this.game.physics.arcade.enable(enemy);*/
     
-    enemyflys==this.add.group();
+    enemyflys=this.add.group();
     enemyflys.enableBody=true;
     enemyflys.physicsBodyType=Phaser.Physics.ARCADE;
 

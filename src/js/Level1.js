@@ -23,7 +23,7 @@ var jumpTimer = 0;
 
 var enemybullets;
 
-var enemy;
+//var enemy;
 var pointenemynewX;
 var pointenemynewY;
 var detectionpointX;
@@ -36,6 +36,9 @@ var derchen=false;
 var reset=false;
 var para=false;
 var velocidad=-100;
+
+var enemyflys;
+var livingenemy=[];
 
 var enemystrg;
 var enemysaltlife=5;
@@ -81,16 +84,15 @@ Game.Level1.prototype = {
     map.setTileIndexCallback(19,this.ResetPosition,this);
     map.setTileIndexCallback(-1,this.Libre,this);
 
-    enemy= this.add.sprite(1400,7800,'enemy1');
+   /* enemy= this.add.sprite(1400,7800,'enemy1');
     enemy.scale.setTo(2,2);
     enemy.anchor.setTo(0.5,0.5);
     enemy.enableBody=true;
-    this.game.physics.arcade.enable(enemy);
-
-    enemystrg=this.add.sprite(7981,3184,'enemy4');
-    enemystrg.scale.setTo(1.7,1.7);
-    this.physics.arcade.enable(enemystrg);
-    enemystrg.body.gravity.y=1400;
+    this.game.physics.arcade.enable(enemy);*/
+    
+    enemyflys==this.add.group();
+    enemyflys.enableBody=true;
+    enemyflys.physicsBodyType=Phaser.Physics.ARCADE;
 
    /* enemyjump=this.add.sprite(870,8050,'enemy3');
     enemyjump.scale.setTo(2,2);
@@ -105,6 +107,12 @@ Game.Level1.prototype = {
     enemyocto=this.add.sprite(870,8050,'enemy2');
     enemyocto.scale.setTo(2,2);
     this.physics.arcade.enable(enemyocto);
+
+    
+    enemystrg=this.add.sprite(7981,3184,'enemy4');
+    enemystrg.scale.setTo(1.7,1.7);
+    this.physics.arcade.enable(enemystrg);
+    enemystrg.body.gravity.y=1400;
 
     enemyconch=this.add.sprite(1400,7800,'enemy5');
     enemyconch.scale.setTo(2,2);
@@ -278,14 +286,7 @@ Game.Level1.prototype = {
         enemyocto.body.velocity.x=0;
     }
 
-    if(enemy.inCamera)
-    {
-        enemy.body.velocity.x=velocidad;
-    }
-    else
-    {
-      enemy.body.velocity.x=0;
-    }
+    
     if(enemyconch.body.x>=posicion-25 && enemyconch.body.x<=posicion+25 )
     {
         enemyconch.body.velocity.x=0;
@@ -328,6 +329,30 @@ Game.Level1.prototype = {
     var enemyjump=enemyjumps.create(870+i*400,8050,'enemy3');
     enemyjump.scale.setTo(2,2);
     enemyjump.body.gravity.y=900;
+    }
+  },
+  creaenemyfly:function()
+  {
+    for(var i=0;i<2;i++)
+    {
+      if(i===0)
+      {
+        var enemy=enemyflys.create(1400,7800,'enemy1');
+        enemy.scale.setTo(2,2);
+        enemy.body.gravity.y=900;
+      }
+      else if(i===1)
+      { var enemy=enemyflys.create(1600,7500,'enemy1');
+      enemy.scale.setTo(2,2);
+      enemy.body.gravity.y=900;}
+      else if(i===2)
+      { var enemy=enemyflys.create(2000,7500,'enemy1');
+      enemy.scale.setTo(2,2);
+      enemy.body.gravity.y=900;}
+      else if(i===3)
+      { var enemy=enemyflys.create(8000,50,'enemy1');
+      enemy.scale.setTo(2,2);
+      enemy.body.gravity.y=900;}
     }
   },
 
@@ -499,6 +524,14 @@ Game.Level1.prototype = {
 
   logicaenemigovolador:function()
   {
+    livingenemy.length=0;
+
+    enemyflys.forEachAlive(function(enemy){livingenemyjumps.push(enemy)});
+
+    for(var i=0;i<livingenemy.length;i++)
+    {
+      var enemy=livingenemy[i];
+      
     if((enemy.body.x-player.body.x <= 175 && enemy.body.x-player.body.x >= -175 ) && (player.body.y-enemy.body.y <= 200 && player.body.y-enemy.body.y >=0) && !detectado)
     {
         detectionpointX = player.body.x;
@@ -553,6 +586,15 @@ Game.Level1.prototype = {
         detectado=false;
         reset=true;
     }
+    if(enemy.inCamera)
+    {
+        enemy.body.velocity.x=velocidad;
+    }
+    else
+    {
+      enemy.body.velocity.x=0;
+    }
+  }
   },
   enemyfire:function(velx,vely,enemigo)
   {

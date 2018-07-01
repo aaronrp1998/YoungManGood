@@ -319,7 +319,7 @@ Game.Level1.prototype = {
   {
     this.game.debug.text("PosX "+player.body.x,1,100);
     this.game.debug.text("PosY "+player.body.y,1,150);
-    this.game.debug.text("Vida"+vidaJugador,1,250);
+    this.game.debug.text("Vida"+vidaJugador,1,200);
     //this.game.debug.text("VAR "+enemy.inCamera,1,300);
     this.game.debug.text("detx "+detectionpointX,1,250);
     this.game.debug.text("dety "+detectionpointY,1,300);

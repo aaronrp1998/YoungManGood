@@ -297,14 +297,6 @@ Game.Level1.prototype = {
       this.state.start('PreloaderBoss');
     }
 
-    if(enemyocto.body.y >= octoy-2 && enemyocto.body.x<= octoy+2 )
-    {
-        enemyocto.body.velocity.y=0;
-    }
-    if(enemyocto.body.x >= octox-2 && enemyocto.body.x<= octox+2 )
-    {
-        enemyocto.body.velocity.x=0;
-    }
 
     
     if(enemyconch.body.x>=posicion-25 && enemyconch.body.x<=posicion+25 )
@@ -320,6 +312,7 @@ Game.Level1.prototype = {
 
     this.logicaenemigovolador();
     this.intocable();
+    this.updateocto();
 
     this.physics.arcade.overlap(bullets, enemytorretas, this.matatorreta, null, this);
     this.game.physics.arcade.overlap(bullets, enemystrg, this.mataenemigogrande, null, this);
@@ -609,6 +602,26 @@ Game.Level1.prototype = {
     movocty=-movocty;
     movotcx=-movotcx;
     }
+  },
+
+  updateocto:function()
+  {
+    livingenemyocto.length=0;
+
+    enemyoctos.forEachAlive(function(eocto){livingenemyocto.push(eocto)});
+
+    for(var i=0;i<livingenemyocto.length;i++)
+    {
+    var enemyoctoe=livingenemyocto[i];
+    if(enemyoctoe.body.y >= octoy-2 && enemyoctoe.body.x<= octoy+2 )
+    {
+        enemyoctoe.body.velocity.y=0;
+    }
+    if(enemyoctoe.body.x >= octox-2 && enemyoctoe.body.x<= octox+2 )
+    {
+        enemyoctoe.body.velocity.x=0;
+    }
+  }
   },
 
   logicaenemigosalto:function()

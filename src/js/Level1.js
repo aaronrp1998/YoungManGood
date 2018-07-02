@@ -135,11 +135,11 @@ Game.Level1.prototype = {
     enemyconch.scale.setTo(2,2);
     this.physics.arcade.enable(enemyconch);*/
 
-    this.creaenemyconch();
-
     enemyconchs=this.add.group();
     enemyconchs.enableBody=true;
     enemyconchs.physicsBodyType=Phaser.Physics.ARCADE;
+
+    this.creaenemyconch();
 
    /* torretas=this.add.sprite(890,7900,'torreta');
     torretas.scale.setTo(2,2);

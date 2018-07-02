@@ -27,14 +27,14 @@ var enemybullets;
 /*var pointenemynewX;
 var pointenemynewY;
 var detectionpointX;
-var detectionpointY;
+var detectionpointY;*/
 var detectado=false;
 var vuelveenemy = false;
 var ve=false;
 var nuevapos=false;
 var derchen=false;
 var reset=false;
-var para=false;*/
+var para=false;
 var velocidad=-100;
 
 var enemyflys;
@@ -545,13 +545,6 @@ Game.Level1.prototype = {
     var pointenemynewY;
     var detectionpointX;
     var detectionpointY;
-    var detectado=false;
-    var vuelveenemy = false;
-    var ve=false;
-    var nuevapos=false;
-    var derchen=false;
-    var reset=false;
-    var para=false; 
     if(enemyv.inCamera)
     {
         enemyv.body.velocity.x=velocidad;

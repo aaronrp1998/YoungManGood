@@ -337,10 +337,61 @@ Game.Level1.prototype = {
   },
   creaenemyjumps:function()
   {
-    for(var i=0;i<2;i++){
-    var enemyjump=enemyjumps.create(870+i*400,8050,'enemy3');
-    enemyjump.scale.setTo(2,2);
-    enemyjump.body.gravity.y=900;
+    for(var i=0;i<9;i++){
+      if(i===0)
+      {
+      var enemyjump=enemyjumps.create(1270,8050,'enemy3');
+      enemyjump.scale.setTo(2,2);
+      enemyjump.body.gravity.y=900;
+      }
+      if(i===1)
+      {
+      var enemyjump=enemyjumps.create(3721,6642,'enemy3');
+      enemyjump.scale.setTo(2,2);
+      enemyjump.body.gravity.y=900;
+      }
+      if(i===2)
+      {
+      var enemyjump=enemyjumps.create(3711,5042,'enemy3');
+      enemyjump.scale.setTo(2,2);
+      enemyjump.body.gravity.y=900;
+      }
+      if(i===3)
+      {
+      var enemyjump=enemyjumps.create(3906,4274,'enemy3');
+      enemyjump.scale.setTo(2,2);
+      enemyjump.body.gravity.y=900;
+      }
+      if(i===4)
+      {
+      var enemyjump=enemyjumps.create(4167,3954,'enemy3');
+      enemyjump.scale.setTo(2,2);
+      enemyjump.body.gravity.y=900;
+      }
+      if(i===5)
+      {
+      var enemyjump=enemyjumps.create(5839,498,'enemy3');
+      enemyjump.scale.setTo(2,2);
+      enemyjump.body.gravity.y=900;
+      }
+      if(i===6)
+      {
+      var enemyjump=enemyjumps.create(6086,434,'enemy3');
+      enemyjump.scale.setTo(2,2);
+      enemyjump.body.gravity.y=900;
+      }
+      if(i===7)
+      {
+      var enemyjump=enemyjumps.create(6406,180,'enemy3');
+      enemyjump.scale.setTo(2,2);
+      enemyjump.body.gravity.y=900;
+      }
+      if(i===8)
+      {
+      var enemyjump=enemyjumps.create(7506,434,'enemy3');
+      enemyjump.scale.setTo(2,2);
+      enemyjump.body.gravity.y=900;
+      }
     }
   },
   creaenemyfly:function()

@@ -541,7 +541,7 @@ Game.Level1.prototype = {
     {
     var enemyv=livingenemy[i];
 
-   
+    var detectado=false;
     var vuelveenemy = false;
     var ve=false;
     var nuevapos=false;

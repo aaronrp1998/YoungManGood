@@ -722,7 +722,7 @@ Game.Level1.prototype = {
     livingtorretas.length=0;
     enemytorretas.forEachAlive(function(torreta){livingtorretas.push(torreta)});
 
-    for(var i=0;i<livingtorretas;i++)
+    for(var i=0;i<livingtorretas.length;i++)
     {
     var torretar=livingtorretas[i];
     if(torretar.alive){

@@ -113,9 +113,9 @@ Game.Level1.prototype = {
 
     this.creaenemyjumps();
 
-    enemyocto=this.add.sprite(870,8050,'enemy2');
+   /* enemyocto=this.add.sprite(870,8050,'enemy2');
     enemyocto.scale.setTo(2,2);
-    this.physics.arcade.enable(enemyocto);
+    this.physics.arcade.enable(enemyocto);*/
 
     enemyoctos=this.add.group();
     enemyoctos.enableBody=true;

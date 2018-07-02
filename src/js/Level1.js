@@ -120,6 +120,8 @@ Game.Level1.prototype = {
     enemyoctos=this.add.group();
     enemyoctos.enableBody=true;
     enemyoctos.physicsBodyType=Phaser.Physics.ARCADE;
+
+    this.creaenemyocto();
     
     enemystrg=this.add.sprite(7981,3184,'enemy4');
     enemystrg.scale.setTo(1.7,1.7);

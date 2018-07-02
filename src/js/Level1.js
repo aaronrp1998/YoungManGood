@@ -47,7 +47,11 @@ var enemyjumps;
 var livingenemyjumps=[];
 
 var torretas;
-var torretaalive=true;
+var torretaalive=[];
+
+var enemytorretas;
+var livingtorretas=[];
+
 
 var enemyconch;
 var posicion;
@@ -121,10 +125,14 @@ Game.Level1.prototype = {
     //enemyconch.anchor.setTo(1,1);
     this.physics.arcade.enable(enemyconch);
 
-    torretas=this.add.sprite(890,7900,'torreta');
+   /* torretas=this.add.sprite(890,7900,'torreta');
     torretas.scale.setTo(2,2);
     torretas.enableBody=true;
-    this.physics.arcade.enable(torretas);
+    this.physics.arcade.enable(torretas);*/
+
+    enemytorretas=this.add.group();
+    enemytorretas.enableBody=true;
+    enemytorretas.physicsBodyType=Phaser.Physics.ARCADE;
 
     player = this.add.sprite(570,8050, 'player');
     player.anchor.setTo(0.5,0.5);
@@ -303,7 +311,7 @@ Game.Level1.prototype = {
     this.logicaenemigovolador();
     this.intocable();
 
-    this.physics.arcade.overlap(bullets, torretas, this.matatorreta, null, this);
+    this.physics.arcade.overlap(bullets, enemytorretas, this.matatorreta, null, this);
     this.game.physics.arcade.overlap(bullets, enemystrg, this.mataenemigogrande, null, this);
     this.game.physics.arcade.overlap(enemystrg, player, this.enemyhitplayer, null, this);
     this.game.physics.arcade.overlap(bullets, enemyjumps , this.mataenemigo, null, this);
@@ -337,6 +345,7 @@ Game.Level1.prototype = {
   {
     for(var i=0;i<4;i++)
     {
+    
       if(i===0)
       {
         var enemy=enemyflys.create(1400,7800,'enemy1');
@@ -362,6 +371,58 @@ Game.Level1.prototype = {
       enemy.anchor.setTo(0.5,0.5);
       //enemy.body.velocity.x=velocidad;
       }
+    }
+  },
+  creatorretas:function()
+  {
+    for(var i=0;i<9;i++)
+    {
+      if(i===0)
+      {
+        var torreta=enemytorretas.create(3783.4,8048,'torreta');
+        torreta.scale.setTo(2,2);
+      }
+      if(i===1)
+      {
+        var torreta=enemytorretas.create(3782.4,7536,'torreta');
+        torreta.scale.setTo(2,2);
+      }
+      if(i===2)
+      {
+        var torreta=enemytorretas.create(3910.4,7104,'torreta');
+        torreta.scale.setTo(2,2);
+      }
+      if(i===3)
+      {
+        var torreta=enemytorretas.create(3398.4,7056,'torreta');
+        torreta.scale.setTo(2,2);
+      }
+      if(i===4)
+      {
+        var torreta=enemytorretas.create(3910.4,6140,'torreta');
+        torreta.scale.setTo(2,2);
+      }
+      if(i===5)
+      {
+        var torreta=enemytorretas.create(3526.4,6079,'torreta');
+        torreta.scale.setTo(2,2);
+      }
+      if(i===6)
+      {
+        var torreta=enemytorretas.create(3910.4,5250,'torreta');
+        torreta.scale.setTo(2,2);
+      }
+      if(i===7)
+      {
+        var torreta=enemytorretas.create(3782.4,4890,'torreta');
+        torreta.scale.setTo(2,2);
+      }
+      if(i===8)
+      {
+        var torreta=enemytorretas.create(5458.4,890,'torreta');
+        torreta.scale.setTo(2,2);
+      }
+      torretaalive[i]=true;
     }
   },
 
@@ -657,13 +718,20 @@ Game.Level1.prototype = {
   },
   logicatorretas:function()
   {
-    if(torretaalive){
+    livingtorretas.length=0;
+    enemytorretas.forEachAlive(function(torreta){livingtorretas.push(torreta)});
+
+    for(var i=0;i<livingtorretas;i++)
+    {
+    var torretar=livingtorretas[i];
+    if(torretaalive[i]){
     enemysh.play();
-    this.enemyfire(-200,-200,torretas);
-    this.enemyfire(-200,-100,torretas);
-    this.enemyfire(-200,0,torretas);
-    this.enemyfire(-200,200,torretas);
+    this.enemyfire(-200,-200,torretar);
+    this.enemyfire(-200,-100,torretar);
+    this.enemyfire(-200,0,torretar);
+    this.enemyfire(-200,200,torretar);
     }
+  }
   },
   matatorreta:function(bullet,enemigo)
   {

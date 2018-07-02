@@ -59,6 +59,9 @@ var posicionY;
 var undisparo=true;
 var conch=true;
 
+var enemyconchs;
+var livingenemyconch=[];
+
 var enemyocto;
 var octox;
 var octoy;
@@ -128,10 +131,15 @@ Game.Level1.prototype = {
     this.physics.arcade.enable(enemystrg);
     enemystrg.body.gravity.y=1400;
 
-    enemyconch=this.add.sprite(1400,7800,'enemy5');
+   /* enemyconch=this.add.sprite(1400,7800,'enemy5');
     enemyconch.scale.setTo(2,2);
-    //enemyconch.anchor.setTo(1,1);
-    this.physics.arcade.enable(enemyconch);
+    this.physics.arcade.enable(enemyconch);*/
+
+    this.creaenemyconch();
+
+    enemyconchs=this.add.group();
+    enemyconchs.enableBody=true;
+    enemyconchs.physicsBodyType=Phaser.Physics.ARCADE;
 
    /* torretas=this.add.sprite(890,7900,'torreta');
     torretas.scale.setTo(2,2);
@@ -313,6 +321,7 @@ Game.Level1.prototype = {
     this.logicaenemigovolador();
     this.intocable();
     this.updateocto();
+    this,this.updateenemigoconch();
 
     this.physics.arcade.overlap(bullets, enemytorretas, this.matatorreta, null, this);
     this.game.physics.arcade.overlap(bullets, enemystrg, this.mataenemigogrande, null, this);
@@ -510,6 +519,28 @@ Game.Level1.prototype = {
     }
   },
 
+  creaenemyconch:function()
+  {
+    for(var i=0;i<3;i++)
+    {
+      if(i===0)
+      {
+        var enemyconcha=enemyconchs.create(8400,750,'enemy5');
+        enemyconcha.scale.setTo(2,2);
+      }
+      if(i===1)
+      {
+        var enemyconcha=enemyconchs.create(8200,1050,'enemy5');
+        enemyconcha.scale.setTo(2,2);
+      }
+      if(i===2)
+      {
+        var enemyconcha=enemyconchs.create(8400,1950,'enemy5');
+        enemyconcha.scale.setTo(2,2);
+      }
+    }
+  },
+
   ResetPosition:function() {
     player.reset(570,8050);
   },
@@ -699,11 +730,41 @@ Game.Level1.prototype = {
   },
   enemigoconcha:function() 
   {
-     posicion=enemyconch.body.x-150;
-     posicionY=enemyconch.body.y;
-     this.physics.arcade.moveToXY(enemyconch,posicion,posicionY,100);
-     undisparo=true;
+    livingenemyconch.length=0;
+    enemyconchs.forEachAlive(function(enemyconcha){livingenemyconch.push(enemyconcha)});
 
+    for(var i=0;i<livingenemyconch.length;i++)
+    {
+      var enemyconche=livingenemyconch[i];
+    if(enemyconche.inCamera){
+     posicion=enemyconche.body.x-150;
+     posicionY=enemyconche.body.y;
+     this.physics.arcade.moveToXY(enemyconche,posicion,posicionY,100);
+     undisparo=true;
+      }
+    }
+
+  },
+
+  updateenemigoconch:function()
+  {
+    livingenemyconch.length=0;
+    enemyconchs.forEachAlive(function(enemyconcha){livingenemyconch.push(enemyconcha)});
+
+    for(var i=0;i<livingenemyconch.length;i++)
+    {
+      var enemyconche=livingenemyconch[i];
+    if(enemyconche.body.x>=posicion-25 && enemyconche.body.x<=posicion+25 )
+    {
+        enemyconche.body.velocity.x=0;
+        this.physics.arcade.overlap(bullets, enemyconchs, this.mataenemigo, null, this);
+        if(undisparo)
+        {
+        this.disparocirculo();
+        undisparo=false;
+        }
+      }
+    }
   },
 
   logicaenemigovolador:function()

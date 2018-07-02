@@ -424,7 +424,6 @@ Game.Level1.prototype = {
         var torreta=enemytorretas.create(5458.4,890,'torreta');
         torreta.scale.setTo(2,2);
       }
-      torretaalive[i]=true;
     }
   },
 
@@ -726,7 +725,7 @@ Game.Level1.prototype = {
     for(var i=0;i<livingtorretas;i++)
     {
     var torretar=livingtorretas[i];
-    if(torretaalive[i]){
+    if(torretar.alive){
     enemysh.play();
     this.enemyfire(-200,-200,torretar);
     this.enemyfire(-200,-100,torretar);
@@ -740,7 +739,6 @@ Game.Level1.prototype = {
     enemyd.play();
     bullet.kill();
     enemigo.kill();
-    torretaalive=false;
   },
   mataconch:function(bullet,enemigo)
   {

@@ -67,6 +67,9 @@ var movocty=0;
 var vidaocto=3;
 var dispaenem;
 
+var enemyoctos;
+var livingenemyocto=[];
+
 Game.Level1.prototype = {
 
   create:function() {
@@ -114,6 +117,9 @@ Game.Level1.prototype = {
     enemyocto.scale.setTo(2,2);
     this.physics.arcade.enable(enemyocto);
 
+    enemyoctos=this.add.group();
+    enemyoctos.enableBody=true;
+    enemyoctos.physicsBodyType=Phaser.Physics.ARCADE;
     
     enemystrg=this.add.sprite(7981,3184,'enemy4');
     enemystrg.scale.setTo(1.7,1.7);
@@ -319,9 +325,9 @@ Game.Level1.prototype = {
     this.game.physics.arcade.overlap(bullets, enemyjumps , this.mataenemigo, null, this);
     this.game.physics.arcade.overlap(bullets, enemyflys , this.mataenemigo, null, this);
     this.game.physics.arcade.overlap(enemyjumps, player, this.enemyhitplayer, null, this);
-    this.game.physics.arcade.overlap(enemyocto, player, this.enemyhitplayer, null, this);
+    this.game.physics.arcade.overlap(enemyoctos, player, this.enemyhitplayer, null, this);
     this.game.physics.arcade.overlap(enemyflys, player, this.enemyhitplayer, null, this);
-    this.game.physics.arcade.overlap(bullets, enemyocto, this.mataenemigoocto, null, this);
+    this.game.physics.arcade.overlap(bullets, enemyoctos, this.mataenemigoocto, null, this);
     this.physics.arcade.overlap(enemybullets, player, this.bullethitplayer, null, this);
 
   },
@@ -432,48 +438,79 @@ Game.Level1.prototype = {
     {
       if(i===0)
       {
-        var torreta=enemytorretas.create(3785.4,8048,'torreta');
+        var torreta=enemytorretas.create(3789.4,8048,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===1)
       {
-        var torreta=enemytorretas.create(3784.4,7536,'torreta');
+        var torreta=enemytorretas.create(3788.4,7536,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===2)
       {
-        var torreta=enemytorretas.create(3912.4,7104,'torreta');
+        var torreta=enemytorretas.create(3916.4,7104,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===3)
       {
-        var torreta=enemytorretas.create(3400.4,7056,'torreta');
+        var torreta=enemytorretas.create(3404.4,7056,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===4)
       {
-        var torreta=enemytorretas.create(3912.4,6140,'torreta');
+        var torreta=enemytorretas.create(3916.4,6140,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===5)
       {
-        var torreta=enemytorretas.create(3528.4,6079,'torreta');
+        var torreta=enemytorretas.create(3532.4,6079,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===6)
       {
-        var torreta=enemytorretas.create(3912.4,5250,'torreta');
+        var torreta=enemytorretas.create(3916.4,5250,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===7)
       {
-        var torreta=enemytorretas.create(3784.4,4890,'torreta');
+        var torreta=enemytorretas.create(3788.4,4890,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===8)
       {
-        var torreta=enemytorretas.create(5460.4,890,'torreta');
+        var torreta=enemytorretas.create(5464.4,890,'torreta');
         torreta.scale.setTo(2,2);
+      }
+    }
+  },
+  creaenemyocto:function()
+  {
+    for(var i=0;i<5;i++)
+    {
+      if(i===0)
+      {
+        var eocto=enemyoctos.create(5830.4,2950,'enemy2');
+        eocto.scale.setTo(2,2);
+      }
+      if(i===1)
+      {
+        var eocto=enemyoctos.create(5574,2350,'enemy2');
+        eocto.scale.setTo(2,2);
+      }
+      if(i===2)
+      {
+        var eocto=enemyoctos.create(5446,1990,'enemy2');
+        eocto.scale.setTo(2,2);
+      }
+      if(i===3)
+      {
+        var eocto=enemyoctos.create(5446,1800,'enemy2');
+        eocto.scale.setTo(2,2);
+      }
+      if(i===4)
+      {
+        var eocto=enemyoctos.create(5504,1000,'enemy2');
+        eocto.scale.setTo(2,2);
       }
     }
   },
@@ -554,14 +591,24 @@ Game.Level1.prototype = {
          enemystrg.body.velocity.x=0;
      }
   },
+
   logicaocto:function()
   {
-    octox=enemyocto.body.x + movotcx;
-    octoy=enemyocto.body.y + movocty;
-    this.game.physics.arcade.moveToXY(enemyocto,octox,octoy,175);
+    livingenemyocto.length=0;
+
+    enemyoctos.forEachAlive(function(eocto){livingenemyocto.push(eocto)});
+
+    for(var i=0;i<livingenemyocto.length;i++)
+    {
+    var enemyoctoe=livingenemyocto[i];
+    octox=enemyoctoe.body.x + movotcx;
+    octoy=enemyoctoe.body.y + movocty;
+    this.game.physics.arcade.moveToXY(enemyoctoe,octox,octoy,175);
     movocty=-movocty;
     movotcx=-movotcx;
+    }
   },
+
   logicaenemigosalto:function()
   {
     livingenemyjumps.length=0;
@@ -671,11 +718,11 @@ Game.Level1.prototype = {
     {
       enemyv.body.velocity.x=0;
     }
-    if((enemyv.body.x-player.body.x <= 175 && enemyv.body.x-player.body.x >= -175 ) && (player.body.y-enemyv.body.y <= 200 && player.body.y-enemyv.body.y >=0) && !detectado)
+    if((enemyv.body.x-player.body.x <= 200 && enemyv.body.x-player.body.x >= -200 ) && (player.body.y-enemyv.body.y <= 200 && player.body.y-enemyv.body.y >=0) && !detectado)
     {
         detectionpointX = player.body.x;
         detectionpointY = player.body.y;
-        if(enemyv.body.x-player.body.x <= 175 && enemyv.body.x-player.body.x >0 ){
+        if(enemyv.body.x-player.body.x <= 200 && enemyv.body.x-player.body.x >0 ){
             pointenemynewX = enemyv.body.x - 200;
         }
         else

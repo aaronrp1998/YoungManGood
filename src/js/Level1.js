@@ -381,47 +381,47 @@ Game.Level1.prototype = {
     {
       if(i===0)
       {
-        var torreta=enemytorretas.create(3783.4,8048,'torreta');
+        var torreta=enemytorretas.create(3785.4,8048,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===1)
       {
-        var torreta=enemytorretas.create(3782.4,7536,'torreta');
+        var torreta=enemytorretas.create(3784.4,7536,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===2)
       {
-        var torreta=enemytorretas.create(3910.4,7104,'torreta');
+        var torreta=enemytorretas.create(3912.4,7104,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===3)
       {
-        var torreta=enemytorretas.create(3398.4,7056,'torreta');
+        var torreta=enemytorretas.create(3400.4,7056,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===4)
       {
-        var torreta=enemytorretas.create(3910.4,6140,'torreta');
+        var torreta=enemytorretas.create(3912.4,6140,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===5)
       {
-        var torreta=enemytorretas.create(3526.4,6079,'torreta');
+        var torreta=enemytorretas.create(3528.4,6079,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===6)
       {
-        var torreta=enemytorretas.create(3910.4,5250,'torreta');
+        var torreta=enemytorretas.create(3912.4,5250,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===7)
       {
-        var torreta=enemytorretas.create(3782.4,4890,'torreta');
+        var torreta=enemytorretas.create(3784.4,4890,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===8)
       {
-        var torreta=enemytorretas.create(5458.4,890,'torreta');
+        var torreta=enemytorretas.create(5460.4,890,'torreta');
         torreta.scale.setTo(2,2);
       }
     }

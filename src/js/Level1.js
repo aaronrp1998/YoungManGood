@@ -306,18 +306,6 @@ Game.Level1.prototype = {
     }
 
 
-    
-    if(enemyconch.body.x>=posicion-25 && enemyconch.body.x<=posicion+25 )
-    {
-        enemyconch.body.velocity.x=0;
-        this.physics.arcade.overlap(bullets, enemyconch, this.mataenemigo, null, this);
-        if(undisparo)
-        {
-        this.disparocirculo();
-        undisparo=false;
-        }
-    }
-
     this.logicaenemigovolador();
     this.intocable();
     this.updateocto();
@@ -762,7 +750,7 @@ Game.Level1.prototype = {
         this.physics.arcade.overlap(bullets, enemyconchs, this.mataenemigo, null, this);
         if(undisparo)
         {
-        this.disparocirculo();
+        this.disparocirculo(enemyconche);
         undisparo=false;
         }
       }
@@ -864,18 +852,18 @@ Game.Level1.prototype = {
           dispaenem=this.time.now+200;
      // }
   },
-  disparocirculo:function()
+  disparocirculo:function(enemyconcha)
   {
     if(conch){
     enemysh.play();
-    this.enemyfire(-200,-200,enemyconch);
-    this.enemyfire(200,0,enemyconch);
-    this.enemyfire(-200,0,enemyconch);
-    this.enemyfire(-200,200,enemyconch);
-    this.enemyfire(0,200,enemyconch);
-    this.enemyfire(0,-200,enemyconch);
-    this.enemyfire(200,200,enemyconch);
-    this.enemyfire(200,-200,enemyconch);
+    this.enemyfire(-200,-200,enemyconcha);
+    this.enemyfire(200,0,enemyconcha);
+    this.enemyfire(-200,0,enemyconcha);
+    this.enemyfire(-200,200,enemyconcha);
+    this.enemyfire(0,200,enemyconcha);
+    this.enemyfire(0,-200,enemyconcha);
+    this.enemyfire(200,200,enemyconcha);
+    this.enemyfire(200,-200,enemyconcha);
     }
   },
   bullethitplayer:function(player,enemybullet)

@@ -23,6 +23,7 @@ var jumpTimer = 0;
 
 var enemybullets;
 
+var livingenemybullets=[];
 //var enemy;
 var pointenemynewX;
 var pointenemynewY;
@@ -889,7 +890,7 @@ Game.Level1.prototype = {
     for(var i=0;i<livingtorretas.length;i++)
     {
     var torretar=livingtorretas[i];
-    if(torretar.alive){
+    if(torretar.alive && torretar.inCamera){
     enemysh.play();
     this.enemyfire(-200,-200,torretar);
     this.enemyfire(-200,-100,torretar);

@@ -310,7 +310,8 @@ Game.Level1.prototype = {
     this.logicaenemigovolador();
     this.intocable();
     this.updateocto();
-    this,this.updateenemigoconch();
+    this.updateenemigoconch();
+    this.replacetiles();
 
     this.physics.arcade.overlap(bullets, enemytorretas, this.matatorreta, null, this);
     this.game.physics.arcade.overlap(bullets, enemystrg, this.mataenemigogrande, null, this);
@@ -916,4 +917,11 @@ Game.Level1.prototype = {
     conch=false;
   },
 
+  replacetiles:function()
+  {
+    if(player.body.x>=9040 && player.body.x<9200)
+    {
+    map.replace(13,-3);
+    }
+  },
 }

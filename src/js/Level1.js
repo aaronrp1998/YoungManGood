@@ -654,6 +654,8 @@ Game.Level1.prototype = {
 
     for(var i=0;i<livingenemyjumps.length;i++){
       var enemyjumpo=livingenemyjumps[i];
+      if(enemyjumpo.inCamera)
+      {
     enemyjumpo.body.velocity.y=-350;
    if((enemyjumpo.body.x-player.body.x <= 275 && enemyjumpo.body.x-player.body.x >= 0 ))
    {
@@ -667,6 +669,7 @@ Game.Level1.prototype = {
        enemyjumpo.body.velocity.x=0;
       }
     }
+  }
   },
   mataenemigogrande:function(enemigo,bullet)
   {

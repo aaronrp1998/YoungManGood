@@ -205,8 +205,8 @@ Game.Level1.prototype = {
     player.body.collideWorldBounds = true;
 
     //BOSS
-    finalboss= this.add.sprite(10993, 3230, 'boss');
-    finalboss.anchor.setTo(0.5,0.1);
+    finalboss= this.add.sprite(10890, 3130, 'boss');
+    //finalboss.anchor.setTo(0.5,0.1);
     finalboss.scale.setTo(2,2);
     this.physics.arcade.enable(finalboss);
     finalboss.body.gravity.y = 900;

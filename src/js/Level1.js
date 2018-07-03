@@ -1032,7 +1032,7 @@ Game.Level1.prototype = {
   {
     if(!zonabo)
     {
-    bossfire(finalboss);
+    this.bossfire(finalboss);
     }
   },
   logicaboss:function()

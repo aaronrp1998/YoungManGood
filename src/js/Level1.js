@@ -153,7 +153,7 @@ Game.Level1.prototype = {
 
     this.creatorretas();
 
-    player = this.add.sprite(570,8050, 'player');
+    player = this.add.sprite(8856,3120, 'player');
     player.anchor.setTo(0.5,0.5);
     player.animations.add('iddle',[0],1,true);
     player.animations.add('jump',[4],1,true);
@@ -922,6 +922,7 @@ Game.Level1.prototype = {
     if(player.body.x>=9040 && player.body.x<9200)
     {
     map.replace(13,-3);
+    map.setCollisionBetween(14,39);
     }
   },
 }

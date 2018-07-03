@@ -188,6 +188,7 @@ Game.Level1.prototype = {
     //BOSS
     finalboss= this.add.sprite(10993, 3248, 'boss');
     finalboss.anchor.setTo(0.5,0.1);
+    finalboss.scale.setTo(2,2);
     this.physics.arcade.enable(finalboss);
     finalboss.body.gravity.y = 900;
     finalboss.body.collideWorldBounds = true;
@@ -223,7 +224,7 @@ Game.Level1.prototype = {
     bullets.setAll('outOfBoundsKill', true);
     bullets.setAll('checkWorldBounds', true);
 
-    bossbullets=this.add.group();
+    bossbullets=thiss.add.group();
     bossbullets.enableBody = true;
     bossbullets.physicsBodyType = Phaser.Physics.ARCADE;
     bossbullets.createMultiple(30, 'bossbullet');

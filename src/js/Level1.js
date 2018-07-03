@@ -74,6 +74,7 @@ var dispaenem;
 var enemyoctos;
 var livingenemyocto=[];
 
+var onetime=true;
 Game.Level1.prototype = {
 
   create:function() {
@@ -919,10 +920,11 @@ Game.Level1.prototype = {
 
   replacetiles:function()
   {
-    if(player.body.x>=9040 && player.body.x<9200)
+    if(player.body.x>=9040 && player.body.x<9200 && onetime)
     {
-    map.replace(13,-3);
+   // map.replace(13,-3);
     map.swap(13,-3);
+    onetime=false;
     }
   },
 }

@@ -924,7 +924,7 @@ Game.Level1.prototype = {
     {
    // map.replace(13,-3);
     map.swap(13,-3);
-    map.setCollisionBetween(14,39);
+    map.setCollisionBetween(15,39);
     onetime=false;
     }
   },

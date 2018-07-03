@@ -921,6 +921,7 @@ Game.Level1.prototype = {
   {
     if(player.body.x>=9040 && player.body.x<9200)
     {
+    map.replace(13,-3);
     map.swap(13,-3);
     }
   },

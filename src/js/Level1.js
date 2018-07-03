@@ -75,6 +75,8 @@ var enemyoctos;
 var livingenemyocto=[];
 
 var onetime=true;
+var zonabo=true;
+
 Game.Level1.prototype = {
 
   create:function() {
@@ -313,6 +315,7 @@ Game.Level1.prototype = {
     this.updateocto();
     this.updateenemigoconch();
     this.replacetiles();
+    this.zonaboss();
 
     this.physics.arcade.overlap(bullets, enemytorretas, this.matatorreta, null, this);
     this.game.physics.arcade.overlap(bullets, enemystrg, this.mataenemigogrande, null, this);
@@ -922,8 +925,17 @@ Game.Level1.prototype = {
   {
     if(player.body.x>=9040 && player.body.x<9200 && onetime)
     {
-    map.replace(13,-2);
+    map.replace(13,-3);
     onetime=false;
+    }
+  },
+  zonaboss:function()
+  {
+    if(player.body.x>=10223 && zonabo)
+    {
+      map.setCollison(13);
+      map.replace(-3,13);
+      zonabo=false;
     }
   },
 }

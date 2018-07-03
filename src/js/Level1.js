@@ -223,6 +223,16 @@ Game.Level1.prototype = {
     bullets.setAll('outOfBoundsKill', true);
     bullets.setAll('checkWorldBounds', true);
 
+    bossbullets=game.add.group();
+    bossbullets.enableBody = true;
+    bossbullets.physicsBodyType = Phaser.Physics.ARCADE;
+    bossbullets.createMultiple(30, 'bossbullet');
+    bossbullets.setAll('anchor.x', 0.5);
+    bossbullets.setAll('anchor.y', 0.5);
+    bossbullets.setAll('outOfBoundsKill', true);
+    bossbullets.setAll('checkWorldBounds', true);
+
+
     enemybullets=this.add.group();
     enemybullets.enableBody = true;
     enemybullets.physicsBodyType = Phaser.Physics.ARCADE;

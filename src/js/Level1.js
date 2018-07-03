@@ -65,7 +65,7 @@ var livingenemyconch=[];
 var enemyocto;
 var octox;
 var octoy;
-var movotcx=300;
+var movotcx=100;
 var movocty=0;
 var vidaocto=3;
 var dispaenem;
@@ -432,47 +432,47 @@ Game.Level1.prototype = {
     {
       if(i===0)
       {
-        var torreta=enemytorretas.create(3789.4,8048,'torreta');
+        var torreta=enemytorretas.create(3799.4,8048,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===1)
       {
-        var torreta=enemytorretas.create(3788.4,7536,'torreta');
+        var torreta=enemytorretas.create(3798.4,7536,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===2)
       {
-        var torreta=enemytorretas.create(3916.4,7104,'torreta');
+        var torreta=enemytorretas.create(3926.4,7104,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===3)
       {
-        var torreta=enemytorretas.create(3404.4,7056,'torreta');
+        var torreta=enemytorretas.create(3414.4,7056,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===4)
       {
-        var torreta=enemytorretas.create(3916.4,6140,'torreta');
+        var torreta=enemytorretas.create(3926.4,6140,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===5)
       {
-        var torreta=enemytorretas.create(3532.4,6079,'torreta');
+        var torreta=enemytorretas.create(3542.4,6079,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===6)
       {
-        var torreta=enemytorretas.create(3916.4,5250,'torreta');
+        var torreta=enemytorretas.create(3926.4,5250,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===7)
       {
-        var torreta=enemytorretas.create(3788.4,4890,'torreta');
+        var torreta=enemytorretas.create(3798.4,4890,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===8)
       {
-        var torreta=enemytorretas.create(5964.4,890,'torreta');
+        var torreta=enemytorretas.create(5974.4,890,'torreta');
         torreta.scale.setTo(2,2);
       }
     }
@@ -483,7 +483,7 @@ Game.Level1.prototype = {
     {
       if(i===0)
       {
-        var eocto=enemyoctos.create(5830.4,2950,'enemy2');
+        var eocto=enemyoctos.create(5840.4,2950,'enemy2');
         eocto.scale.setTo(2,2);
       }
       if(i===1)

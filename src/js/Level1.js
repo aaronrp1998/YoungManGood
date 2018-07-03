@@ -185,13 +185,6 @@ Game.Level1.prototype = {
 
     this.creatorretas();
 
-    //BOSS
-    finalboss= this.add.sprite(10993, 3230, 'boss');
-    finalboss.anchor.setTo(0.5,0.1);
-    finalboss.scale.setTo(2,2);
-    this.physics.arcade.enable(finalboss);
-    finalboss.body.gravity.y = 900;
-    finalboss.body.collideWorldBounds = true;
 
     player = this.add.sprite(8856,3120, 'player');
     player.anchor.setTo(0.5,0.5);
@@ -210,6 +203,14 @@ Game.Level1.prototype = {
     player.body.gravity.y = 1400;
     player.body.collisionWorldBounds = true;
     player.body.collideWorldBounds = true;
+
+    //BOSS
+    finalboss= this.add.sprite(10993, 3230, 'boss');
+    finalboss.anchor.setTo(0.5,0.1);
+    finalboss.scale.setTo(2,2);
+    this.physics.arcade.enable(finalboss);
+    finalboss.body.gravity.y = 900;
+    finalboss.body.collideWorldBounds = true;
 
     flyingenemy=this.add.group();
     flyingenemy.enableBody=true;

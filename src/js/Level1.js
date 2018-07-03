@@ -1023,7 +1023,7 @@ Game.Level1.prototype = {
     {
     if(calculasaltos)
     {
-    numsaltos=numeroAleatorio(1,4);
+    numsaltos=this.numeroAleatorio(1,4);
     calculasaltos=false;
     }
     }

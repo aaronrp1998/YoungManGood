@@ -38,11 +38,11 @@ Game.Preloader.prototype = {
 
     this.load.image('torreta','images/torreta.png');
 
+    this.load.image('boss', 'images/Boss.png');
+
     this.load.image('enemybullet','images/enemybullet.png');
 
     this.load.image('bossbullet','images/comecocos.png');
-
-    this.load.image('boss', 'images/Boss.png');
 
     this.load.audio('musica', 'audio/musica.mp3');
 

@@ -934,7 +934,7 @@ Game.Level1.prototype = {
     if(player.body.x>=10223 && zonabo)
     {
       map.setCollision(13);
-      map.replace(-3,13);
+      map.swap(-3,13);
       zonabo=false;
     }
   },

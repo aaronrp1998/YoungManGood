@@ -262,6 +262,9 @@ Game.Level1.prototype = {
    this.game.time.events.loop(Phaser.Timer.SECOND*3, this.logicaocto, this);
    this.time.events.loop(Phaser.Timer.SECOND*3.5, this.logicatorretas, this);
 
+   this.time.events.loop(Phaser.Timer.SECOND*2.5, this.bossfireing, this);
+   this.time.events.loop(Phaser.Timer.SECOND*2, this.numerosaltos, this);
+
     controls = {
       right: this.input.keyboard.addKey(Phaser.Keyboard.D),
       left: this.input.keyboard.addKey(Phaser.Keyboard.A),
@@ -366,6 +369,9 @@ Game.Level1.prototype = {
     this.replacetiles();
     this.zonaboss();
 
+    this.bossintocable();
+    this.updateboss();
+
     this.physics.arcade.overlap(bullets, enemytorretas, this.matatorreta, null, this);
     this.game.physics.arcade.overlap(bullets, enemystrg, this.mataenemigogrande, null, this);
     this.game.physics.arcade.overlap(enemystrg, player, this.enemyhitplayer, null, this);
@@ -378,6 +384,12 @@ Game.Level1.prototype = {
     this.game.physics.arcade.overlap(enemyflys, player, this.enemyhitplayer, null, this);
     this.game.physics.arcade.overlap(bullets, enemyoctos, this.mataenemigoocto, null, this);
     this.physics.arcade.overlap(enemybullets, player, this.bullethitplayer, null, this);
+
+     //COLISIONES
+     this.physics.arcade.overlap(finalboss, player, this.enemyhitplayer, null, this);
+     this.physics.arcade.overlap(bullets, finalboss, this.killboss, null, this);
+     this.physics.arcade.overlap(bossbullets, finalboss, this.balaboss, null, this);
+     this.physics.arcade.overlap(bossbullets, player, this.bullethitplayer, null, this);
 
   },
   render:function()
@@ -986,5 +998,166 @@ Game.Level1.prototype = {
       map.setCollision(13,true);
       zonabo=false;
     }
+  },
+
+////BOSS///////
+  bossfire:function(enemigo)
+  {
+    var bossbullet = bossbullets.getFirstExists(false);
+    if (bossbullet && tienebala && bossalive)
+    {
+        bossbullet.reset(enemigo.body.x-2, enemigo.body.y+5);
+        tienebala=false;
+        atacabala=true;
+        posbalx=player.body.x;
+        posbaly=player.body.y;
+    }
+  },
+  numeroAleatorio:function(min, max)
+  {
+    return Math.round(Math.random() * (max - min) + min);
+  },
+  numerosaltos:function()
+  {
+    if(!zonabo)
+    {
+    if(calculasaltos)
+    {
+    numsaltos=numeroAleatorio(1,4);
+    calculasaltos=false;
+    }
+    }
+  },
+  bossfireing:function()
+  {
+    if(!zonabo)
+    {
+    bossfire(finalboss);
+    }
+  },
+  logicaboss:function()
+  {
+    if (!descansa)
+    {
+        if(numsaltos > 0)
+        {
+            saltox=player.body.x;
+            saltoy= player.body.y;
+            finalboss.body.velocity.y=-750;
+            mueveboss=true;
+            numsaltos=numsaltos-1;
+            knockback=false;
+        }
+       /* if(finalboss.body.x-saltox >0){
+            saltalado=(saltox-finalboss.body.x)/movjefe;
+        }*/
+        saltalado=(saltox-finalboss.body.x)/movjefe;;
+        if (numsaltos == 0)
+        {
+            descansa=true;
+            calculasaltos=true;
+        }
+    }
+    if (this.time.now >= tiempodescanso)
+    {
+        descansa=false;
+        undesc=true;
+    }
+    return numsaltos;
+  },
+  balaboss:function(jefe,bala)
+  {
+    if(vuelve){
+        bala.kill();
+        vuelve=false;
+        tienebala=true;
+    }
+  },
+  logicabullet:function()
+  {
+    bossbullets.getFirstExists().angle +=10;
+    this.physics.arcade.moveToXY(bossbullets.getFirstExists(),posbalx,posbaly,250);
+    if(bossbullets.getFirstExists().x <= posbalx+3 && bossbullets.getFirstExists().x >=posbalx-3 )
+    {
+        atacabala=false;
+        vuelve=true;
+    }
+    if(vuelve)
+    {
+        this.physics.arcade.moveToObject(bossbullets.getFirstExists(),finalboss,250);
+    }
+  },
+  bossintocable:function()
+  {
+    if(this.time.now >= tiempbossinv)
+    {
+        finalboss.body.velocity.x=0;
+        finalboss.alpha=1;
+        bossinv=false;
+    }
+  },
+  killboss:function(enemigo,bullet)
+  {
+    if(!bossinv)
+    {
+    bullet.kill();
+    vidaboss=vidaboss-5;
+    finalboss.alpha=0.5;
+    if(bullet.body.velocity.x>0)
+    {
+        finalboss.body.velocity.x=finalboss.body.velocity.x+50;
+    }
+    else{
+        finalboss.body.velocity.x=finalboss.body.velocity.x-50;
+    }
+    tiempbossinv=this.time.now + Phaser.Timer.SECOND*1.2;
+    bossinv=true;
+    }
+    if(vidaboss == 0)
+    {
+        enemigo.kill();
+        bossalive=false;
+    }
+  },
+  updateboss:function()
+  {
+    if(!zonabo)
+    {
+    if (vidaboss<=25)
+    {
+        finalboss.tint=0xE21900;
+        furioso=true;
+        descanso=3.15;
+    }
+    if(!bossalive && !deadbullet && bossbullets.getFirstExists())
+    {
+    bossbullets.getFirstExists().kill();
+    deadbullet=true;
+    }
+    if(!tienebala && bossalive)
+    {
+    logicabullet();
+    }
+    if(finalboss.onFloor())
+    {
+      if(logicaboss()==0 && undesc)
+      {
+      tiempodescanso = this.time.now + Phaser.Timer.SECOND*descanso;
+      undesc=false;
+      }
+      logicaboss();
+    }
+     else if(mueveboss && !hitPlatformboss)
+     {
+     /// game.physics.arcade.moveToXY(finalboss,saltox,finalboss.body.y,250);
+     finalboss.body.velocity.x=saltalado;
+    }
+    if(finalboss.body.x>=saltox-3 && finalboss.body.x<=saltox+3 && !knockback)
+    {
+      finalboss.body.velocity.x=0;
+      mueveboss=false;
+      knockback = true;
+    }
+  }
   },
 }

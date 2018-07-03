@@ -76,6 +76,7 @@ var livingenemyocto=[];
 
 var onetime=true;
 var zonabo=true;
+var wtf;
 
 Game.Level1.prototype = {
 
@@ -228,6 +229,7 @@ Game.Level1.prototype = {
    this.physics.arcade.collide(player,layer);
    this.physics.arcade.collide(enemystrg,layer);
    this.physics.arcade.collide(enemyjumps,layer);
+   this.physics.arcade.collide(player,wtf);
   //  this.physics.arcade.gravity.y = 1400;
    //enemy.body.gravity.y = 1400;
 
@@ -933,7 +935,7 @@ Game.Level1.prototype = {
   {
     if(player.body.x>=10223 && zonabo)
     {
-      map.setCollision(13,true);
+      wtf = map.setCollision(13,true);
       map.swap(-3,13);
       zonabo=false;
     }

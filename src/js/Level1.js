@@ -1138,7 +1138,7 @@ Game.Level1.prototype = {
     {
     logicabullet();
     }
-    if(finalboss.onFloor())
+    if(finalboss.body.onFloor())
     {
       if(logicaboss()==0 && undesc)
       {

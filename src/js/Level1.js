@@ -91,7 +91,7 @@ Game.Level1.prototype = {
     map.addTilesetImage('tileset');
     layer = map.createLayer(0);
     layer.resizeWorld();
-    map.setCollisionBetween(13,39);
+    map.setCollisionBetween(14,39);
     map.setTileIndexCallback(12,this.SubirEscaleras,this);
     map.setTileIndexCallback(19,this.ResetPosition,this);
     map.setTileIndexCallback(-1,this.Libre,this);
@@ -923,8 +923,6 @@ Game.Level1.prototype = {
     if(player.body.x>=9040 && player.body.x<9200 && onetime)
     {
     map.replace(13,-2);
-    map.swap(13,-2);
-    map.setCollisionBetween(15,39);
     onetime=false;
     }
   },

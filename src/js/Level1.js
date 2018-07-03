@@ -274,7 +274,7 @@ Game.Level1.prototype = {
    this.physics.arcade.collide(player,layer);
    this.physics.arcade.collide(enemystrg,layer);
    this.physics.arcade.collide(enemyjumps,layer);
-   this.physics.arcade.collide(player,);
+   this.physics.arcade.collide(finalboss,layer);
   //  this.physics.arcade.gravity.y = 1400;
    //enemy.body.gravity.y = 1400;
 

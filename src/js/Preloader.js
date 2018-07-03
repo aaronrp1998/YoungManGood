@@ -40,6 +40,8 @@ Game.Preloader.prototype = {
 
     this.load.image('enemybullet','images/enemybullet.png');
 
+    this.load.image('boss', 'images/Boss.png');
+
     this.load.audio('musica', 'audio/musica.mp3');
 
     this.load.audio('jumps', 'audio/jump.mp3');

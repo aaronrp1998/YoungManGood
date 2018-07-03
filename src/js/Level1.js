@@ -76,7 +76,35 @@ var livingenemyocto=[];
 
 var onetime=true;
 var zonabo=true;
-var wtf;
+
+///FINAL BOSS///////////////////////////////////////////////////////////////////////////////////
+var finalboss;
+var bossbullets;
+var vidaboss=50;
+var bossinv=false;
+var tiempbossinv;
+var posbalx;
+var posbaly;
+var tienebala=true;
+var atacabala=false;
+var vuelve;
+var bossalive=true;
+var deadbullet=false;
+var numsaltos;
+var descansa=false;
+var calculasaltos=true;
+var saltox;
+var saltoy;
+var tiempodescanso;
+var mueveboss=false;
+var saltalado=300;
+var knockback=false;
+var movjefe=1.65;
+var furioso=false;
+var descanso=4.15;
+var undesc=true;
+//////////////////////////////////////////////////////////////////////////////////////////////
+
 
 Game.Level1.prototype = {
 
@@ -156,6 +184,13 @@ Game.Level1.prototype = {
     enemytorretas.physicsBodyType=Phaser.Physics.ARCADE;
 
     this.creatorretas();
+
+    //BOSS
+    finalboss= this.add.sprite(10993, 3248, 'boss');
+    finalboss.anchor.setTo(0.5,0.1);
+    this.physics.arcade.enable(finalboss);
+    finalboss.body.gravity.y = 900;
+    finalboss.body.collideWorldBounds = true;
 
     player = this.add.sprite(8856,3120, 'player');
     player.anchor.setTo(0.5,0.5);
@@ -935,8 +970,8 @@ Game.Level1.prototype = {
   {
     if(player.body.x>=10223 && zonabo)
     {
-      map.setCollision(13,true);
       map.replace(-3,13);
+      map.setCollision(13,true);
       zonabo=false;
     }
   },

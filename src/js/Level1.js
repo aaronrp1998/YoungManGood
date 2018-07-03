@@ -186,7 +186,7 @@ Game.Level1.prototype = {
     this.creatorretas();
 
     //BOSS
-    finalboss= this.add.sprite(10993, 3248, 'boss');
+    finalboss= this.add.sprite(10993, 3230, 'boss');
     finalboss.anchor.setTo(0.5,0.1);
     finalboss.scale.setTo(2,2);
     this.physics.arcade.enable(finalboss);

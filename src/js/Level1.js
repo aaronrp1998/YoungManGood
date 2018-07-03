@@ -1140,7 +1140,7 @@ Game.Level1.prototype = {
     }
     if(finalboss.body.onFloor())
     {
-      if(logicaboss()==0 && undesc)
+      if(this.logicaboss()=== 0 && undesc)
       {
       tiempodescanso = this.time.now + Phaser.Timer.SECOND*descanso;
       undesc=false;

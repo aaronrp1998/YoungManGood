@@ -223,7 +223,7 @@ Game.Level1.prototype = {
     bullets.setAll('outOfBoundsKill', true);
     bullets.setAll('checkWorldBounds', true);
 
-    bossbullets=game.add.group();
+    bossbullets=this.add.group();
     bossbullets.enableBody = true;
     bossbullets.physicsBodyType = Phaser.Physics.ARCADE;
     bossbullets.createMultiple(30, 'bossbullet');

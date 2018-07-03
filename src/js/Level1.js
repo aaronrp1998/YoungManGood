@@ -443,7 +443,7 @@ Game.Level1.prototype = {
       }
       if(i===2)
       {
-        var torreta=enemytorretas.create(3926.4,7104,'torreta');
+        var torreta=enemytorretas.create(3926.4,7054,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===3)

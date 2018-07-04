@@ -1136,7 +1136,7 @@ Game.Level1.prototype = {
     }
     if(!tienebala && bossalive)
     {
-    logicabullet();
+     this.logicabullet();
     }
     if(finalboss.body.onFloor())
     {

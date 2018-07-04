@@ -499,7 +499,7 @@ Game.Level1.prototype = {
     {
       if(i===0)
       {
-        var torreta=enemytorretas.create(3800.4,7930,'torreta');
+        var torreta=enemytorretas.create(3805.4,7930,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===1)

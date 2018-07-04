@@ -389,7 +389,7 @@ Game.Level1.prototype = {
      this.physics.arcade.overlap(finalboss, player, this.enemyhitplayer, null, this);
      this.physics.arcade.overlap(bullets, finalboss, this.killboss, null, this);
      this.physics.arcade.overlap(bossbullets, finalboss, this.balaboss, null, this);
-     this.physics.arcade.overlap(bossbullets, player, this.bullethitplayer, null, this);
+     this.physics.arcade.overlap(bossbullets, player, this.bulletbosshitplayer, null, this);
 
   },
   render:function()
@@ -1159,5 +1159,20 @@ Game.Level1.prototype = {
       knockback = true;
     }
   }
+  },
+  bulletbosshitplayer:function(player,enemybullet)
+  {
+    if(!invulnerable)
+    {
+    vidaJugador=vidaJugador-10;
+    tiempoinv = this.time.now + Phaser.Timer.SECOND*2;
+    player.alpha=0.5;
+    invulnerable=true;
+    }
+    if(vidaJugador <= 0)
+    {
+        player.kill();
+        playeralive=false;
+    }
   },
 }

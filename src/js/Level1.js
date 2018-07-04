@@ -1213,7 +1213,7 @@ Game.Level1.prototype = {
   },
   enemydrop:function(enemmydrop)
   {
-    drop=this.numeroAleatorio(1,10);
+    drop=this.numeroAleatorio(1,11);
     if(drop>=5 && drop<=6)
     {
       var enemydrops=vidap.create(enemmydrop.body.x,enemmydrop.body.y,'vidapq');

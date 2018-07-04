@@ -1147,7 +1147,7 @@ Game.Level1.prototype = {
       }
       this.logicaboss();
     }
-     else if(mueveboss && !hitPlatformboss)
+     else if(mueveboss && !finalboss.body.onFloor())
      {
      /// game.physics.arcade.moveToXY(finalboss,saltox,finalboss.body.y,250);
      finalboss.body.velocity.x=saltalado;

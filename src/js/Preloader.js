@@ -38,6 +38,14 @@ Game.Preloader.prototype = {
 
     this.load.image('torreta','images/torreta.png');
 
+    this.load.image('vidapq','images/vidapeq.png');
+
+    this.load.image('vidagr','images/vidagr.png');
+
+    this.load.image('puntospq','images/puntospq.png');
+
+    this.load.image('puntosgr','images/puntosgr.png');
+
     this.load.image('boss', 'images/Boss.png');
 
     this.load.image('enemybullet','images/enemybullet.png');

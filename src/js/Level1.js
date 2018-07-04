@@ -504,17 +504,17 @@ Game.Level1.prototype = {
       }
       if(i===1)
       {
-        var torreta=enemytorretas.create(3798.4,7410,'torreta');
+        var torreta=enemytorretas.create(3802.4,7440,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===2)
       {
-        var torreta=enemytorretas.create(3926.4,7170,'torreta');
+        var torreta=enemytorretas.create(3931.4,7170,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===3)
       {
-        var torreta=enemytorretas.create(3414.4,7010,'torreta');
+        var torreta=enemytorretas.create(3419.4,7080,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===4)

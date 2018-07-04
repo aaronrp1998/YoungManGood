@@ -1248,18 +1248,18 @@ Game.Level1.prototype = {
   {
     objeto.kill();
     vidaJugador+=10;
-    if(vida>100)
+    if(vidaJugador>100)
     {
-    vida=100;
+    vidaJugador=100;
     }
   },
   sumavidag:function(player,objeto)
   {
     objeto.kill();
     vidaJugador+=25;
-    if(vida>100)
+    if(vidaJugador>100)
     {
-    vida=100;
+    vidaJugador=100;
     }
   },
   sumapuntosp:function(player,objeto)

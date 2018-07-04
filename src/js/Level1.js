@@ -774,7 +774,7 @@ Game.Level1.prototype = {
     enemysaltlife=enemysaltlife-1;
     if(enemysaltlife == 0)
     {
-        this.drop(enemigo);
+        this.enemydrop(enemigo);
         enemigo.kill();
         enemyd.play();
         enemysaltlife=5;
@@ -798,7 +798,7 @@ Game.Level1.prototype = {
   mataenemigo:function(bullet,enemigo)
   {
     bullet.kill();
-    this.drop(enemigo);
+    this.enemydrop(enemigo);
     enemigo.kill();
     enemyd.play();
   },
@@ -816,7 +816,7 @@ Game.Level1.prototype = {
     vidaocto = vidaocto-1;
     if(vidaocto<=0)
     {
-      this.drop(enemigo);
+      this.enemydrop(enemigo);
       enemigo.kill();
       enemyd.play();
       vidaocto=3;
@@ -1006,14 +1006,14 @@ Game.Level1.prototype = {
   {
     enemyd.play();
     bullet.kill();
-    this.drop(enemigo);
+    this.enemydrop(enemigo);
     enemigo.kill();
   },
   mataconch:function(bullet,enemigo)
   {
     enemyd.play();
     bullet.kill();
-    this.drop(enemigo);
+    this.enemydrop(enemigo);
     enemigo.kill();
     conch=false;
   },

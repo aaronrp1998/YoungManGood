@@ -430,8 +430,8 @@ Game.Level1.prototype = {
   },
   render:function()
   {
-    this.game.debug.text("PosX "+player.body.x,1,100);
-    this.game.debug.text("PosY "+player.body.y,1,150);
+    this.game.debug.text("VIDA: "+vidaJugador,1,50);
+    this.game.debug.text("PUNTOS: "+puntos,1,100);
     this.game.debug.text("Vida"+vidaJugador,1,200);
     this.game.debug.text("VAR "+player.alive,1,300);
    // this.game.debug.text("detx "+detectionpointX,1,250);

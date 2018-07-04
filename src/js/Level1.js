@@ -1239,4 +1239,19 @@ Game.Level1.prototype = {
       enemydrops.scale.setTo(2,2);
     }
   },
+  sumavidap:function()
+  {
+
+  },
+  sumavidag:function()
+  {
+
+  },
+  sumapuntosp:function()
+  {
+
+  },sumapuntosg:function()
+  {
+
+  },
 }

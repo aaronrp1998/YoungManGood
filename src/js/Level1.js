@@ -422,7 +422,7 @@ Game.Level1.prototype = {
      this.physics.arcade.overlap(bossbullets, finalboss, this.balaboss, null, this);
      this.physics.arcade.overlap(bossbullets, player, this.bulletbosshitplayer, null, this);
 
-     this.physics.arcade.overlap(vidap, player, this.sumapuntosp, null, this);
+     this.physics.arcade.overlap(vidap, player, this.sumavidap, null, this);
      this.physics.arcade.overlap(vidag, player, this.sumavidag, null, this);
      this.physics.arcade.overlap(puntosp, player, this.sumapuntosp, null, this);
      this.physics.arcade.overlap(puntosg, player, this.sumapuntosg, null, this);

@@ -16,6 +16,7 @@ var tiempodis=0;
 var dispderch=true;
 var tiempoinv;
 var invulnerable=false;
+var puntos=0;
 
 var controls = {};
 var playerSpeed = 250;
@@ -76,6 +77,11 @@ var livingenemyocto=[];
 
 var onetime=true;
 var zonabo=true;
+
+var vidap;
+var vidag;
+var puntosp;
+var puntosg;
 
 ///FINAL BOSS///////////////////////////////////////////////////////////////////////////////////
 var finalboss;

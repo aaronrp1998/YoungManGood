@@ -630,7 +630,7 @@ Game.Level1.prototype = {
   },
 
   ResetPosition:function() {
-    player.reset(570,8050);
+    player.reset(570,8100);
   },
 
   SubirEscaleras:function() {

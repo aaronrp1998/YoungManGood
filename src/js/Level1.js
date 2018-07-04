@@ -550,22 +550,22 @@ Game.Level1.prototype = {
     {
       if(i===0)
       {
-        var eocto=enemyoctos.create(5840.4,2950,'enemy2');
+        var eocto=enemyoctos.create(5540.4,2950,'enemy2');
         eocto.scale.setTo(2,2);
       }
       if(i===1)
       {
-        var eocto=enemyoctos.create(5574,2350,'enemy2');
+        var eocto=enemyoctos.create(5874,2350,'enemy2');
         eocto.scale.setTo(2,2);
       }
       if(i===2)
       {
-        var eocto=enemyoctos.create(5446,1990,'enemy2');
+        var eocto=enemyoctos.create(5300,1990,'enemy2');
         eocto.scale.setTo(2,2);
       }
       if(i===3)
       {
-        var eocto=enemyoctos.create(5446,1800,'enemy2');
+        var eocto=enemyoctos.create(5746,1800,'enemy2');
         eocto.scale.setTo(2,2);
       }
       if(i===4)

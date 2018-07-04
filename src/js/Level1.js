@@ -407,7 +407,7 @@ Game.Level1.prototype = {
     for(var i=0;i<9;i++){
       if(i===0)
       {
-      var enemyjump=enemyjumps.create(1270,8050,'enemy3');
+      var enemyjump=enemyjumps.create(1270,8100,'enemy3');
       enemyjump.scale.setTo(2,2);
       enemyjump.body.gravity.y=900;
       }
@@ -570,7 +570,7 @@ Game.Level1.prototype = {
       }
       if(i===4)
       {
-        var eocto=enemyoctos.create(5504,1000,'enemy2');
+        var eocto=enemyoctos.create(5304,1000,'enemy2');
         eocto.scale.setTo(2,2);
       }
     }

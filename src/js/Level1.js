@@ -422,6 +422,11 @@ Game.Level1.prototype = {
      this.physics.arcade.overlap(bossbullets, finalboss, this.balaboss, null, this);
      this.physics.arcade.overlap(bossbullets, player, this.bulletbosshitplayer, null, this);
 
+     this.physics.arcade.overlap(vidap, player, this.sumapuntosp, null, this);
+     this.physics.arcade.overlap(vidag, player, this.sumavidag, null, this);
+     this.physics.arcade.overlap(puntosp, player, this.sumapuntosp, null, this);
+     this.physics.arcade.overlap(puntosg, player, this.sumapuntosg, null, this);
+
   },
   render:function()
   {
@@ -1239,19 +1244,32 @@ Game.Level1.prototype = {
       enemydrops.scale.setTo(2,2);
     }
   },
-  sumavidap:function()
+  sumavidap:function(player,objeto)
   {
-
+    objeto.kill();
+    vida+=10;
+    if(vida>100)
+    {
+    vida=100;
+    }
   },
-  sumavidag:function()
+  sumavidag:function(player,objeto)
   {
-
+    objeto.kill();
+    vida+=25;
+    if(vida>100)
+    {
+    vida=100;
+    }
   },
-  sumapuntosp:function()
+  sumapuntosp:function(player,objeto)
   {
-
-  },sumapuntosg:function()
+    objeto.kill();
+    puntos+=100;
+  },
+  sumapuntosg:function(player,objeto)
   {
-
+    objeto.kill();
+    puntos+=250;
   },
 }

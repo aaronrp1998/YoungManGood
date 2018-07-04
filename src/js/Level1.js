@@ -186,7 +186,7 @@ Game.Level1.prototype = {
     this.creatorretas();
 
 
-    player = this.add.sprite(8856,3120, 'player');
+    player = this.add.sprite(570,8050, 'player');
     player.anchor.setTo(0.5,0.5);
     player.animations.add('iddle',[0],1,true);
     player.animations.add('jump',[4],1,true);
@@ -499,7 +499,7 @@ Game.Level1.prototype = {
     {
       if(i===0)
       {
-        var torreta=enemytorretas.create(3799.4,8048,'torreta');
+        var torreta=enemytorretas.create(3800.4,8048,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===1)
@@ -514,7 +514,7 @@ Game.Level1.prototype = {
       }
       if(i===3)
       {
-        var torreta=enemytorretas.create(3414.4,7056,'torreta');
+        var torreta=enemytorretas.create(3414.4,7156,'torreta');
         torreta.scale.setTo(2,2);
       }
       if(i===4)

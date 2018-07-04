@@ -1247,7 +1247,7 @@ Game.Level1.prototype = {
   sumavidap:function(player,objeto)
   {
     objeto.kill();
-    vida+=10;
+    vidaJugador+=10;
     if(vida>100)
     {
     vida=100;
@@ -1256,7 +1256,7 @@ Game.Level1.prototype = {
   sumavidag:function(player,objeto)
   {
     objeto.kill();
-    vida+=25;
+    vidaJugador+=25;
     if(vida>100)
     {
     vida=100;

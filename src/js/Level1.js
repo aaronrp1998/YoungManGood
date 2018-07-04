@@ -18,6 +18,8 @@ var tiempoinv;
 var invulnerable=false;
 var puntos=0;
 
+var drop;
+
 var controls = {};
 var playerSpeed = 250;
 var jumpTimer = 0;
@@ -83,7 +85,8 @@ var vidag;
 var puntosp;
 var puntosg;
 
-///FINAL BOSS///////////////////////////////////////////////////////////////////////////////////
+///////////FINAL BOSS///////////////////////////////////////////////////////////////////////////////////
+
 var finalboss;
 var bossbullets;
 var vidaboss=50;
@@ -109,7 +112,8 @@ var movjefe=1.65;
 var furioso=false;
 var descanso=4.15;
 var undesc=true;
-//////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 Game.Level1.prototype = {
@@ -222,6 +226,22 @@ Game.Level1.prototype = {
     flyingenemy.enableBody=true;
     flyingenemy.physicsBodyType = Phaser.Physics.ARCADE;
 
+    vidap=this.add.group();
+    vidap.enableBody=true;
+    vidap.physicsBodyType=Phaser.Physics.ARCADE;
+
+    vidag=this.add.group();
+    vidag.enableBody=true;
+    vidag.physicsBodyType=Phaser.Physics.ARCADE;
+
+    puntosp=this.add.group();
+    puntosp.enableBody=true;
+    puntosp.physicsBodyType=Phaser.Physics.ARCADE;
+
+    puntosg=this.add.group();
+    puntosg.enableBody=true;
+    puntosg.physicsBodyType=Phaser.Physics.ARCADE;
+
     bullets = this.add.group();
     bullets.enableBody = true;
     bullets.physicsBodyType = Phaser.Physics.ARCADE;
@@ -286,6 +306,11 @@ Game.Level1.prototype = {
    this.physics.arcade.collide(enemystrg,layer);
    this.physics.arcade.collide(enemyjumps,layer);
    this.physics.arcade.collide(finalboss,layer);
+
+   this.physics.arcade.collide(vidag,layer);
+   this.physics.arcade.collide(vidap,layer);
+   this.physics.arcade.collide(puntosp,layer);
+   this.physics.arcade.collide(puntosg,layer);
   //  this.physics.arcade.gravity.y = 1400;
    //enemy.body.gravity.y = 1400;
 
@@ -749,6 +774,7 @@ Game.Level1.prototype = {
     enemysaltlife=enemysaltlife-1;
     if(enemysaltlife == 0)
     {
+        this.drop(enemigo);
         enemigo.kill();
         enemyd.play();
         enemysaltlife=5;
@@ -772,6 +798,7 @@ Game.Level1.prototype = {
   mataenemigo:function(bullet,enemigo)
   {
     bullet.kill();
+    this.drop(enemigo);
     enemigo.kill();
     enemyd.play();
   },
@@ -789,6 +816,7 @@ Game.Level1.prototype = {
     vidaocto = vidaocto-1;
     if(vidaocto<=0)
     {
+      this.drop(enemigo);
       enemigo.kill();
       enemyd.play();
       vidaocto=3;
@@ -978,12 +1006,14 @@ Game.Level1.prototype = {
   {
     enemyd.play();
     bullet.kill();
+    this.drop(enemigo);
     enemigo.kill();
   },
   mataconch:function(bullet,enemigo)
   {
     enemyd.play();
     bullet.kill();
+    this.drop(enemigo);
     enemigo.kill();
     conch=false;
   },
@@ -1179,6 +1209,34 @@ Game.Level1.prototype = {
     {
         player.kill();
         playeralive=false;
+    }
+  },
+  enemydrop:function(enemmydrop)
+  {
+    drop=this.numeroAleatorio(1,10);
+    if(drop>=5 && drop<=6)
+    {
+      var enemydrops=vidap.create(enemmydrop.body.x,enemmydrop.body.y,'vidapq');
+      enemydrops.body.gravity.y =300;
+      enemydrops.scale.setTo(2,2);
+    }
+    if(drop===7)
+    {
+      var enemydrops=vidag.create(enemmydrop.body.x,enemmydrop.body.y,'vidagr');
+      enemydrops.body.gravity.y =300;
+      enemydrops.scale.setTo(2,2);
+    }
+    if(drop>=8 && drop<=9)
+    {
+      var enemydrops= puntosp.create(enemmydrop.body.x,enemmydrop.body.y,'puntospq');
+      enemydrops.body.gravity.y =300;
+      enemydrops.scale.setTo(2,2);
+    }
+    if(drop===10)
+    {
+      var enemydrops= puntosg.create(enemmydrop.body.x,enemmydrop.body.y,'puntosgr');
+      enemydrops.body.gravity.y =300;
+      enemydrops.scale.setTo(2,2);
     }
   },
 }

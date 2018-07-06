@@ -683,12 +683,12 @@ Game.Level1.prototype = {
          //  {
               
                if(dispderch){
-               bullet=bullets.create(player.body.x+50, player.body.y+35,'bullet');
+               bullet=bullets.create(player.body.x+60, player.body.y+40,'bullet');
                bullet.body.velocity.x=400;
                }
                else
                {
-               bullet=bullets.create(player.body.x-10, player.body.y+35,'bullet');
+               bullet=bullets.create(player.body.x-10, player.body.y+40,'bullet');
                   bullet.body.velocity.x=-400;
                }
                tiempodis = this.time.now + 200;
@@ -1321,8 +1321,10 @@ Game.Level1.prototype = {
     for(var i=0;i<livingplayerbullets.length;i++)
     {
       var balajugador=livingplayerbullets[i];
-      if(!balajugador.inCamera)
+      if(balajugador.inCamera)
       {
+      }
+      else{
         balajugador.kill();
       }
     }

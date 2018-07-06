@@ -273,11 +273,11 @@ Game.Level1.prototype = {
     enemybullets.setAll('outOfBoundsKill', true);
     enemybullets.setAll('checkWorldBounds', true);
 
-  /*  weapon = this.add.weapon(10,'bullet');
+    weapon = this.add.weapon(10,'bullet');
     weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
     // weapon.bulletAngleOffset = 90;
     weapon.bulletSpeed = 300;
-    weapon.trackSprite(player,15,30, true);*/
+    weapon.trackSprite(player,15,30, true);
     firebutton= this.input.keyboard.addKey(Phaser.Keyboard.K);
 
     musica = this.add.audio('musica');

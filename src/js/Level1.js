@@ -647,6 +647,9 @@ Game.Level1.prototype = {
     }
   },
 
+  ResetPositionP:function() {
+    player.reset(570,8100);
+  },
   SubirEscaleras:function() {
 
     player.body.gravity.y = 0;
@@ -810,7 +813,7 @@ Game.Level1.prototype = {
         if(vidas>-1)
         {
           vidaJugador=100;
-          this.ResetPosition();
+          this.ResetPositionP();
         }
         else
         {
@@ -1009,7 +1012,7 @@ Game.Level1.prototype = {
         vidas=vidas-1;
         if(vidas>-1)
         {
-          this.ResetPosition();
+          this.ResetPositionP();
           vidaJugador=100;
         }
         else

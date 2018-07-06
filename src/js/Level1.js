@@ -637,6 +637,12 @@ Game.Level1.prototype = {
 
   ResetPosition:function() {
     player.reset(570,8100);
+    vidas=vidas-1;
+    if(vidas>-1)
+    {
+      player.kill();
+      vidaJugador=0;
+    }
   },
 
   SubirEscaleras:function() {
@@ -797,13 +803,17 @@ Game.Level1.prototype = {
     }
     if(vidaJugador <= 0)
     {
-        player.kill();
-        playeralive=false;
         vidas=vidas-1;
+        this.ResetPosition();
         if(vidas>-1)
         {
           vidaJugador=100;
           player = this.add.sprite(570,8110, 'player');
+        }
+        else
+        {
+          playeralive=false;
+          player.kill();
         }
     }
   },
@@ -993,13 +1003,17 @@ Game.Level1.prototype = {
     }
     if(vidaJugador <= 0)
     {
-        player.kill();
-        playeralive=false;
+        this.ResetPosition();
         vidas=vidas-1;
         if(vidas>-1)
         {
           vidaJugador=100;
           player = this.add.sprite(570,8110, 'player');
+        }
+        else
+        {
+          playeralive=false;
+          player.kill();
         }
     }
   },

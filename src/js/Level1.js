@@ -247,7 +247,7 @@ Game.Level1.prototype = {
     bullets = this.add.group();
     bullets.enableBody = true;
     bullets.physicsBodyType = Phaser.Physics.ARCADE;
-    bullets.createMultiple(300, 'bullet', 0, false);
+    //bullets.createMultiple(300, 'bullet', 0, false);
     bullets.setAll('anchor.x', 0.5);
     bullets.setAll('anchor.y', 0.5);
     bullets.setAll('outOfBoundsKill', true);
@@ -678,22 +678,22 @@ Game.Level1.prototype = {
   fire:function() {
       if (this.time.now > tiempodis)
       {
-      var bullet = bullets.getFirstExists(false);
-        if (bullet)
-           {
+      var bullet; //= bullets.getFirstExists(false);
+        //if (bullet)
+         //  {
               
                if(dispderch){
-               bullet.reset(player.body.x+50, player.body.y+30);
+               bullet=bullets.create(player.body.x+50, player.body.y+35,'bullet');
                bullet.body.velocity.x=400;
                }
                else
                {
-                  bullet.reset(player.body.x+50, player.body.y+30,);
+               bullet=bullets.create(player.body.x-10, player.body.y+35,'bullet');
                   bullet.body.velocity.x=-400;
                }
                tiempodis = this.time.now + 200;
                bullet.rotation=player.rotation;
-           }
+          // }
       }
        
   },

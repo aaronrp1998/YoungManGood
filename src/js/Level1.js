@@ -87,6 +87,8 @@ var vidag;
 var puntosp;
 var puntosg;
 
+var eliminabalastimer;
+
 ///////////FINAL BOSS///////////////////////////////////////////////////////////////////////////////////
 
 var finalboss;
@@ -402,7 +404,10 @@ Game.Level1.prototype = {
     this.replacetiles();
     this.zonaboss();
 
+    if(this.time.now>eliminabalastimer)
+    {
     this.eliminabalas();
+    }
     this.bossintocable();
     this.updateboss();
 
@@ -694,6 +699,7 @@ Game.Level1.prototype = {
                tiempodis = this.time.now + 200;
                bullet.rotation=player.rotation;
           // }
+               eliminabalastimer = this.time.now+300;
       }
        
   },
@@ -1321,11 +1327,9 @@ Game.Level1.prototype = {
     for(var i=0;i<livingplayerbullets.length;i++)
     {
       var balajugador=livingplayerbullets[i];
-      if(balajugador.inCamera)
+      if(!balajugador.inCamera)
       {
-      }
-      else{
-        balajugador.kill();
+        balajugador.kill;
       }
     }
   }

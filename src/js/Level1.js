@@ -1329,7 +1329,7 @@ Game.Level1.prototype = {
       var balajugador=livingplayerbullets[i];
       if(!balajugador.inCamera)
       {
-        balajugador.kill;
+        balajugador.kill();
       }
     }
   }

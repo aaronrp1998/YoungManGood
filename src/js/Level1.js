@@ -17,6 +17,7 @@ var dispderch=true;
 var tiempoinv;
 var invulnerable=false;
 var puntos=0;
+var vidas=2;
 
 var drop;
 
@@ -798,6 +799,12 @@ Game.Level1.prototype = {
     {
         player.kill();
         playeralive=false;
+        vidas=vidas-1;
+        if(vidas>-1)
+        {
+          vidaJugador=100;
+          player = this.add.sprite(570,8110, 'player');
+        }
     }
   },
   mataenemigo:function(bullet,enemigo)
@@ -988,6 +995,12 @@ Game.Level1.prototype = {
     {
         player.kill();
         playeralive=false;
+        vidas=vidas-1;
+        if(vidas>-1)
+        {
+          vidaJugador=100;
+          player = this.add.sprite(570,8110, 'player');
+        }
     }
   },
   logicatorretas:function()

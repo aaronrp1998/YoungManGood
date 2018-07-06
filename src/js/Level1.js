@@ -18,6 +18,7 @@ var tiempoinv;
 var invulnerable=false;
 var puntos=0;
 var vidas=2;
+var livingplayerbullets=[];
 
 var drop;
 
@@ -272,11 +273,11 @@ Game.Level1.prototype = {
     enemybullets.setAll('outOfBoundsKill', true);
     enemybullets.setAll('checkWorldBounds', true);
 
-    weapon = this.add.weapon(10,'bullet');
+  /*  weapon = this.add.weapon(10,'bullet');
     weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
     // weapon.bulletAngleOffset = 90;
     weapon.bulletSpeed = 300;
-    weapon.trackSprite(player,15,30, true);
+    weapon.trackSprite(player,15,30, true);*/
     firebutton= this.input.keyboard.addKey(Phaser.Keyboard.K);
 
     musica = this.add.audio('musica');
@@ -401,6 +402,7 @@ Game.Level1.prototype = {
     this.replacetiles();
     this.zonaboss();
 
+    this.eliminabalas();
     this.bossintocable();
     this.updateboss();
 
@@ -1299,4 +1301,27 @@ Game.Level1.prototype = {
     objeto.kill();
     puntos+=250;
   },
+  eliminabalas:function()
+  {
+    livingenemybullets.length=0;
+    enemybullets.forEachAlive(function(enemybullet){livingenemybullets.push(enemybullet)});
+    for(var i=0;i<livingenemybullets.length;i++)
+    {
+      var balaenemiga=livingenemybullets[i];
+      if(!balaenemiga.inCamera)
+      {
+        balaenemiga.kill();
+      }
+    }
+    livingplayerbullets.length=0;
+    bullets.forEachAlive(function(bullet){livingplayerbullets.push(bullet)});
+    for(var i=0;i<livingplayerbullets.length;i++)
+    {
+      var balajugador=livingplayerbullets[i];
+      if(!balajugador.inCamera)
+      {
+        balajugador.kill();
+      }
+    }
+  }
 }

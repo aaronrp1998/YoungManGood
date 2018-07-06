@@ -638,7 +638,7 @@ Game.Level1.prototype = {
   ResetPosition:function() {
     player.reset(570,8100);
     vidas=vidas-1;
-    if(vidas>-1)
+    if(vidas<=-1)
     {
       player.kill();
       vidaJugador=0;

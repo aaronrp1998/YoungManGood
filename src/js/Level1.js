@@ -804,11 +804,11 @@ Game.Level1.prototype = {
     if(vidaJugador <= 0)
     {
         vidas=vidas-1;
-        this.ResetPosition();
+        vidaJugador=100;
         if(vidas>-1)
         {
           vidaJugador=100;
-          player = this.add.sprite(570,8110, 'player');
+          this.ResetPosition();
         }
         else
         {
@@ -1003,12 +1003,12 @@ Game.Level1.prototype = {
     }
     if(vidaJugador <= 0)
     {
-        this.ResetPosition();
+
         vidas=vidas-1;
         if(vidas>-1)
         {
+          this.ResetPosition();
           vidaJugador=100;
-          player = this.add.sprite(570,8110, 'player');
         }
         else
         {

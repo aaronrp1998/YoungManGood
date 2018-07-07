@@ -74,6 +74,28 @@ var octoy;
 var movotcx=100;
 var movocty=0;
 var vidaocto=3;
+
+var enemyocto1;
+var octox1;
+var octoy1;
+var movotcx1=300;
+var movocty1=0;
+var vidaocto1=3;
+
+var enemyocto2;
+var octox2;
+var octoy2;
+var movotcx2=300;
+var movocty2=0;
+var vidaocto2=3;
+
+var enemyocto3;
+var octox3;
+var octoy3;
+var movotcx3=300;
+var movocty3=0;
+var vidaocto3=3;
+
 var dispaenem;
 
 var enemyoctos;
@@ -163,9 +185,21 @@ Game.Level1.prototype = {
 
     this.creaenemyjumps();
 
-   /* enemyocto=this.add.sprite(870,8050,'enemy2');
+    enemyocto=this.add.sprite(870,8050,'enemy2');
     enemyocto.scale.setTo(2,2);
-    this.physics.arcade.enable(enemyocto);*/
+    this.physics.arcade.enable(enemyocto);
+
+    enemyocto1=this.add.sprite(870,8050,'enemy2');
+    enemyocto.scale.setTo(2,2);
+    this.physics.arcade.enable(enemyocto);
+
+    enemyocto2=this.add.sprite(870,8050,'enemy2');
+    enemyocto.scale.setTo(2,2);
+    this.physics.arcade.enable(enemyocto);
+
+    enemyocto3=this.add.sprite(870,8050,'enemy2');
+    enemyocto.scale.setTo(2,2);
+    this.physics.arcade.enable(enemyocto);
 
     enemyoctos=this.add.group();
     enemyoctos.enableBody=true;
@@ -290,6 +324,9 @@ Game.Level1.prototype = {
    this.game.time.events.loop(Phaser.Timer.SECOND*1.5,this.logicaenemigosaltofuerte , this);
    this.game.time.events.loop(Phaser.Timer.SECOND*1.5, this.logicaenemigosalto, this);
    this.game.time.events.loop(Phaser.Timer.SECOND*3, this.logicaocto, this);
+   this.game.time.events.loop(Phaser.Timer.SECOND*3, this.logicaocto1, this);
+   this.game.time.events.loop(Phaser.Timer.SECOND*3, this.logicaocto2, this);
+   this.game.time.events.loop(Phaser.Timer.SECOND*3, this.logicaocto3, this);
    this.time.events.loop(Phaser.Timer.SECOND*3.5, this.logicatorretas, this);
 
    this.time.events.loop(Phaser.Timer.SECOND*2.5, this.bossfireing, this);
@@ -421,7 +458,10 @@ Game.Level1.prototype = {
     this.game.physics.arcade.overlap(enemyconchs, player, this.enemyhitplayer, null, this);
     this.game.physics.arcade.overlap(torretas, player, this.enemyhitplayer, null, this);
     this.game.physics.arcade.overlap(enemyflys, player, this.enemyhitplayer, null, this);
-    this.game.physics.arcade.overlap(bullets, enemyoctos, this.mataenemigoocto, null, this);
+    this.game.physics.arcade.overlap(bullets, enemyocto, this.mataenemigoocto, null, this);
+    this.game.physics.arcade.overlap(bullets, enemyocto1, this.mataenemigoocto1, null, this);
+    this.game.physics.arcade.overlap(bullets, enemyocto2, this.mataenemigoocto2, null, this);
+    this.game.physics.arcade.overlap(bullets, enemyocto3, this.mataenemigoocto3, null, this);
     this.physics.arcade.overlap(enemybullets, player, this.bullethitplayer, null, this);
 
      //COLISIONES
@@ -731,19 +771,41 @@ Game.Level1.prototype = {
 
   logicaocto:function()
   {
-    livingenemyocto.length=0;
 
-    enemyoctos.forEachAlive(function(eocto){livingenemyocto.push(eocto)});
-
-    for(var i=0;i<livingenemyocto.length;i++)
-    {
-    var enemyoctoe=livingenemyocto[i];
-    octox=enemyoctoe.body.x + movotcx;
-    octoy=enemyoctoe.body.y + movocty;
-    this.game.physics.arcade.moveToXY(enemyoctoe,octox,octoy,175);
+    octox=enemyocto.body.x + movotcx;
+    octoy=enemyocto.body.y + movocty;
+    this.game.physics.arcade.moveToXY(enemyocto,octox,octoy,175);
     movocty=-movocty;
     movotcx=-movotcx;
-    }
+
+  },
+  logicaocto1:function()
+  {
+  
+    octox1=enemyocto1.body.x + movotcx1;
+    octoy1=enemyocto1.body.y + movocty1;
+    this.game.physics.arcade.moveToXY(enemyocto1,octox1,octoy1,175);
+    movocty1=-movocty1;
+    movotcx1=-movotcx1;
+
+  },
+  logicaocto2:function()
+  {
+    
+    octox2=enemyocto2.body.x + movotcx2;
+    octoy2=enemyocto2.body.y + movocty2;
+    this.game.physics.arcade.moveToXY(enemyoctoe,octox2,octoy2,175);
+    movocty2=-movocty2;
+    movotcx2=-movotcx2;
+
+  },
+  logicaocto3:function()
+  {
+    octox3=enemyocto3.body.x + movotcx3;
+    octoy3=enemyocto3.body.y + movocty3;
+    this.game.physics.arcade.moveToXY(enemyocto3,octox3,octoy3,175);
+    movocty3=-movocty3;
+    movotcx3=-movotcx3;
   },
 
   updateocto:function()
@@ -852,7 +914,39 @@ Game.Level1.prototype = {
       this.enemydrop(enemigo);
       enemigo.kill();
       enemyd.play();
-      vidaocto=3;
+    }
+  },
+  mataenemigoocto1:function(enemigo,bullet)
+  {
+    bullet.kill();
+    vidaocto1 = vidaocto1-1;
+    if(vidaocto<=0)
+    {
+      this.enemydrop(enemigo);
+      enemigo.kill();
+      enemyd.play();
+    }
+  },
+  mataenemigoocto2:function(enemigo,bullet)
+  {
+    bullet.kill();
+    vidaocto2 = vidaocto2-1;
+    if(vidaocto<=0)
+    {
+      this.enemydrop(enemigo);
+      enemigo.kill();
+      enemyd.play();
+    }
+  },
+  mataenemigoocto3:function(enemigo,bullet)
+  {
+    bullet.kill();
+    vidaocto3 = vidaocto3-1;
+    if(vidaocto<=0)
+    {
+      this.enemydrop(enemigo);
+      enemigo.kill();
+      enemyd.play();
     }
   },
   enemigoconcha:function() 

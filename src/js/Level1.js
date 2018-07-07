@@ -268,7 +268,7 @@ Game.Level1.prototype = {
     enemybullets=this.add.group();
     enemybullets.enableBody = true;
     enemybullets.physicsBodyType = Phaser.Physics.ARCADE;
-    enemybullets.createMultiple(300, 'enemybullet');
+   // enemybullets.createMultiple(300, 'enemybullet');
     enemybullets.setAll('anchor.x', 0.5);
     enemybullets.setAll('anchor.y', 1);
    // enemybullets.setAll('scale',2,2);
@@ -699,7 +699,7 @@ Game.Level1.prototype = {
                tiempodis = this.time.now + 200;
                bullet.rotation=player.rotation;
           // }
-               eliminabalastimer = this.time.now+300;
+               eliminabalastimer = this.time.now+50;
       }
        
   },
@@ -980,13 +980,14 @@ Game.Level1.prototype = {
   },
   enemyfire:function(velx,vely,enemigo)
   {
-      var enemybullet = enemybullets.getFirstExists(false);
+      var enemybullet;
      // if (enemybullet && game.time.now>dispaenem )
      // {
-          enemybullet.reset(enemigo.body.x+20, enemigo.body.y+30);
+          enemybullet= enemybullets.create(enemigo.body.x+20, enemigo.body.y+30);
           enemybullet.body.velocity.x=velx;
           enemybullet.body.velocity.y=vely;
           dispaenem=this.time.now+200;
+          eliminabalastimer=this.time.now+50;
      // }
   },
   disparocirculo:function(enemyconcha)

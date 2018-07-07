@@ -1096,7 +1096,7 @@ Game.Level1.prototype = {
       var enemybullet;
      // if (enemybullet && game.time.now>dispaenem )
      // {
-          enemybullet= enemybullets.create(enemigo.body.x+20, enemigo.body.y+30);
+          enemybullet= enemybullets.create(enemigo.body.x+20, enemigo.body.y+30,'enemybullet');
           enemybullet.body.velocity.x=velx;
           enemybullet.body.velocity.y=vely;
           dispaenem=this.time.now+200;

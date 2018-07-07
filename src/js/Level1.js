@@ -882,6 +882,7 @@ Game.Level1.prototype = {
         enemigo.kill();
         enemyd.play();
         enemysaltlife=5;
+        puntos=puntos+100;
     }
   },
 
@@ -915,6 +916,7 @@ Game.Level1.prototype = {
     this.enemydrop(enemigo);
     enemigo.kill();
     enemyd.play();
+    puntos=puntos+25;
   },
   intocable:function()
   {
@@ -933,6 +935,7 @@ Game.Level1.prototype = {
       this.enemydrop(enemigo);
       enemigo.kill();
       enemyd.play();
+      puntos=puntos+50;
     }
   },
   mataenemigoocto1:function(enemigo,bullet)
@@ -944,6 +947,7 @@ Game.Level1.prototype = {
       this.enemydrop(enemigo);
       enemigo.kill();
       enemyd.play();
+      puntos=puntos+50;
     }
   },
   mataenemigoocto2:function(enemigo,bullet)
@@ -955,6 +959,7 @@ Game.Level1.prototype = {
       this.enemydrop(enemigo);
       enemigo.kill();
       enemyd.play();
+      puntos=puntos+50;
     }
   },
   mataenemigoocto3:function(enemigo,bullet)
@@ -966,6 +971,7 @@ Game.Level1.prototype = {
       this.enemydrop(enemigo);
       enemigo.kill();
       enemyd.play();
+      puntos=puntos+50;
     }
   },
   enemigoconcha:function() 

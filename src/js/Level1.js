@@ -810,22 +810,41 @@ Game.Level1.prototype = {
 
   updateocto:function()
   {
-    livingenemyocto.length=0;
-
-    enemyoctos.forEachAlive(function(eocto){livingenemyocto.push(eocto)});
-
-    for(var i=0;i<livingenemyocto.length;i++)
+    if(enemyocto.body.y >= octoy-2 && enemyocto.body.x<= octoy+2 )
     {
-    var enemyoctoe=livingenemyocto[i];
-    if(enemyoctoe.body.y >= octoy-2 && enemyoctoe.body.x<= octoy+2 )
-    {
-        enemyoctoe.body.velocity.y=0;
+        enemyocto.body.velocity.y=0;
     }
-    if(enemyoctoe.body.x >= octox-2 && enemyoctoe.body.x<= octox+2 )
+    if(enemyocto.body.x >= octox-2 && enemyocto.body.x<= octox+2 )
     {
-        enemyoctoe.body.velocity.x=0;
+        enemyocto.body.velocity.x=0;
     }
-  }
+
+    if(enemyocto1.body.y >= octoy1-2 && enemyocto1.body.x<= octoy1+2 )
+    {
+        enemyocto1.body.velocity.y=0;
+    }
+    if(enemyocto1.body.x >= octox1-2 && enemyocto1.body.x<= octox1+2 )
+    {
+        enemyocto1.body.velocity.x=0;
+    }
+
+    if(enemyocto2.body.y >= octoy2-2 && enemyocto2.body.x<= octoy2+2 )
+    {
+        enemyocto2.body.velocity.y=0;
+    }
+    if(enemyocto2.body.x >= octox2-2 && enemyocto2.body.x<= octox2+2 )
+    {
+        enemyocto2.body.velocity.x=0;
+    }
+
+    if(enemyocto3.body.y >= octoy3-2 && enemyocto3.body.x<= octoy3+2 )
+    {
+        enemyocto3.body.velocity.y=0;
+    }
+    if(enemyocto3.body.x >= octox3-2 && enemyocto3.body.x<= octox3+2 )
+    {
+        enemyocto3.body.velocity.x=0;
+    }
   },
 
   logicaenemigosalto:function()

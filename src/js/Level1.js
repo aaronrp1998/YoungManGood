@@ -185,27 +185,27 @@ Game.Level1.prototype = {
 
     this.creaenemyjumps();
 
-    enemyocto=this.add.sprite(870,8050,'enemy2');
+    enemyocto=this.add.sprite(5540.4,2950,'enemy2');
     enemyocto.scale.setTo(2,2);
     this.physics.arcade.enable(enemyocto);
 
-    enemyocto1=this.add.sprite(870,8050,'enemy2');
+    enemyocto1=this.add.sprite(5874,2356,'enemy2');
     enemyocto.scale.setTo(2,2);
-    this.physics.arcade.enable(enemyocto);
+    this.physics.arcade.enable(enemyocto1);
 
-    enemyocto2=this.add.sprite(870,8050,'enemy2');
+    enemyocto2=this.add.sprite(5300,1990,'enemy2');
     enemyocto.scale.setTo(2,2);
-    this.physics.arcade.enable(enemyocto);
+    this.physics.arcade.enable(enemyocto2);
 
-    enemyocto3=this.add.sprite(870,8050,'enemy2');
+    enemyocto3=this.add.sprite(5746,1800,'enemy2');
     enemyocto.scale.setTo(2,2);
-    this.physics.arcade.enable(enemyocto);
+    this.physics.arcade.enable(enemyocto3);
 
-    enemyoctos=this.add.group();
+    /*enemyoctos=this.add.group();
     enemyoctos.enableBody=true;
     enemyoctos.physicsBodyType=Phaser.Physics.ARCADE;
 
-    this.creaenemyocto();
+    this.creaenemyocto();*/
     
     enemystrg=this.add.sprite(7981,3184,'enemy4');
     enemystrg.scale.setTo(1.7,1.7);

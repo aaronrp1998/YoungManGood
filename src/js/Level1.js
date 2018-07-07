@@ -794,7 +794,7 @@ Game.Level1.prototype = {
     
     octox2=enemyocto2.body.x + movotcx2;
     octoy2=enemyocto2.body.y + movocty2;
-    this.game.physics.arcade.moveToXY(enemyoctoe,octox2,octoy2,175);
+    this.game.physics.arcade.moveToXY(enemyocto2,octox2,octoy2,175);
     movocty2=-movocty2;
     movotcx2=-movotcx2;
 

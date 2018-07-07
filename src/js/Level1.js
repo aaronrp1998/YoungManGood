@@ -71,14 +71,14 @@ var livingenemyconch=[];
 var enemyocto;
 var octox;
 var octoy;
-var movotcx=100;
+var movotcx=300;
 var movocty=0;
 var vidaocto=3;
 
 var enemyocto1;
 var octox1;
 var octoy1;
-var movotcx1=300;
+var movotcx1=100;
 var movocty1=0;
 var vidaocto1=3;
 
@@ -190,15 +190,15 @@ Game.Level1.prototype = {
     this.physics.arcade.enable(enemyocto);
 
     enemyocto1=this.add.sprite(5874,2356,'enemy2');
-    enemyocto.scale.setTo(2,2);
+    enemyocto1.scale.setTo(2,2);
     this.physics.arcade.enable(enemyocto1);
 
     enemyocto2=this.add.sprite(5300,1990,'enemy2');
-    enemyocto.scale.setTo(2,2);
+    enemyocto2.scale.setTo(2,2);
     this.physics.arcade.enable(enemyocto2);
 
     enemyocto3=this.add.sprite(5746,1800,'enemy2');
-    enemyocto.scale.setTo(2,2);
+    enemyocto3.scale.setTo(2,2);
     this.physics.arcade.enable(enemyocto3);
 
     /*enemyoctos=this.add.group();

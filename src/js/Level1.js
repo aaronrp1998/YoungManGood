@@ -942,7 +942,7 @@ Game.Level1.prototype = {
   {
     bullet.kill();
     vidaocto1 = vidaocto1-1;
-    if(vidaocto<=0)
+    if(vidaocto1<=0)
     {
       this.enemydrop(enemigo);
       enemigo.kill();
@@ -954,7 +954,7 @@ Game.Level1.prototype = {
   {
     bullet.kill();
     vidaocto2 = vidaocto2-1;
-    if(vidaocto<=0)
+    if(vidaocto2<=0)
     {
       this.enemydrop(enemigo);
       enemigo.kill();
@@ -966,7 +966,7 @@ Game.Level1.prototype = {
   {
     bullet.kill();
     vidaocto3 = vidaocto3-1;
-    if(vidaocto<=0)
+    if(vidaocto3<=0)
     {
       this.enemydrop(enemigo);
       enemigo.kill();

@@ -7,6 +7,9 @@ var jumps;
 var enemyd;
 var enemysh;
 
+var botonpausa;
+var pausa=false;
+
 var player;
 var vidaJugador = 100;
 var weapon;
@@ -315,6 +318,7 @@ Game.Level1.prototype = {
     weapon.bulletSpeed = 300;
     weapon.trackSprite(player,15,30, true);
     firebutton= this.input.keyboard.addKey(Phaser.Keyboard.K);
+    botonpausa=thi.input.keyboard.addKey(Phaser.keyboard.P);
 
     musica = this.add.audio('musica');
    // musica.play();

@@ -324,6 +324,7 @@ Game.Level1.prototype = {
    // musica.play();
     player.scale.setTo(2,2);
 
+    if(!pausa){
    this.time.events.loop(Phaser.Timer.SECOND*2.5, this.enemigoconcha, this);
    this.game.time.events.loop(Phaser.Timer.SECOND*1.5,this.logicaenemigosaltofuerte , this);
    this.game.time.events.loop(Phaser.Timer.SECOND*1.5, this.logicaenemigosalto, this);
@@ -335,6 +336,7 @@ Game.Level1.prototype = {
 
    this.time.events.loop(Phaser.Timer.SECOND*2.5, this.bossfireing, this);
    this.time.events.loop(Phaser.Timer.SECOND*2, this.numerosaltos, this);
+    }
 
     controls = {
       right: this.input.keyboard.addKey(Phaser.Keyboard.D),
@@ -358,9 +360,12 @@ Game.Level1.prototype = {
    this.physics.arcade.collide(puntosg,layer);
   //  this.physics.arcade.gravity.y = 1400;
    //enemy.body.gravity.y = 1400;
-
+    if(botonpausa.isDown)
+    {
+      pausa=!pausa;
+    }
     player.body.velocity.x = 0;
-
+    if(!pausa){
     if(vidaJugador>0)
     {
     if(controls.right.isDown) {
@@ -478,6 +483,7 @@ Game.Level1.prototype = {
      this.physics.arcade.overlap(vidag, player, this.sumavidag, null, this);
      this.physics.arcade.overlap(puntosp, player, this.sumapuntosp, null, this);
      this.physics.arcade.overlap(puntosg, player, this.sumapuntosg, null, this);
+  }
 
   },
   render:function()

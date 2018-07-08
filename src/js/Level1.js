@@ -364,7 +364,7 @@ Game.Level1.prototype = {
     if(botonpausa.isDown && this.time.now>waittime)
     {
       pausa=!pausa;
-      waittime=this.time.now+100;
+      waittime=this.time.now+300;
     }
     player.body.velocity.x = 0;
     if(!pausa){

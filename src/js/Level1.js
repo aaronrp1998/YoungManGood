@@ -258,11 +258,15 @@ Game.Level1.prototype = {
 
     //BOSS
     finalboss= this.add.sprite(10890, 3130, 'boss');
+    finalboss.animations.add('iddleboss',[0],1,true);
+    finalboss.animations.add('jumpboss',[1],1,true);
+    finalboss.animations.add('dispboss',[2],1,true);
     //finalboss.anchor.setTo(0.5,0.1);
     finalboss.scale.setTo(1.25,1.25);
     this.physics.arcade.enable(finalboss);
     finalboss.body.gravity.y = 900;
     finalboss.body.collideWorldBounds = true;
+    finalboss.animations.play('idleboss');
 
     flyingenemy=this.add.group();
     flyingenemy.enableBody=true;
@@ -1262,6 +1266,7 @@ Game.Level1.prototype = {
   {
     if(!zonabo)
     {
+    finalboss.animations.play('dispboss');
     this.bossfire(finalboss);
     }
   },
@@ -1370,6 +1375,7 @@ Game.Level1.prototype = {
     }
     if(finalboss.body.onFloor())
     {
+      finalboss.animations.play('idleboss');
       if(this.logicaboss() === 0 && undesc)
       {
       tiempodescanso = this.time.now + Phaser.Timer.SECOND*descanso;
@@ -1381,6 +1387,7 @@ Game.Level1.prototype = {
      {
      /// game.physics.arcade.moveToXY(finalboss,saltox,finalboss.body.y,250);
      finalboss.body.velocity.x=saltalado;
+     finalboss.animations.play('jumpboss');
     }
     if(finalboss.body.x>=saltox-3 && finalboss.body.x<=saltox+3 && !knockback)
     {

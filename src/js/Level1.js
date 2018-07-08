@@ -870,12 +870,12 @@ Game.Level1.prototype = {
 
   logicaenemigosalto:function()
   {
-    if(!pausa){
     livingenemyjumps.length=0;
 
     enemyjumps.forEachAlive(function(enemyjump){livingenemyjumps.push(enemyjump)});
 
     for(var i=0;i<livingenemyjumps.length;i++){
+      if(!pausa){
       var enemyjumpo=livingenemyjumps[i];
       if(enemyjumpo.inCamera)
       {
@@ -892,6 +892,10 @@ Game.Level1.prototype = {
        enemyjumpo.body.velocity.x=0;
       }
     }
+  }
+  if(pausa)
+  {
+    enemyjumpo.body.velocity.x=0;
   }
   }
   },
@@ -1119,10 +1123,6 @@ Game.Level1.prototype = {
         detectado=false;
         reset=true;
     }
-    if(pausa){
-   enemyv.body.velocity.x=0;
-    }
-    else{ enemyv.body.velocity.x=velocidad;}
   }
   },
   enemyfire:function(velx,vely,enemigo)

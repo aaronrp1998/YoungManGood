@@ -879,8 +879,9 @@ Game.Level1.prototype = {
     enemyjumps.forEachAlive(function(enemyjump){livingenemyjumps.push(enemyjump)});
 
     for(var i=0;i<livingenemyjumps.length;i++){
-      if(!pausa){
+
       var enemyjumpo=livingenemyjumps[i];
+      if(!pausa){
       if(enemyjumpo.inCamera)
       {
     enemyjumpo.body.velocity.y=-350;

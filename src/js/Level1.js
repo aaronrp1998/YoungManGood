@@ -257,7 +257,7 @@ Game.Level1.prototype = {
     player.body.collideWorldBounds = true;
 
     //BOSS
-    finalboss= this.add.sprite(10890, 3130, 'boss');
+    finalboss= this.add.sprite(10890, 3130, 'bossS');
     finalboss.animations.add('iddleboss',[0],1,true);
     finalboss.animations.add('jumpboss',[1],1,true);
     finalboss.animations.add('dispboss',[2],1,true);

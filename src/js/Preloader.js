@@ -24,7 +24,7 @@ Game.Preloader.prototype = {
 
     this.load.spritesheet('player', 'images/Imagee.png', 32, 40);
 
-    this.load.spritesheet('bossS','images/BossSprite',55,71);
+    this.load.spritesheet('bossS','images/BossSprite.png',55,71);
 
     this.load.image('bullet', 'images/bullet.png');
 

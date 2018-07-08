@@ -765,6 +765,8 @@ Game.Level1.prototype = {
   
   logicaenemigosaltofuerte:function()
   {
+    if(!pausa)
+    {
       enemystrg.body.velocity.y=-600;
      if((enemystrg.body.x-player.body.x <= 375 && enemystrg.body.x-player.body.x >= 0 ))
      {
@@ -779,45 +781,52 @@ Game.Level1.prototype = {
      else{
          enemystrg.body.velocity.x=0;
      }
+    }
   },
 
   logicaocto:function()
   {
-
+    if(!pausa)
+    {
     octox=enemyocto.body.x + movotcx;
     octoy=enemyocto.body.y + movocty;
     this.game.physics.arcade.moveToXY(enemyocto,octox,octoy,175);
     movocty=-movocty;
     movotcx=-movotcx;
-
+    }
   },
   logicaocto1:function()
   {
-  
+    if(!pausa)
+    {
     octox1=enemyocto1.body.x + movotcx1;
     octoy1=enemyocto1.body.y + movocty1;
     this.game.physics.arcade.moveToXY(enemyocto1,octox1,octoy1,175);
     movocty1=-movocty1;
     movotcx1=-movotcx1;
-
+    }
   },
   logicaocto2:function()
   {
-    
+    if(!pausa)
+    {
     octox2=enemyocto2.body.x + movotcx2;
     octoy2=enemyocto2.body.y + movocty2;
     this.game.physics.arcade.moveToXY(enemyocto2,octox2,octoy2,175);
     movocty2=-movocty2;
     movotcx2=-movotcx2;
-
+    }
   },
   logicaocto3:function()
   {
+    if(!pausa)
+    {
     octox3=enemyocto3.body.x + movotcx3;
     octoy3=enemyocto3.body.y + movocty3;
     this.game.physics.arcade.moveToXY(enemyocto3,octox3,octoy3,175);
     movocty3=-movocty3;
     movotcx3=-movotcx3;
+    }
   },
 
   updateocto:function()
@@ -861,6 +870,7 @@ Game.Level1.prototype = {
 
   logicaenemigosalto:function()
   {
+    if(!pausa){
     livingenemyjumps.length=0;
 
     enemyjumps.forEachAlive(function(enemyjump){livingenemyjumps.push(enemyjump)});
@@ -882,6 +892,7 @@ Game.Level1.prototype = {
        enemyjumpo.body.velocity.x=0;
       }
     }
+  }
   }
   },
   mataenemigogrande:function(enemigo,bullet)
@@ -988,6 +999,7 @@ Game.Level1.prototype = {
   },
   enemigoconcha:function() 
   {
+    if(!pausa){
     livingenemyconch.length=0;
     enemyconchs.forEachAlive(function(enemyconcha){livingenemyconch.push(enemyconcha)});
 
@@ -1001,7 +1013,7 @@ Game.Level1.prototype = {
      undisparo=true;
       }
     }
-
+  }
   },
 
   updateenemigoconch:function()
@@ -1027,6 +1039,7 @@ Game.Level1.prototype = {
 
   logicaenemigovolador:function()
   {
+    
     livingenemy.length=0;
 
     enemyflys.forEachAlive(function(enemy){livingenemy.push(enemy)});
@@ -1106,7 +1119,10 @@ Game.Level1.prototype = {
         detectado=false;
         reset=true;
     }
-   
+    if(pausa){
+   enemyv.body.velocity.x=0;
+    }
+    else{ enemyv.body.velocity.x=velocidad;}
   }
   },
   enemyfire:function(velx,vely,enemigo)
@@ -1162,6 +1178,8 @@ Game.Level1.prototype = {
   },
   logicatorretas:function()
   {
+    if(!pausa)
+    {
     livingtorretas.length=0;
     enemytorretas.forEachAlive(function(torreta){livingtorretas.push(torreta)});
 
@@ -1175,6 +1193,7 @@ Game.Level1.prototype = {
     this.enemyfire(-200,0,torretar);
     this.enemyfire(-200,200,torretar);
     }
+  }
   }
   },
   matatorreta:function(bullet,enemigo)

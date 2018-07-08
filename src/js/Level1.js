@@ -238,7 +238,7 @@ Game.Level1.prototype = {
     this.creatorretas();
 
 
-    player = this.add.sprite(8990,3400, 'player');
+    player = this.add.sprite(8990,3000, 'player');
     player.anchor.setTo(0.5,0.5);
     player.animations.add('iddle',[0],1,true);
     player.animations.add('jump',[4],1,true);

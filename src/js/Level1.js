@@ -1376,7 +1376,7 @@ Game.Level1.prototype = {
     }
     if(finalboss.body.onFloor())
     {
-      finalboss.animations.play('idleboss');
+      finalboss.animations.play('iddleboss');
       if(this.logicaboss() === 0 && undesc)
       {
       tiempodescanso = this.time.now + Phaser.Timer.SECOND*descanso;

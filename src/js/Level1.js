@@ -318,7 +318,7 @@ Game.Level1.prototype = {
     weapon.bulletSpeed = 300;
     weapon.trackSprite(player,15,30, true);
     firebutton= this.input.keyboard.addKey(Phaser.Keyboard.K);
-    botonpausa=this.input.keyboard.addKey(Phaser.keyboard.P);
+    botonpausa=this.input.keyboard.addKey(Phaser.Keyboard.P);
 
     musica = this.add.audio('musica');
    // musica.play();

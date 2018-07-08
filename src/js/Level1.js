@@ -786,6 +786,10 @@ Game.Level1.prototype = {
          enemystrg.body.velocity.x=0;
      }
     }
+    if(pausa)
+    {
+      enemystrg.body.velocity.x=0;
+    }
   },
 
   logicaocto:function()

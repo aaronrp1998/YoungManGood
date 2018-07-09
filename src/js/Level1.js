@@ -338,10 +338,6 @@ Game.Level1.prototype = {
     musica = this.add.audio('musica');
    // musica.play();
     player.scale.setTo(2,2);
-
-    texto=this.add.bitmapText(10,100,'font','VIDA:'+vidaJugador,16);
-    textovidas=this.add.bitmapText(10,200,'font','VIDAS:'+vidas,16);
-    textopuntos=this.add.bitmapText(10,300,'font','PUNTOS:'+puntos,16);
    
    this.time.events.loop(Phaser.Timer.SECOND*2.5, this.enemigoconcha, this);
    this.game.time.events.loop(Phaser.Timer.SECOND*1.5,this.logicaenemigosaltofuerte , this);
@@ -367,9 +363,6 @@ Game.Level1.prototype = {
 
   update:function() {
 
-    texto.text=this.add.bitmapText(10,100,'font','VIDA:'+vidaJugador,16);
-    textovidas.text=this.add.bitmapText(10,200,'font','VIDAS:'+vidas,16);
-    textopuntos.text=this.add.bitmapText(10,300,'font','PUNTOS:'+puntos,16);
 
     if(vidas<=-1)
     {
@@ -522,10 +515,9 @@ Game.Level1.prototype = {
   },
   render:function()
   {
-   /* this.game.debug.text("VIDA: "+vidaJugador,1,50);
-    this.game.debug.text("PUNTOS: "+puntos,1,100);
-    this.game.debug.text("Vida"+vidaJugador,1,200);
-    this.game.debug.text("VIDAS "+vidas,1,300);*/
+    this.game.debug.text("VIDA: "+vidaJugador+'%',1,50);
+    this.game.debug.text("VIDAS "+vidas,1,100);
+    this.game.debug.text("PUNTOS: "+puntos,1,150);
    // this.game.debug.text("detx "+detectionpointX,1,250);
     //this.game.debug.text("dety "+detectionpointY,1,300);
 

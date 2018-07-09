@@ -114,6 +114,8 @@ var puntosp;
 var puntosg;
 
 var eliminabalastimer;
+var livingdrops=[];
+var tiempoespera;
 
 ///////////FINAL BOSS///////////////////////////////////////////////////////////////////////////////////
 
@@ -356,7 +358,7 @@ Game.Level1.prototype = {
 
     if(vidas<=-1)
     {
-      this.state.start('MainMenu');
+      this.state.start('Boot');
     }
    this.physics.arcade.collide(player,layer);
    this.physics.arcade.collide(enemystrg,layer);
@@ -464,6 +466,7 @@ Game.Level1.prototype = {
     {
     this.eliminabalas();
     }
+    this.eliminadrops();
     this.bossintocable();
     this.updateboss();
 
@@ -1420,6 +1423,7 @@ Game.Level1.prototype = {
       enemydrops.body.gravity.y =300;
       enemydrops.scale.setTo(2,2);
     }
+    tiempoespera=this.time.now+100;
   },
   sumavidap:function(player,objeto)
   {
@@ -1451,7 +1455,49 @@ Game.Level1.prototype = {
   },
   eliminadrops:function()
   {
-    
+    if(this.time.now>=tiempoespera){
+    livingdrops.length=0;
+    vidap.forEachAlive(function(vidapq){livingdrops.push(vidapq)});
+    for(var i=0;livingdrops.length;i++)
+    {
+      var vidapqn=livingdrops[i];
+      if(!vidapqn.inCamera)
+      {
+        vidapqn.kill();
+      }
+
+    }
+    livingdrops.length=0;
+    vidag.forEachAlive(function(vidagr){livingdrops.push(vidagr)});
+    for(var i=0;livingdrops.length;i++)
+    {
+      var vidagrd=livingdrops[i];
+      if(!vidagrd.inCamera)
+      {
+        vidagrd.kill();
+      }
+    }
+    livingdrops.length=0;
+    puntosp.forEachAlive(function(puntp){livingdrops.push(puntp)});
+    for(var i=0;livingdrops.length;i++)
+    {
+      var pntspq=livingdrops[i];
+      if(!pntspq.inCamera)
+      {
+        pntspq.kill();
+      }
+    }
+    livingdrops.length=0;
+    puntosg.forEachAlive(function(puntg){livingdrops.push(puntg)});
+    for(var i=0;livingdrops.length;i++)
+    {
+      var pntgr=livingdrops[i];
+      if(!pntgr.inCamera)
+      {
+        pntgr.kill();
+      }
+    }
+  }
   },
   eliminabalas:function()
   {

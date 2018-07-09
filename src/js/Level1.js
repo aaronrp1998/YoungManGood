@@ -193,7 +193,7 @@ Game.Level1.prototype = {
     enemyocto.scale.setTo(2,2);
     this.physics.arcade.enable(enemyocto);
 
-    enemyocto1=this.add.sprite(5874,2356,'enemy2');
+    enemyocto1=this.add.sprite(5700,2356,'enemy2');
     enemyocto1.scale.setTo(2,2);
     this.physics.arcade.enable(enemyocto1);
 
@@ -201,7 +201,7 @@ Game.Level1.prototype = {
     enemyocto2.scale.setTo(2,2);
     this.physics.arcade.enable(enemyocto2);
 
-    enemyocto3=this.add.sprite(5746,1800,'enemy2');
+    enemyocto3=this.add.sprite(5500,1800,'enemy2');
     enemyocto3.scale.setTo(2,2);
     this.physics.arcade.enable(enemyocto3);
 
@@ -469,7 +469,10 @@ Game.Level1.prototype = {
     this.game.physics.arcade.overlap(bullets, enemyjumps , this.mataenemigo, null, this);
     this.game.physics.arcade.overlap(bullets, enemyflys , this.mataenemigo, null, this);
     this.game.physics.arcade.overlap(enemyjumps, player, this.enemyhitplayer, null, this);
-    this.game.physics.arcade.overlap(enemyoctos, player, this.enemyhitplayer, null, this);
+    this.game.physics.arcade.overlap(enemyocto, player, this.enemyhitplayer, null, this);
+    this.game.physics.arcade.overlap(enemyocto1, player, this.enemyhitplayer, null, this);
+    this.game.physics.arcade.overlap(enemyocto2, player, this.enemyhitplayer, null, this);
+    this.game.physics.arcade.overlap(enemyocto3, player, this.enemyhitplayer, null, this);
     this.game.physics.arcade.overlap(enemyconchs, player, this.enemyhitplayer, null, this);
     this.game.physics.arcade.overlap(torretas, player, this.enemyhitplayer, null, this);
     this.game.physics.arcade.overlap(enemyflys, player, this.enemyhitplayer, null, this);
@@ -641,37 +644,6 @@ Game.Level1.prototype = {
       {
         var torreta=enemytorretas.create(5979.4,890,'torreta');
         torreta.scale.setTo(2,2);
-      }
-    }
-  },
-  creaenemyocto:function()
-  {
-    for(var i=0;i<5;i++)
-    {
-      if(i===0)
-      {
-        var eocto=enemyoctos.create(5540.4,2950,'enemy2');
-        eocto.scale.setTo(2,2);
-      }
-      if(i===1)
-      {
-        var eocto=enemyoctos.create(5874,2350,'enemy2');
-        eocto.scale.setTo(2,2);
-      }
-      if(i===2)
-      {
-        var eocto=enemyoctos.create(5300,1990,'enemy2');
-        eocto.scale.setTo(2,2);
-      }
-      if(i===3)
-      {
-        var eocto=enemyoctos.create(5746,1800,'enemy2');
-        eocto.scale.setTo(2,2);
-      }
-      if(i===4)
-      {
-        var eocto=enemyoctos.create(5304,1000,'enemy2');
-        eocto.scale.setTo(2,2);
       }
     }
   },

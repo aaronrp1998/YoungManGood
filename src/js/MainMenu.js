@@ -4,7 +4,7 @@ Game.MainMenu=function(game){};
 var buttonplay;
 var fondo;
 
-Game.Boot.prototype = {
+Game.MainMenu.prototype = {
 create:function() 
     {
         fondo=this.add.sprite(0,0,'fondo');

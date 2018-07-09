@@ -193,15 +193,15 @@ Game.Level1.prototype = {
     enemyocto.scale.setTo(2,2);
     this.physics.arcade.enable(enemyocto);
 
-    enemyocto1=this.add.sprite(5700,2356,'enemy2');
+    enemyocto1=this.add.sprite(5500,2356,'enemy2');
     enemyocto1.scale.setTo(2,2);
     this.physics.arcade.enable(enemyocto1);
 
-    enemyocto2=this.add.sprite(5300,1990,'enemy2');
+    enemyocto2=this.add.sprite(5250,1990,'enemy2');
     enemyocto2.scale.setTo(2,2);
     this.physics.arcade.enable(enemyocto2);
 
-    enemyocto3=this.add.sprite(5500,1800,'enemy2');
+    enemyocto3=this.add.sprite(5250,1800,'enemy2');
     enemyocto3.scale.setTo(2,2);
     this.physics.arcade.enable(enemyocto3);
 
@@ -1445,6 +1445,10 @@ Game.Level1.prototype = {
     objeto.kill();
     puntos+=250;
   },
+  eliminadrops:function()
+  {
+    
+  },
   eliminabalas:function()
   {
     livingenemybullets.length=0;
@@ -1467,5 +1471,5 @@ Game.Level1.prototype = {
         balajugador.kill();
       }
     }
-  }
+  },
 }

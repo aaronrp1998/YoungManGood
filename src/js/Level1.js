@@ -33,19 +33,12 @@ var jumpTimer = 0;
 var enemybullets;
 
 var livingenemybullets=[];
-//var enemy;
+
 var pointenemynewX;
 var pointenemynewY;
 var detectionpointX;
 var detectionpointY;
-/*var detectado=false;
-var vuelveenemy = false;
-var ve=false;
-var nuevapos=false;
-var derchen=false;
-var reset=false;
-var para=false;
-var velocidad=-100;*/
+
 
 var enemyflys;
 var livingenemy=[];
@@ -173,11 +166,7 @@ Game.Level1.prototype = {
     map.setTileIndexCallback(19,this.ResetPosition,this);
     map.setTileIndexCallback(-1,this.Libre,this);
 
-   /* enemy= this.add.sprite(1400,7800,'enemy1');
-    enemy.scale.setTo(2,2);
-    enemy.anchor.setTo(0.5,0.5);
-    enemy.enableBody=true;
-    this.game.physics.arcade.enable(enemy);*/
+ 
     
     enemyflys=this.add.group();
     enemyflys.enableBody=true;
@@ -185,10 +174,7 @@ Game.Level1.prototype = {
 
     this.creaenemyfly();
 
-   /* enemyjump=this.add.sprite(870,8050,'enemy3');
-    enemyjump.scale.setTo(2,2);
-    this.physics.arcade.enable(enemyjump);
-    enemyjump.body.gravity.y=900;*/
+   
     enemyjumps=this.add.group();
     enemyjumps.enableBody=true;
     enemyjumps.physicsBodyType=Phaser.Physics.ARCADE;
@@ -211,20 +197,13 @@ Game.Level1.prototype = {
     enemyocto3.scale.setTo(2,2);
     this.physics.arcade.enable(enemyocto3);
 
-    /*enemyoctos=this.add.group();
-    enemyoctos.enableBody=true;
-    enemyoctos.physicsBodyType=Phaser.Physics.ARCADE;
-
-    this.creaenemyocto();*/
+  
     
     enemystrg=this.add.sprite(7981,3184,'enemy4');
     enemystrg.scale.setTo(1.7,1.7);
     this.physics.arcade.enable(enemystrg);
     enemystrg.body.gravity.y=1400;
 
-   /* enemyconch=this.add.sprite(1400,7800,'enemy5');
-    enemyconch.scale.setTo(2,2);
-    this.physics.arcade.enable(enemyconch);*/
 
     enemyconchs=this.add.group();
     enemyconchs.enableBody=true;
@@ -232,11 +211,7 @@ Game.Level1.prototype = {
 
     this.creaenemyconch();
 
-   /* torretas=this.add.sprite(890,7900,'torreta');
-    torretas.scale.setTo(2,2);
-    torretas.enableBody=true;
-    this.physics.arcade.enable(torretas);*/
-
+   
     enemytorretas=this.add.group();
     enemytorretas.enableBody=true;
     enemytorretas.physicsBodyType=Phaser.Physics.ARCADE;
@@ -301,7 +276,7 @@ Game.Level1.prototype = {
     bullets = this.add.group();
     bullets.enableBody = true;
     bullets.physicsBodyType = Phaser.Physics.ARCADE;
-    //bullets.createMultiple(300, 'bullet', 0, false);
+   
     bullets.setAll('anchor.x', 0.5);
     bullets.setAll('anchor.y', 0.5);
     bullets.setAll('outOfBoundsKill', true);
@@ -320,23 +295,22 @@ Game.Level1.prototype = {
     enemybullets=this.add.group();
     enemybullets.enableBody = true;
     enemybullets.physicsBodyType = Phaser.Physics.ARCADE;
-   // enemybullets.createMultiple(300, 'enemybullet');
+  
     enemybullets.setAll('anchor.x', 0.5);
     enemybullets.setAll('anchor.y', 1);
-   // enemybullets.setAll('scale',2,2);
     enemybullets.setAll('outOfBoundsKill', true);
     enemybullets.setAll('checkWorldBounds', true);
 
     weapon = this.add.weapon(10,'bullet');
     weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
-    // weapon.bulletAngleOffset = 90;
+  
     weapon.bulletSpeed = 300;
     weapon.trackSprite(player,15,30, true);
     firebutton= this.input.keyboard.addKey(Phaser.Keyboard.K);
     botonpausa=this.input.keyboard.addKey(Phaser.Keyboard.P);
 
     musica = this.add.audio('musica');
-   // musica.play();
+    musica.play();
     player.scale.setTo(2,2);
    
    this.time.events.loop(Phaser.Timer.SECOND*2.5, this.enemigoconcha, this);
@@ -378,8 +352,7 @@ Game.Level1.prototype = {
    this.physics.arcade.collide(puntosp,layer);
    this.physics.arcade.collide(puntosg,layer);
    this.physics.arcade.collide(bossdrop,layer);
-  //  this.physics.arcade.gravity.y = 1400;
-   //enemy.body.gravity.y = 1400;
+ 
     if(botonpausa.isDown && this.time.now>waittime)
     {
       pausa=!pausa;
@@ -459,11 +432,6 @@ Game.Level1.prototype = {
       player.body.velocity.y=520;
     }
 
-    if(player.x > 8896){
-     // this.state.start('PreloaderBoss');
-    }
-
-
     this.logicaenemigovolador();
     this.intocable();
     this.updateocto();
@@ -518,8 +486,7 @@ Game.Level1.prototype = {
     this.game.debug.text("VIDA: "+vidaJugador+'%',1,50);
     this.game.debug.text("VIDAS "+vidas,1,100);
     this.game.debug.text("PUNTOS: "+puntos,1,150);
-   // this.game.debug.text("detx "+detectionpointX,1,250);
-    //this.game.debug.text("dety "+detectionpointY,1,300);
+  
 
   },
   creaenemyjumps:function()
@@ -591,25 +558,25 @@ Game.Level1.prototype = {
         var enemy=enemyflys.create(1400,7800,'enemy1');
         enemy.scale.setTo(2,2);
         enemy.anchor.setTo(0.5,0.5);
-      //  enemy.body.velocity.x=velocidad;
+     
       }
       if(i===1)
       { var enemy=enemyflys.create(1600,7600,'enemy1');
       enemy.scale.setTo(2,2);
       enemy.anchor.setTo(0.5,0.5);
-     // enemy.body.velocity.x=velocidad;
+
       }
       if(i===2)
       { var enemy=enemyflys.create(2000,7600,'enemy1');
       enemy.scale.setTo(2,2);
       enemy.anchor.setTo(0.5,0.5);
-     // enemy.body.velocity.x=velocidad;
+    
       }
       if(i===3)
       { var enemy=enemyflys.create(8000,50,'enemy1');
       enemy.scale.setTo(2,2);
       enemy.anchor.setTo(0.5,0.5);
-      //enemy.body.velocity.x=velocidad;
+     
       }
     }
   },
@@ -728,10 +695,8 @@ Game.Level1.prototype = {
   fire:function() {
       if (this.time.now > tiempodis)
       {
-      var bullet; //= bullets.getFirstExists(false);
-        //if (bullet)
-         //  {
-              
+      var bullet; 
+
                if(dispderch){
                bullet=bullets.create(player.body.x+60, player.body.y+40,'bullet');
                bullet.body.velocity.x=400;
@@ -743,7 +708,7 @@ Game.Level1.prototype = {
                }
                tiempodis = this.time.now + 200;
                bullet.rotation=player.rotation;
-          // }
+         
                eliminabalastimer = this.time.now+50;
       }
        
@@ -1126,14 +1091,13 @@ Game.Level1.prototype = {
   enemyfire:function(velx,vely,enemigo)
   {
       var enemybullet;
-     // if (enemybullet && game.time.now>dispaenem )
-     // {
+     
           enemybullet= enemybullets.create(enemigo.body.x+20, enemigo.body.y+30,'enemybullet');
           enemybullet.body.velocity.x=velx;
           enemybullet.body.velocity.y=vely;
           dispaenem=this.time.now+200;
           eliminabalastimer=this.time.now+50;
-     // }
+     
   },
   disparocirculo:function(enemyconcha)
   {
@@ -1277,9 +1241,7 @@ Game.Level1.prototype = {
             numsaltos=numsaltos-1;
             knockback=false;
         }
-       /* if(finalboss.body.x-saltox >0){
-            saltalado=(saltox-finalboss.body.x)/movjefe;
-        }*/
+       
         saltalado=(saltox-finalboss.body.x)/movjefe;;
         if (numsaltos == 0)
         {
@@ -1381,7 +1343,7 @@ Game.Level1.prototype = {
     }
      else if(mueveboss && !finalboss.body.onFloor())
      {
-     /// game.physics.arcade.moveToXY(finalboss,saltox,finalboss.body.y,250);
+     
      finalboss.body.velocity.x=saltalado;
      finalboss.animations.play('jumpboss');
     }

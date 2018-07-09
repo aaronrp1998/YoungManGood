@@ -144,6 +144,7 @@ var movjefe=1.65;
 var furioso=false;
 var descanso=4.15;
 var undesc=true;
+var bossdrop;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -290,6 +291,10 @@ Game.Level1.prototype = {
     puntosg.enableBody=true;
     puntosg.physicsBodyType=Phaser.Physics.ARCADE;
 
+    bossdrop=this.add.group();
+    bossdrop.enableBody=true;
+    bossdrop.physicsBodyType=Phaser.Physics.ARCADE;
+
     bullets = this.add.group();
     bullets.enableBody = true;
     bullets.physicsBodyType = Phaser.Physics.ARCADE;
@@ -369,6 +374,7 @@ Game.Level1.prototype = {
    this.physics.arcade.collide(vidap,layer);
    this.physics.arcade.collide(puntosp,layer);
    this.physics.arcade.collide(puntosg,layer);
+   this.physics.arcade.collide(bossdrop,layer);
   //  this.physics.arcade.gravity.y = 1400;
    //enemy.body.gravity.y = 1400;
     if(botonpausa.isDown && this.time.now>waittime)
@@ -499,6 +505,8 @@ Game.Level1.prototype = {
      this.physics.arcade.overlap(vidag, player, this.sumavidag, null, this);
      this.physics.arcade.overlap(puntosp, player, this.sumapuntosp, null, this);
      this.physics.arcade.overlap(puntosg, player, this.sumapuntosg, null, this);
+
+     this.physics.arcade.overlap(bossdrop, player, this.finjuego, null, this);
   }
 
   },
@@ -1334,6 +1342,8 @@ Game.Level1.prototype = {
     }
     if(vidaboss == 0)
     {
+        var dropboss=bossdrop.create(finalboss.body.x,finalboss.body.y,'bossdrop');
+        dropboss.body.gravity.y=400;
         enemigo.kill();
         bossalive=false;
     }
@@ -1521,5 +1531,10 @@ Game.Level1.prototype = {
         balajugador.kill();
       }
     }
+  },
+  finjuego:function(player,objeto)
+  {
+    objeto.kill();
+    this.state.start('Boot');
   },
 }

@@ -32,6 +32,8 @@ Game.Preloader.prototype = {
 
     this.load.image('bullet', 'images/bullet.png');
 
+    this.load.image('bossdrop', 'images/bossdrop.png');
+
     this.load.image('enemy1','images/enemy.png');
 
     this.load.image('enemy2','images/enemy1.png');

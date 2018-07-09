@@ -356,7 +356,7 @@ Game.Level1.prototype = {
 
     if(vidas<=-1)
     {
-      this.state.start('Level1');
+      this.state.start('MainMenu');
     }
    this.physics.arcade.collide(player,layer);
    this.physics.arcade.collide(enemystrg,layer);

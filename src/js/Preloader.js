@@ -28,7 +28,7 @@ Game.Preloader.prototype = {
 
     this.load.spritesheet('button','images/button.png',193, 71);
 
-    this.load.image('enemy1','images/fondo.png');
+    this.load.image('fondo','images/fondo.png');
 
     this.load.image('bullet', 'images/bullet.png');
 

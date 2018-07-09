@@ -34,6 +34,8 @@ Game.Preloader.prototype = {
 
     this.load.image('bossdrop', 'images/bossdrop.png');
 
+    this.load.bitmapFont('font', 'images/carrier_command.png', 'images/carrier_command.xml');
+
     this.load.image('enemy1','images/enemy.png');
 
     this.load.image('enemy2','images/enemy1.png');

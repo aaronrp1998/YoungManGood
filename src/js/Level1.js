@@ -354,6 +354,10 @@ Game.Level1.prototype = {
 
   update:function() {
 
+    if(vidas<=-1)
+    {
+      this.state.start('Level1');
+    }
    this.physics.arcade.collide(player,layer);
    this.physics.arcade.collide(enemystrg,layer);
    this.physics.arcade.collide(enemyjumps,layer);
